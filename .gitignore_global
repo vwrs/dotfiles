@@ -1,0 +1,8 @@
+*~
+.DS_Store
+.idea
+.vagrant
+Vagrantfile
+.github
+.tags*
+

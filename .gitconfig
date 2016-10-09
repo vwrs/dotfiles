@@ -1,0 +1,25 @@
+[user]
+	name = Hideaki Kanehara
+	email = sss_ftr.hid@icloud.com
+[core]
+	excludesfile = /Users/hideaki/.gitignore_global
+	editor = atom
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[alias]
+	co = checkout
+	graph = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	cancel = reset --soft HEAD^
+	unstage = reset HEAD --
+[push]
+	default = matching
+[commit]
+	template = /Users/hideaki/.stCommitMsg
