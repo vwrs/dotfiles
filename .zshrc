@@ -112,4 +112,6 @@ function cdls(){
   \cd "$1" && ls
 }
 alias cd=cdls
-
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
