@@ -2,8 +2,8 @@
 	name = Hideaki Kanehara
 	email = sss_ftr.hid@icloud.com
 [core]
-	excludesfile = /Users/hideaki/.gitignore_global
-	editor = atom
+	excludesfile = ~/.gitignore_global
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -22,4 +22,4 @@
 [push]
 	default = matching
 [commit]
-	template = /Users/hideaki/.stCommitMsg
+	template = ~/.stCommitMsg
