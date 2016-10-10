@@ -76,11 +76,6 @@ alias zshconfig="mate ~/.zshrc"
 alias rm="rm -i"
 alias cp="cp -vi"
 alias mv="mv -vi"
-# cd
-function cdls(){
-  \cd "$1" && ls
-}
-alias cd=cdls
 # ls
 alias ll="ls -lhtr"
 alias ll.='ls -ldhtr .*'
