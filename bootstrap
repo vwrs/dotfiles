@@ -23,8 +23,8 @@ usage() {
               \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
 
 Commands:
-  deploy
-  init
+  init (download dotfiles)
+  deploy (symlink dotfiles)
 
 EOF
 }
@@ -61,11 +61,11 @@ usage
 echo -n "command: "
 read command
 case $command in
-  deploy)
-    symlink_files
-    ;;
   init)
     download
+    ;;
+  deploy)
+    symlink_files
     ;;
   *)
     echo $(tput setaf 1)bootstrap: command not found.$(tput sgr0)
