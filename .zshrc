@@ -67,6 +67,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 source ~/.iterm2_shell_integration.zsh
 alias it2dl="~/.iterm2/it2dl"
 alias imgcat="~/.iterm2/imgcat"
+# LaTeX
+alias lualatex="lualatex --file-line-error --synctex=1"
 # aliases
 # --------------
 alias vi="vim"
