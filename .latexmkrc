@@ -12,7 +12,7 @@ if ($^O eq 'darwin') {
   $pvc_view_file_via_temporary = 0;
   $pdf_previewer = 'open -ga Preview.app';
   $pdf_update_method = 4;
-  $pdf_update_command = 'open -a Preview.app %S; open -a MacVim.app';
+  $pdf_update_command = 'open -a Preview.app %S';
 } else {
   $pdf_previewer = 'xdg-open';
 }
