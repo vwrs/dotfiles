@@ -1,6 +1,10 @@
 #!/bin/bash -eu
 # consts
 # --------------
+NORMAL="$(tput sgr0)"
+RED="$(tput setaf 1)"
+GREEN="$(tput setaf 2)"
+BLUE="$(tput setaf 4)"
 DOT_HOME=~/dotfiles
 REMOTE_URL="git@github.com:H-I-D/dotfiles.git"
 
@@ -12,6 +16,7 @@ has() {
 
 usage() {
   name=`basename $0`
+  echo $BLUE
   cat <<\EOF
 
                    __          __       ___      ___
@@ -25,8 +30,8 @@ usage() {
 Commands:
   init (download dotfiles)
   deploy (symlink dotfiles)
-
 EOF
+  echo $NORMAL
 }
 
 download() {
@@ -36,10 +41,10 @@ download() {
     if has "git"; then
       git clone --recursive "${REMOTE_URL}" "${DOT_HOME}"
     else
-      echo $(tput setaf 1)please install git.$(tput sgr0)
+      echo "${RED}please install git.${NORMAL}"
       exit 1
     fi
-    echo $(tput setaf 2)Download dotfiles complete. ✔︎$(tput sgr0)
+    echo "${GREEN}Download dotfiles complete. ✔︎${NORMAL}"
   fi
 }
 
@@ -52,7 +57,7 @@ symlink_files() {
     [[ ${f} = ".gitignore" ]] && continue
     ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}
   done
-  echo $(tput setaf 2)Symlink dotfiles complete. ✔︎$(tput sgr0)
+  echo "${GREEN}Symlink dotfiles complete. ✔︎${NORMAL}"
 }
 
 # exec
@@ -68,7 +73,7 @@ case $command in
     symlink_files
     ;;
   *)
-    echo $(tput setaf 1)bootstrap: command not found.$(tput sgr0)
+    echo "${RED}bootstrap: command not found.${NORMAL}"
     exit 1
     ;;
 esac

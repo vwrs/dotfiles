@@ -64,14 +64,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # apps
 # --------------
 # iTerm2
-source ~/.iterm2_shell_integration.`basename $SHELL`
+source ~/.iterm2_shell_integration.zsh
 alias it2dl="~/.iterm2/it2dl"
 alias imgcat="~/.iterm2/imgcat"
-# homebrew-cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # aliases
 # --------------
+alias vi="vim"
 alias zshconfig="mate ~/.zshrc"
+# git
+alias gstat="git status"
 # rm, cp, mv
 alias rm="rm -i"
 alias cp="cp -vi"
@@ -83,14 +84,13 @@ alias ll.='ls -ldhtr .*'
 alias mkdir="mkdir -p"
 # tree
 alias tree="tree -aC"
-# unko
-alias unko="say うんこ | echo 'うんこ'"
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
   alias ls='ls -tGAF'
   alias l.='ls -d .*'
   alias htop="sudo htop"
+  alias unko="say うんこ | echo 'うんこ'"
 else
   alias ls='ls -tAF --color=auto'
 fi
