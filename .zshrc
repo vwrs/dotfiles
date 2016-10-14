@@ -73,7 +73,6 @@ alias lualatex="lualatex --file-line-error --synctex=1"
 # --------------
 alias v="vim"
 alias vi="vim"
-alias vim="nvim"
 alias zshconfig="mate ~/.zshrc"
 # git
 alias gstat="git status"

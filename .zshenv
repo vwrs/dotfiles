@@ -1,4 +1,6 @@
 export LANG=ja_JP.UTF-8
+# vim
+export XDG_CONFIG_HOME=~/.config
 # apps
 # --------------
 # homebrew-cask
