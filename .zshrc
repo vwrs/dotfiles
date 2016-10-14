@@ -14,7 +14,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=31
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -71,7 +71,9 @@ alias imgcat="~/.iterm2/imgcat"
 alias lualatex="lualatex --file-line-error --synctex=1"
 # aliases
 # --------------
+alias v="vim"
 alias vi="vim"
+alias vim="nvim"
 alias zshconfig="mate ~/.zshrc"
 # git
 alias gstat="git status"
