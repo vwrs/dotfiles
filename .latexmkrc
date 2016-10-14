@@ -1,4 +1,4 @@
-$latex = 'platex %O -src-specials -shell-escape -synctex=1 -interaction=errorstopmode %O %S -kanji=utf8';
+$latex = 'lualatex %O -src-specials -shell-escape -synctex=1 -interaction=errorstopmode %O %S -kanji=utf8';
 $pdflatex = 'lualatex %O -synctex=1 -interaction=nonstopmode %S';
 $biber = 'biber %O --bblencoding=utf8 -u -U --output_safechars %B';
 $bibtex = 'pbibtex -kanji=utf8 %O %B';
