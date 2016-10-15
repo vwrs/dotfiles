@@ -100,7 +100,7 @@ fi
 # programming languages
 # --------------
 # php
-alias phpi="php -i"
+alias phpi="php -a"
 # ruby(rails)
 alias be="bundle exec"
 # functions
@@ -113,3 +113,9 @@ alias cd=cdls
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+# muratalab
+alias muratasshd="ssh -D 10080 hideaki@murata.eb.waseda.ac.jp"
+alias muratassh="ssh hideaki@murata.eb.waseda.ac.jp"
+alias wasedassh="ssh 1y14f0496@muse01.mse.waseda.ac.jp"
+# meshi
+alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
