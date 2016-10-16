@@ -69,6 +69,8 @@ alias it2dl="~/.iterm2/it2dl"
 alias imgcat="~/.iterm2/imgcat"
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # aliases
 # --------------
 alias v="vim"
