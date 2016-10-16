@@ -28,7 +28,7 @@ set wrapscan
 set hlsearch
 " statusline
 set laststatus=2
-set statusline=[%n]
+" set statusline=[%n]
 " show hostname
 " set statusline+=%{matchstr(hostname(),'\\w\\+')}@
 " set statusline+=%<%F
@@ -72,7 +72,14 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " ----------
 colorscheme onedark
 syntax on
-"
+" plugins
+" ----------
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='tenderplus'
+" youcompleteme
+let g:ycm_server_keep_logfiles=1
+let g:ycm_server_log_level='debug'
 " -----
 " vim-plug
 " ----------
@@ -83,7 +90,8 @@ call plug#begin('~/.vim/plugged')
 " ----------
 Plug 'junegunn/vim-easy-align'
 Plug 'tyru/caw.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -96,9 +104,9 @@ Plug 'shougo/unite.vim', { 'on': 'UniteToggle' }
 Plug 'ujihisa/unite-colorscheme', { 'on': 'UniteToggle' }
 " programming languages
 " ----------
+Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'html', 'php', 'javascript', 'python', 'rust'], 'on': 'YCMToggle'  }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp'] }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 " colorscheme
