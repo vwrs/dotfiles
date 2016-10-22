@@ -13,4 +13,7 @@ if [ -x "`which go`" ]; then
         export GOPATH=$HOME/.go
         export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
-
+# pyenv
+# --------------
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims/:$PATH"

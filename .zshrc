@@ -61,17 +61,20 @@ HISTSIZE=10000
 SAVEHIST=10000
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# apps
+# commands
 # --------------
-# iTerm2
-source ~/.iterm2_shell_integration.zsh
-alias it2dl="~/.iterm2/it2dl"
-alias imgcat="~/.iterm2/imgcat"
+if [ -x "`which tree`" ]; then
+  alias tree="tree -aC"
+fi
+if [ -x "`which fzf`" ]; then
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fi
+if [ -x "`which pyenv`" ]; then
+  eval "$(pyenv init -)"
+fi
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
 alias latexmk="latexmk -pvc"
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # aliases
 # --------------
 alias v="vim"
@@ -88,8 +91,6 @@ alias ll="ls -lhtr"
 alias ll.='ls -ldhtr .*'
 # mkdir
 alias mkdir="mkdir -p"
-# tree
-alias tree="tree -aC"
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
@@ -97,6 +98,12 @@ if [ "$(uname)" = "Darwin" ]; then
   alias l.='ls -d .*'
   alias htop="sudo htop"
   alias unko="say うんこ | echo 'うんこ'"
+  # iTerm2
+  source ~/.iterm2_shell_integration.zsh
+  alias it2dl="~/.iterm2/it2dl"
+  alias imgcat="~/.iterm2/imgcat"
+  # meshi
+  alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
 else
   alias ls='ls -tAF --color=auto'
 fi
@@ -120,5 +127,3 @@ alias ....="cd ../../.."
 alias muratasshd="ssh -D 10080 hideaki@murata.eb.waseda.ac.jp"
 alias muratassh="ssh hideaki@murata.eb.waseda.ac.jp"
 alias wasedassh="ssh 1y14f0496@muse01.mse.waseda.ac.jp"
-# meshi
-alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
