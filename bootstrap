@@ -57,9 +57,9 @@ symlink_files() {
     [[ ${f} = ".gitignore" ]] && continue
     ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}
   done
-  # TODO : fix below
-  ln -snfv ${DOT_HOME}/.vim ${HOME}/.config/nvim
-  ln -snfv ${DOT_HOME}/.vimrc ${HOME}/.config/nvim/init.vim
+  # TODO : for neovim
+  # ln -snfv ${DOT_HOME}/.vim ${HOME}/.config/nvim
+  # ln -snfv ${DOT_HOME}/.vimrc ${HOME}/.config/nvim/init.vim
   echo "${GREEN}Symlink dotfiles complete. ✔︎${NORMAL}"
 }
 
