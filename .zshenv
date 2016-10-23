@@ -21,3 +21,6 @@ export PATH="$PYENV_ROOT/shims:$PATH"
 # --------------
 export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
 export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+# git
+# --------------
+export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
