@@ -6,7 +6,7 @@
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -15,7 +15,14 @@
 	smudge = git-lfs smudge %f
 	required = true
 [alias]
+	a = add
+	aa = add --all
 	co = checkout
+	com = commit -v
+	comm = commit -m
+	b = branch
+	d = diff --color-words
+	l = log --stat --summary
 	graph = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cancel = reset --soft HEAD^
 	unstage = reset HEAD --
@@ -23,3 +30,20 @@
 	default = matching
 [commit]
 	template = ~/.stCommitMsg
+[color "diff"]
+	old = red strike
+	new = green bold  italic
+	meta = blue black bold
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[diff]
+	compactionHeuristic = true
+[interactive]
+	diffFilter = diff-highlight
