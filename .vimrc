@@ -53,11 +53,14 @@ set clipboard=unnamed,autoselect
 set backspace=indent,eol,start
 " map
 " ----------
+let mapleader="\<Space>"
 nnoremap j gj
 nnoremap k gk
 nnoremap <ESC><ESC> :noh<CR>
-noremap <C-j> <ESC>
-noremap! <C-j> <ESC>
+noremap <Leader>j <ESC>
+noremap! <Leader>j <ESC>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
 " autocomp palenthesis
@@ -91,9 +94,17 @@ let g:ycm_python_binary_path = 'python'
 " vimtex
 let g:tex_flavor='latex'
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-,>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<C-,>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+" jedi-vim
+let g:jedi#goto_command = "<Leader>c"
+" let g:jedi#goto_assignments_command = "<Leader>g"
+" let g:jedi#goto_definitions_command = "<Leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<Leader>u"
+let g:jedi#completions_command = "<Leader>d"
+let g:jedi#rename_command = "<Leader>r"
 " -----
 " vim-plug
 " ----------
