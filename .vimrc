@@ -98,12 +98,12 @@ let g:UltiSnipsExpandTrigger="<C-,>"
 let g:UltiSnipsJumpForwardTrigger="<C-b>"
 let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 " jedi-vim
-let g:jedi#goto_command = "<Leader>c"
+let g:jedi#goto_command = "<Leader>d"
 " let g:jedi#goto_assignments_command = "<Leader>g"
 " let g:jedi#goto_definitions_command = "<Leader>d"
 let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<Leader>u"
-let g:jedi#completions_command = "<Leader>d"
+let g:jedi#completions_command = "<Leader>c"
 let g:jedi#rename_command = "<Leader>r"
 " -----
 " vim-plug
@@ -135,7 +135,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 " programming languages
 " ----------
-Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'html', 'php', 'javascript', 'python', 'rust'], 'on': 'YCMToggle'  }
+"  FIXME: python in youcompleteme
+Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'html', 'php', 'javascript', 'rust'], 'on': 'YCMToggle'  }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'bjoernd/vim-ycm-tex', { 'for': 'tex' }
