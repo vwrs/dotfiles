@@ -16,7 +16,7 @@ fi
 # pyenv
 # --------------
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims/:$PATH"
+export PATH="$PYENV_ROOT/shims:$PATH"
 # less
 # --------------
 export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
