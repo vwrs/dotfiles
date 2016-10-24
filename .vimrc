@@ -144,6 +144,10 @@ Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tpope/vim-dispatch', { 'on': 'LaravelToggle' }
+Plug 'tpope/vim-projectionist', { 'on': 'LaravelToggle' }
+Plug 'noahfrederick/vim-composer', { 'on': 'LaravelToggle' }
+Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors' }
