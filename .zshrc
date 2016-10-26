@@ -77,8 +77,8 @@ alias lualatex="lualatex --file-line-error --synctex=1"
 alias latexmk="latexmk -pvc"
 # aliases
 # --------------
+alias sudo="sudo -E "
 alias v="vim"
-alias vi="vim"
 alias zshconfig="mate ~/.zshrc"
 # git
 alias gstat="git status"
