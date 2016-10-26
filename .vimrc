@@ -57,8 +57,8 @@ let mapleader="\<Space>"
 nnoremap j gj
 nnoremap k gk
 nnoremap <ESC><ESC> :noh<CR>
-noremap <Leader>j <ESC>
-noremap! <Leader>j <ESC>
+noremap <C-j> <ESC>
+noremap! <C-j> <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nmap <C-_> <Plug>(caw:hatpos:toggle)
