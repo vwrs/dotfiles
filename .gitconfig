@@ -15,6 +15,7 @@
 	smudge = git-lfs smudge %f
 	required = true
 [alias]
+	alias = !git config --get-regexp alias
 	a = add
 	aa = add --all
 	co = checkout
@@ -22,8 +23,10 @@
 	comm = commit -m
 	b = branch
 	d = diff
+	s = status
 	l = log --stat --summary --decorate
-	graph = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	lp = log --stat --summary --decorate -p
+	lg = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cancel = reset --soft HEAD^
 	unstage = reset HEAD --
 [push]
