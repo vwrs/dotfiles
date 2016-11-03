@@ -66,18 +66,8 @@ autocmd FileType * setlocal formatoptions-=o
 " programming languages
 " ----------
 autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
-" neocomplete
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " key-mappings
-" ----------
-" ---------------
-"  general
 " ----------
 let mapleader = "\<Space>"
 nnoremap j gj
@@ -96,45 +86,12 @@ nnoremap <Leader>q :q<CR>
 "inoremap {<Enter> {}<Left><CR><ESC><S-o>
 "inoremap ( ()<ESC>
 "inoremap (<Enter> ()<Left><CR><ESC><S-o>
-" Plugins
+
+" plugin settings
 " ----------
-" caw.vim
-nmap <C-_> <Plug>(caw:hatpos:toggle)
-vmap <C-_> <Plug>(caw:hatpos:toggle)
+" ---------------
 " neocomplete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" plugins
 " ----------
-" vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='tenderplus'
-let g:airline#extensions#tabline#enabled=1
-let g:airline_enable_branch = 1
-" youcompleteme
-" let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" let g:ycm_server_keep_logfiles=1
-" let g:ycm_server_log_level='debug'
-" let g:ycm_semantic_triggers = { 'tex' : ['\ref{', '\cite{'] }
-" let g:ycm_python_binary_path = 'python'
-" vimtex
-let g:tex_flavor = 'latex'
-" ultisnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<C-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-z>"
-" jedi-vim
-let g:jedi#goto_command = "<C-d>d"
-" let g:jedi#goto_assignments_command = "<Leader>g"
-" let g:jedi#goto_definitions_command = "<Leader>d"
-let g:jedi#documentation_command = "K"
-" let g:jedi#usages_command = "<Leader>u"
-let g:jedi#completions_command = "<C-c>"
-let g:jedi#rename_command = "<C-d>r"
-" vim-indent-guides
-let g:indent_guides_start_level = 2
-" neocomplete
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -153,15 +110,76 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
+
+" neosnippets
+" ----------
+" Plugin key-mappings.
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory = '~/.vim/plugged/vim-snippets/snippets'
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='tenderplus'
+let g:airline#extensions#tabline#enabled=1
+let g:airline_enable_branch = 1
+" vimtex
+let g:tex_flavor = 'latex'
+" jedi-vim
+let g:jedi#goto_command = "<C-d>d"
+" let g:jedi#goto_assignments_command = "<Leader>g"
+" let g:jedi#goto_definitions_command = "<Leader>d"
+let g:jedi#documentation_command = "K"
+" let g:jedi#usages_command = "<Leader>u"
+let g:jedi#completions_command = "<C-c>"
+let g:jedi#rename_command = "<C-d>r"
+" vim-indent-guides
+let g:indent_guides_start_level = 2
 " closetag.vim
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
-" -----
+" caw.vim
+nmap <C-_> <Plug>(caw:hatpos:toggle)
+vmap <C-_> <Plug>(caw:hatpos:toggle)
+
+" youcompleteme
+" let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_server_keep_logfiles=1
+" let g:ycm_server_log_level='debug'
+" let g:ycm_semantic_triggers = { 'tex' : ['\ref{', '\cite{'] }
+" let g:ycm_python_binary_path = 'python'
+" ultisnips
+" let g:UltiSnipsExpandTrigger = "<C-e>"
+" let g:UltiSnipsJumpForwardTrigger = "<C-b>"
+" let g:UltiSnipsJumpBackwardTrigger = "<C-z>"
+
 " vim-plug
 " ----------
-" --------------------
+" ---------------
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
-" general
+" always
 " ----------
 Plug 'junegunn/vim-easy-align'
 Plug 'tyru/caw.vim'
@@ -170,15 +188,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'wakatime/vim-wakatime'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
+" Plug 'SirVer/ultisnips'
 " Toggle
 " ----------
 Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
