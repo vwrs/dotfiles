@@ -51,33 +51,60 @@ set noswapfile
 set wildmode=list:longest
 set clipboard=unnamed,autoselect
 set backspace=indent,eol,start
-" map
+set mouse=a
+set undofile
+" syntax
 " ----------
-let mapleader="\<Space>"
-nnoremap j gj
-nnoremap k gk
-nnoremap <ESC><ESC> :noh<CR>
-noremap <C-j> <ESC>
-noremap! <C-j> <ESC>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nmap <C-_> <Plug>(caw:hatpos:toggle)
-vmap <C-_> <Plug>(caw:hatpos:toggle)
-" autocomp palenthesis
-"inoremap { {}<Left>
-"inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<ESC>
-"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+colorscheme solarized
+set background=dark
+syntax on
 " autocmd
 " ----------
 autocmd BufWritePre * :%s/\s\+$//ge " remove spaces at the end of line
 autocmd FileType * setlocal formatoptions-=r
 autocmd FileType * setlocal formatoptions-=o
-" syntax
+" programming languages
 " ----------
-colorscheme tender
-set background=dark
-syntax on
+autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+" neocomplete
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" key-mappings
+" ----------
+" ---------------
+"  general
+" ----------
+let mapleader = "\<Space>"
+nnoremap j gj
+nnoremap k gk
+noremap <S-h>   ^
+noremap <S-j> <S-l>
+noremap <S-k> <S-h>
+noremap <S-l>   $
+nnoremap <ESC><ESC> :noh<CR>
+noremap <C-j> <ESC>
+noremap! <C-j> <ESC>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+" autocomp palenthesis
+"inoremap { {}<Left>
+"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap ( ()<ESC>
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" Plugins
+" ----------
+" caw.vim
+nmap <C-_> <Plug>(caw:hatpos:toggle)
+vmap <C-_> <Plug>(caw:hatpos:toggle)
+" neocomplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 " plugins
 " ----------
 " vim-airline
@@ -86,25 +113,48 @@ let g:airline_theme='tenderplus'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_enable_branch = 1
 " youcompleteme
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_keep_logfiles=1
-let g:ycm_server_log_level='debug'
-let g:ycm_semantic_triggers = { 'tex' : ['\ref{', '\cite{'] }
-let g:ycm_python_binary_path = 'python'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" let g:ycm_server_keep_logfiles=1
+" let g:ycm_server_log_level='debug'
+" let g:ycm_semantic_triggers = { 'tex' : ['\ref{', '\cite{'] }
+" let g:ycm_python_binary_path = 'python'
 " vimtex
-let g:tex_flavor='latex'
+let g:tex_flavor = 'latex'
 " ultisnips
-let g:UltiSnipsExpandTrigger="<C-,>"
-let g:UltiSnipsJumpForwardTrigger="<C-b>"
-let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-z>"
 " jedi-vim
-let g:jedi#goto_command = "<Leader>d"
+let g:jedi#goto_command = "<C-d>d"
 " let g:jedi#goto_assignments_command = "<Leader>g"
 " let g:jedi#goto_definitions_command = "<Leader>d"
 let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<Leader>u"
-let g:jedi#completions_command = "<Leader>c"
-let g:jedi#rename_command = "<Leader>r"
+" let g:jedi#usages_command = "<Leader>u"
+let g:jedi#completions_command = "<C-c>"
+let g:jedi#rename_command = "<C-d>r"
+" vim-indent-guides
+let g:indent_guides_start_level = 2
+" neocomplete
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+" closetag.vim
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " -----
 " vim-plug
 " ----------
@@ -120,26 +170,23 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'wakatime/vim-wakatime'
-Plug 'shougo/unite.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'Shougo/neocomplete.vim'
+Plug 'shougo/unite.vim'
+Plug 'scrooloose/nerdtree'
 " Toggle
 " ----------
-Plug 'junegunn/fzf', { 'on': 'FZFToggle', 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 " programming languages
 " ----------
-"  FIXME: python in youcompleteme
-Plug 'valloric/youcompleteme', { 'for': ['c', 'cpp', 'html', 'php', 'javascript', 'rust'], 'on': 'YCMToggle'  }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'bjoernd/vim-ycm-tex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
@@ -148,6 +195,8 @@ Plug 'tpope/vim-dispatch', { 'on': 'LaravelToggle' }
 Plug 'tpope/vim-projectionist', { 'on': 'LaravelToggle' }
 Plug 'noahfrederick/vim-composer', { 'on': 'LaravelToggle' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
+Plug 'jalvesaq/Nvim-R', { 'for': 'R' }
+Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors' }
