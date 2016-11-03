@@ -6,3 +6,4 @@ Vagrantfile
 .github
 .tags*
 .*.un~
+__pycache__
