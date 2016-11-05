@@ -66,6 +66,10 @@ autocmd FileType * setlocal formatoptions-=o
 " programming languages
 " ----------
 autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+let g:php_baselib       = 1
+let g:php_htmlInStrings = 1
+let g:php_noShortTags   = 1
+let g:php_sql_query     = 1
 
 " key-mappings
 " ----------
@@ -110,6 +114,11 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
+" connect a dictionary file with filetype.
+let g:neocomplete#sources#dictionary#dictionaries = {
+  \ '_'   : '',
+  \ 'php' : '~/.vim/dict/PHP.dict',
+  \}
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -140,6 +149,16 @@ endif
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory = '~/.vim/plugged/vim-snippets/snippets'
 
+" syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pyflakes']
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tenderplus'
@@ -162,6 +181,11 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " caw.vim
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " youcompleteme
 " let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -193,11 +217,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
 " Plug 'SirVer/ultisnips'
 " Toggle
 " ----------
