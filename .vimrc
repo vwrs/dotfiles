@@ -52,7 +52,6 @@ set wildmode=list:longest
 set clipboard=unnamed,autoselect
 set backspace=indent,eol,start
 set mouse=a
-set undofile
 " syntax
 " ----------
 colorscheme solarized
