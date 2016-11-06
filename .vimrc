@@ -54,7 +54,7 @@ set backspace=indent,eol,start
 set mouse=a
 " syntax
 " ----------
-colorscheme solarized
+colorscheme atom-dark-256
 set background=dark
 syntax on
 " autocmd
@@ -157,6 +157,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_tex_checkers = ['chktex']
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -164,7 +165,9 @@ let g:airline_theme='tenderplus'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_enable_branch = 1
 " vimtex
+let g:vimtex_latexmk_continuous = 1
 let g:tex_flavor = 'latex'
+let g:vimtex_echo_ignore_wait = 1
 " jedi-vim
 let g:jedi#goto_command = "<C-d>d"
 " let g:jedi#goto_assignments_command = "<Leader>g"
@@ -233,6 +236,7 @@ Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'vim-latex/vim-latex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
