@@ -62,6 +62,7 @@ syntax on
 autocmd BufWritePre * :%s/\s\+$//ge " remove spaces at the end of line
 autocmd FileType * setlocal formatoptions-=r
 autocmd FileType * setlocal formatoptions-=o
+filetype plugin indent on
 " programming languages
 " ----------
 autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
@@ -117,6 +118,7 @@ endif
 let g:neocomplete#sources#dictionary#dictionaries = {
   \ '_'   : '',
   \ 'php' : '~/.vim/dict/PHP.dict',
+  \ 'tex' : '~/.vim/plugged/vim-latex/ftplugin/latex-suite/dictionaries/dictionary',
   \}
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -157,17 +159,23 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_tex_checkers = ['chktex']
+let g:syntastic_tex_checkers = ['']
 
+" vim-latex
+" replace C-J to C-K in ~/.vim/plugged/vim-latex/plugin/imaps.vim
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+let g:Tex_ViewRule_pdf = 'open -a Preview.app'
+
+" vimtex
+let g:vimtex_latexmk_continuous = 1
+let g:tex_flavor = 'latex'
+let g:vimtex_echo_ignore_wait = 1
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tenderplus'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_enable_branch = 1
-" vimtex
-let g:vimtex_latexmk_continuous = 1
-let g:tex_flavor = 'latex'
-let g:vimtex_echo_ignore_wait = 1
 " jedi-vim
 let g:jedi#goto_command = "<C-d>d"
 " let g:jedi#goto_assignments_command = "<Leader>g"
