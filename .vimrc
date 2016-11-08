@@ -120,6 +120,8 @@ let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'php' : '~/.vim/dict/PHP.dict',
   \ 'tex' : '~/.vim/plugged/vim-latex/ftplugin/latex-suite/dictionaries/dictionary',
   \}
+" for vim-R-plugin
+let g:neocomplete#sources#omni#input_patterns.r = '[[:alnum:].\\]\+'
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -231,6 +233,7 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Shougo/vimshell.vim'
 Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
@@ -253,7 +256,7 @@ Plug 'tpope/vim-dispatch', { 'on': 'LaravelToggle' }
 Plug 'tpope/vim-projectionist', { 'on': 'LaravelToggle' }
 Plug 'noahfrederick/vim-composer', { 'on': 'LaravelToggle' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
-Plug 'jalvesaq/Nvim-R', { 'for': 'R' }
+Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 " colorscheme
 " ----------
