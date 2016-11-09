@@ -97,7 +97,7 @@ if [ "$(uname)" = "Darwin" ]; then
   alias ls='ls -tGAF'
   alias l.='ls -d .*'
   alias htop="sudo htop"
-  alias unko="say うんこ | echo 'うんこ'"
+  alias unko="say うんこ | echo うんこ"
   # iTerm2
   source ~/.iterm2_shell_integration.zsh
   alias it2dl="~/.iterm2/it2dl"
