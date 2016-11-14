@@ -49,8 +49,8 @@ set virtualedit=onemore
 set nobackup
 set noswapfile
 set wildmode=list:longest
-set clipboard=unnamed,autoselect
 set backspace=indent,eol,start
+set clipboard=unnamed
 set mouse=a
 " syntax
 " ----------
@@ -87,9 +87,9 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 " autocomp palenthesis
 "inoremap { {}<Left>
-"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
 "inoremap ( ()<ESC>
-"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " plugin settings
 " ----------
@@ -158,10 +158,12 @@ let g:neosnippet#snippets_directory = '~/.vim/plugged/vim-snippets/snippets'
 " set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_tex_checkers = ['']
+" let g:syntastic_r_checkers = ['lintr']
+" let g:syntastic_enable_r_lintr_checker = 1
 
 " vim-latex
 " replace C-J to C-K in ~/.vim/plugged/vim-latex/plugin/imaps.vim

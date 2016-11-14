@@ -60,6 +60,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # commands
 # --------------
@@ -104,6 +105,7 @@ if [ "$(uname)" = "Darwin" ]; then
   alias imgcat="~/.iterm2/imgcat"
   # meshi
   alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
+  alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
 else
   alias ls='ls -tAF --color=auto'
 fi
