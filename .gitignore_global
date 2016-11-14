@@ -7,3 +7,5 @@ Vagrantfile
 .tags*
 .*.un~
 __pycache__
+.Rproj.user
+.Rhistory
