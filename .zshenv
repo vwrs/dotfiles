@@ -16,7 +16,6 @@ export PATH="$PYENV_ROOT/shims:$PATH"
 # less
 # --------------
 export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
-
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
@@ -28,4 +27,8 @@ if [ "$(uname)" = "Darwin" ]; then
   # git
   # --------------
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+  # tensorflow
+  # --------------
+  # CPU only ver.
+  export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0-py3-none-any.whl
 fi
