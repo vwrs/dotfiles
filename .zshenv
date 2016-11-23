@@ -21,6 +21,8 @@ export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
 if [ "$(uname)" = "Darwin" ]; then
   # homebrew-cask
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+  # homebrew
+  export PATH="/usr/local/sbin:$PATH"
   # less
   # --------------
   export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
