@@ -1,0 +1,111 @@
+
+# tap repositories and their packages
+
+tap caskroom/cask
+cask rstudio
+
+tap homebrew/core
+brew antiword
+brew autoconf
+brew automake
+brew boost
+brew cairo
+brew cmake
+brew doxygen
+brew elixir
+brew erlang
+brew figlet
+brew fontconfig
+brew freetype
+brew fzf
+brew gcc
+brew gdb
+brew gdbm
+brew gettext
+brew ghostscript
+brew gibo
+brew git
+brew git-lfs
+brew glib
+brew gmp
+brew go
+brew htop
+brew imagemagick
+brew isl
+brew jpeg
+brew json-c
+brew leptonica
+brew libdnet
+brew libevent
+brew libffi
+brew libmpc
+brew libpng
+brew libtermkey
+brew libtiff
+brew libtool
+brew libuv
+brew libvterm
+brew little-cms2
+brew lua
+brew mas
+brew mpfr
+brew msgpack
+brew mysql
+brew nkf
+brew nmap
+brew node
+brew openssl
+brew pacvim
+brew pandoc
+brew pcre
+brew peco
+brew pixman
+brew pkg-config
+brew pyenv
+brew python
+brew readline
+brew selenium-server-standalone
+brew source-highlight
+brew sqlite
+brew szip
+brew tesseract
+brew tmux
+brew tree
+brew unibilium
+brew utf8proc
+brew vim --with-lua
+brew wakatime-cli
+brew wget
+brew wxmac
+brew xz
+brew zmap
+brew zsh
+brew zsh-completions
+
+tap homebrew/dupes
+
+tap homebrew/science
+brew hdf5
+brew r
+
+tap neovim/neovim
+brew neovim
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+appstore 1024640650 CotEditor (3.1.1)
+appstore 449589707 Dash (3.3.1)
+appstore 510934532 FreeMan (1.4.1)
+appstore 1059196126 KeePass Desktop (1.0.6)
+appstore 409183694 Keynote (6.6.2)
+appstore 896624060 Kobito (2.3.8)
+appstore 539883307 LINE (4.10.2)
+appstore 409203825 Numbers (3.6.2)
+appstore 409201541 Pages (5.6.2)
+appstore 803453959 Slack (2.3.2)
+appstore 1176895641 Spark (1.0.0)
+appstore 415166115 Typist (2.4.0)
+appstore 497799835 Xcode (8.1)
+appstore 408981434 iMovie (10.1.3)

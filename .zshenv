@@ -23,6 +23,8 @@ if [ "$(uname)" = "Darwin" ]; then
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   # homebrew
   export PATH="/usr/local/sbin:$PATH"
+  # brew-file
+  export HOMEBREW_BREWFILE=~/dotfiles/.brewfile
   # less
   # --------------
   export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"

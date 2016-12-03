@@ -103,6 +103,10 @@ if [ "$(uname)" = "Darwin" ]; then
   alias l.='ls -d .*'
   alias htop="sudo htop"
   alias unko="say うんこ | echo うんこ"
+  # brew-file
+  if [ -f $(brew --prefix)/etc/brew-wrap ];then
+    source $(brew --prefix)/etc/brew-wrap
+  fi
   # iTerm2
   source ~/.iterm2_shell_integration.zsh
   alias it2dl="~/.iterm2/it2dl"
