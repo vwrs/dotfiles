@@ -239,10 +239,10 @@ Plug 'Shougo/vimshell.vim'
 Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
 " Plug 'SirVer/ultisnips'
 " Toggle
 " ----------
+Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
 Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 " programming languages
 " ----------

@@ -152,6 +152,8 @@ alias cd=cdls
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+# jupyter
+alias j="jupyter"
 # muratalab
 alias muratasshd="ssh -D 10080 hideaki@murata.eb.waseda.ac.jp"
 alias muratassh="ssh hideaki@murata.eb.waseda.ac.jp"

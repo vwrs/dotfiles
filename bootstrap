@@ -41,10 +41,10 @@ download() {
     if has "git"; then
       git clone --recursive "${REMOTE_URL}" "${DOT_HOME}"
     else
-      echo "${RED}please install git.${NORMAL}"
+      echo "${RED}Please install git.${NORMAL}"
       exit 1
     fi
-    echo "${GREEN}Download dotfiles complete. ✔︎${NORMAL}"
+    echo "${GREEN}Successfully download dotfiles. ✔︎ ${NORMAL}"
   fi
 }
 
@@ -53,17 +53,20 @@ symlink_files() {
   for f in .??*
   do
     # ignore list
+    [[ ${f} = ".DS_Store" ]] && continue
     [[ ${f} = ".git" ]] && continue
     [[ ${f} = ".gitignore" ]] && continue
+    [[ ${f} = ".brewfile" ]] && continue
+    # symlink files
     ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}
   done
   # TODO : for neovim
   # ln -snfv ${DOT_HOME}/.vim ${HOME}/.config/nvim
   # ln -snfv ${DOT_HOME}/.vimrc ${HOME}/.config/nvim/init.vim
-  echo "${GREEN}Symlink dotfiles complete. ✔︎${NORMAL}"
+  echo "${GREEN}Successfully symlink dotfiles. ✔︎ ${NORMAL}"
 }
 
-# exec
+# main
 # --------------
 usage
 echo -n "command: "
