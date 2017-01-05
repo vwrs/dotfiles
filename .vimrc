@@ -201,17 +201,6 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" youcompleteme
-" let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" let g:ycm_server_keep_logfiles=1
-" let g:ycm_server_log_level='debug'
-" let g:ycm_semantic_triggers = { 'tex' : ['\ref{', '\cite{'] }
-" let g:ycm_python_binary_path = 'python'
-" ultisnips
-" let g:UltiSnipsExpandTrigger = "<C-e>"
-" let g:UltiSnipsJumpForwardTrigger = "<C-b>"
-" let g:UltiSnipsJumpBackwardTrigger = "<C-z>"
-
 " vim-plug
 " ----------
 " ---------------
@@ -239,7 +228,6 @@ Plug 'Shougo/vimshell.vim'
 Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
-" Plug 'SirVer/ultisnips'
 " Toggle
 " ----------
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
