@@ -167,6 +167,8 @@ let g:syntastic_tex_checkers = ['']
 
 " vim-latex
 " replace C-J to C-K in ~/.vim/plugged/vim-latex/plugin/imaps.vim
+" or set g:Imap_UsePlaceHolders to 0.
+let g:Imap_UsePlaceHolders = 0
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
 let g:Tex_ViewRule_pdf = 'open -a Preview.app'
