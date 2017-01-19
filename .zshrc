@@ -47,7 +47,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -u
 setopt correct
 setopt auto_cd
 setopt auto_pushd
