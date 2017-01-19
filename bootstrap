@@ -80,6 +80,7 @@ symlink_files() {
     [[ ${f} = ".DS_Store" ]] && continue
     [[ ${f} = ".git" ]] && continue
     [[ ${f} = ".gitignore" ]] && continue
+    [[ ${f} = ".gitmodules" ]] && continue
     [[ ${f} = ".brewfile" ]] && continue
     # symlink files
     ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}

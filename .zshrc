@@ -133,6 +133,9 @@ if [ "$(uname)" = "Darwin" ]; then
   # meshi
   alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
   alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
+  # muratalab
+  alias muratadssh="ssh -D 10080 murata"
+  alias wasedassh="ssh 1y14f0496@muse01.mse.waseda.ac.jp"
 else
   alias ls='ls -tAF --color=auto'
 fi
@@ -154,7 +157,3 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 # jupyter
 alias j="jupyter"
-# muratalab
-alias muratasshd="ssh -D 10080 hideaki@murata.eb.waseda.ac.jp"
-alias muratassh="ssh hideaki@murata.eb.waseda.ac.jp"
-alias wasedassh="ssh 1y14f0496@muse01.mse.waseda.ac.jp"
