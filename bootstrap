@@ -1,13 +1,26 @@
 #!/bin/bash -eu
 # consts
 # --------------
-NORMAL="$(tput sgr0)"
-RED="$(tput setaf 1)"
-GREEN="$(tput setaf 2)"
-BLUE="$(tput setaf 4)"
 DOT_HOME=~/dotfiles
 REMOTE_URL="git@github.com:H-I-D/dotfiles.git"
-
+if which tput >/dev/null 2>&1; then
+  ncolors=$(tput colors)
+fi
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+  RED="$(tput setaf 1)"
+  GREEN="$(tput setaf 2)"
+  YELLOW="$(tput setaf 3)"
+  BLUE="$(tput setaf 4)"
+  BOLD="$(tput bold)"
+  NORMAL="$(tput sgr0)"
+else
+  RED=""
+  GREEN=""
+  YELLOW=""
+  BLUE=""
+  BOLD=""
+  NORMAL=""
+fi
 # functions
 # --------------
 has() {
@@ -27,7 +40,7 @@ usage() {
 \/______/     /\_\ \___,_\ \____/\ \__\\ \_\  \ \_\/\____\ \____\/\____/    \/______/
               \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
 EOF
-  echo $RED
+  echo $YELLOW
   cat <<\EOF
 note:
 Please make sure that you have completed adding ssh key to GitHub.
@@ -55,7 +68,6 @@ download() {
       echo "${RED}Please install git.${NORMAL}"
       exit 1
     fi
-    echo "To enable oh-my-zsh, please execute 'chsh -s /path/to/zsh'."
     echo "${GREEN}Successfully download dotfiles. ✔︎ ${NORMAL}"
   fi
 }
@@ -73,12 +85,13 @@ symlink_files() {
     ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}
   done
   echo "${GREEN}Successfully symlink dotfiles. ✔︎ ${NORMAL}"
+  echo "${BOLD}To enable zsh, please execute 'chsh -s /path/to/zsh'.${NORMAL}"
 }
 
 # main
 # --------------
 usage
-echo -n "command: "
+echo -n "${BOLD}command: ${NORMAL}"
 read command
 case $command in
   init)
