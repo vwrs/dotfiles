@@ -26,7 +26,14 @@ usage() {
 /\______\      __/\ \L\ \/\ \L\ \ \ \_\ \ \_/\ \ \ \_\ \_/\  __//\__, `\    /\______\
 \/______/     /\_\ \___,_\ \____/\ \__\\ \_\  \ \_\/\____\ \____\/\____/    \/______/
               \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
-
+EOF
+  echo $RED
+  cat <<\EOF
+note:
+Please make sure that you have completed adding ssh key to GitHub.
+EOF
+  echo $BLUE
+  cat <<\EOF
 Commands:
   init (download dotfiles)
   deploy (symlink dotfiles)
@@ -38,15 +45,17 @@ download() {
   if [ ! -d ${DOT_HOME} ]; then
     echo "Downloading dotfiles..."
     mkdir ${DOT_HOME}
+    # install oh-my-zsh
+    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     # install vim-plug
-    # curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    #    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     if has "git"; then
       git clone --recursive "${REMOTE_URL}" "${DOT_HOME}"
     else
       echo "${RED}Please install git.${NORMAL}"
       exit 1
     fi
+    echo "To enable oh-my-zsh, please execute 'chsh -s /path/to/zsh'."
     echo "${GREEN}Successfully download dotfiles. ✔︎ ${NORMAL}"
   fi
 }
@@ -63,9 +72,6 @@ symlink_files() {
     # symlink files
     ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}
   done
-  # TODO : for neovim
-  # ln -snfv ${DOT_HOME}/.vim ${HOME}/.config/nvim
-  # ln -snfv ${DOT_HOME}/.vimrc ${HOME}/.config/nvim/init.vim
   echo "${GREEN}Successfully symlink dotfiles. ✔︎ ${NORMAL}"
 }
 
