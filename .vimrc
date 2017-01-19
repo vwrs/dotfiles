@@ -76,10 +76,10 @@ let g:php_sql_query     = 1
 let mapleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
-noremap <S-h>   ^
-noremap <S-j> <S-l>
-noremap <S-k> <S-h>
-noremap <S-l>   $
+" noremap <S-h>   ^
+" noremap <S-j> <S-l>
+" noremap <S-k> <S-h>
+" noremap <S-l>   $
 nnoremap <ESC><ESC> :noh<CR>
 noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
