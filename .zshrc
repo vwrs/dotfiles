@@ -1,3 +1,42 @@
+# zplug
+# ===================================
+DEFAULT_USER="hideaki" # for agnoster
+source ~/.zplug/init.zsh
+
+# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions"
+# themes
+# --------------
+# zplug "frmendes/geometry"
+zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
+BULLETTRAIN_PROMPT_ORDER=(
+ time status custom context virtualenv dir git hg cmd_exec_time
+)
+BULLETTRAIN_PROMPT_CHAR=⚡
+# BULLETTRAIN_PROMPT_CHAR=💩
+# BULLETTRAIN_PROMPT_CHAR=😈
+# BULLETTRAIN_PROMPT_CHAR=🙃
+# BULLETTRAIN_PROMPT_CHAR=\$
+BULLETTRAIN_TIME_BG=black
+BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
+if [ "$(hostname)" != "Hideaki" ]; then
+  BULLETTRAIN_IS_SSH_CLIENT=true
+fi
+BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+BULLETTRAIN_GIT_BG=green
+BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install(zplug)? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
+
 # User configuration
 # ===================================
 # zsh
@@ -114,42 +153,3 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 # jupyter
 alias j="jupyter"
-
-# zplug
-# ===================================
-DEFAULT_USER="hideaki" # for agnoster
-source ~/.zplug/init.zsh
-
-# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
-# themes
-# --------------
-# zplug "frmendes/geometry"
-zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
-BULLETTRAIN_PROMPT_ORDER=(
- time status custom context virtualenv dir git hg cmd_exec_time
-)
-BULLETTRAIN_PROMPT_CHAR=⚡
-# BULLETTRAIN_PROMPT_CHAR=💩
-# BULLETTRAIN_PROMPT_CHAR=😈
-# BULLETTRAIN_PROMPT_CHAR=🙃
-# BULLETTRAIN_PROMPT_CHAR=\$
-BULLETTRAIN_TIME_BG=black
-BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
-if [ "$(hostname)" != "Hideaki" ]; then
-  BULLETTRAIN_IS_SSH_CLIENT
-fi
-BULLETTRAIN_GIT_COLORIZE_DIRTY=true
-BULLETTRAIN_GIT_BG=green
-BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install(zplug)? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-zplug load --verbose
