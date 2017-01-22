@@ -125,10 +125,21 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 # themes
 # --------------
-# zplug "dracula/zsh", as:theme
-# zplug "themes/agnoster", from:oh-my-zsh, as:theme
-setopt prompt_subst
-zplug "adambiggs/zsh-theme", use:adambiggs.zsh-theme, as:theme
+# zplug "frmendes/geometry"
+zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
+BULLETTRAIN_PROMPT_ORDER=(
+ time status custom context virtualenv dir git hg cmd_exec_time
+)
+BULLETTRAIN_PROMPT_CHAR=⚡
+# BULLETTRAIN_PROMPT_CHAR=💩
+# BULLETTRAIN_PROMPT_CHAR=😈
+# BULLETTRAIN_PROMPT_CHAR=🙃
+# BULLETTRAIN_PROMPT_CHAR=\$
+BULLETTRAIN_TIME_BG=black
+BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
+BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+BULLETTRAIN_GIT_BG=green
+BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
