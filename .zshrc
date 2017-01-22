@@ -6,6 +6,7 @@ source ~/.zplug/init.zsh
 # zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
+zplug "erikw/tmux-powerline"
 # themes
 # --------------
 # zplug "frmendes/geometry"
