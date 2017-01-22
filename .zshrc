@@ -143,15 +143,15 @@ fi
 # --------------
 # php
 alias phpi="php -a"
-# ruby(rails)
+# rails
 alias be="bundle exec"
 # functions
 # --------------
 # cd
-function cdls(){
-  \cd "$1" && ls
-}
-alias cd=cdls
+# function cdls(){
+#   \cd "$1" && ls
+# }
+# alias cd=cdls
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
