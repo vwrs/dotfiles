@@ -1,6 +1,7 @@
 #!/bin/bash -eu
 # consts
 # --------------
+ROOT_HOME=/var/root
 DOT_HOME=~/dotfiles
 ZPLUG_HOME=~/.zplug
 REMOTE_URL="git@github.com:H-I-D/dotfiles.git"
@@ -50,7 +51,8 @@ EOF
   cat <<\EOF
 Commands:
   init (download dotfiles)
-  deploy (symlink dotfiles)
+  deploy (override & symlink dotfiles)
+  deploy_root (override & symlink dotfiles, in super user)
 EOF
   echo $NORMAL
 }
@@ -90,7 +92,7 @@ symlink_files() {
     [[ ${f} = ".gitmodules" ]] && continue
     [[ ${f} = ".brewfile" ]] && continue
     # symlink files
-    ln -snfv ${DOT_HOME}/${f} ${HOME}/${f}
+    ln -snfv ${DOT_HOME}/${f} $1/${f}
   done
   echo "${GREEN}Successfully symlink dotfiles. ✔︎ ${NORMAL}"
   echo "${BOLD}To enable zsh, please execute 'chsh -s /path/to/zsh'.${NORMAL}"
@@ -106,7 +108,11 @@ case $command in
     download
     ;;
   deploy)
-    symlink_files
+    symlink_files $HOME
+    ;;
+  deploy_root)
+    symlink_files $ROOT_HOME
+    ln -s ${HOME}/.zplug ${ROOT_HOME}/.zplug
     ;;
   *)
     echo "${RED}bootstrap: command not found.${NORMAL}"
