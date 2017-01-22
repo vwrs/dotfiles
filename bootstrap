@@ -2,6 +2,7 @@
 # consts
 # --------------
 DOT_HOME=~/dotfiles
+ZPLUG_HOME=~/.zplug
 REMOTE_URL="git@github.com:H-I-D/dotfiles.git"
 if which tput >/dev/null 2>&1; then
   ncolors=$(tput colors)
@@ -69,6 +70,12 @@ download() {
       exit 1
     fi
     echo "${GREEN}Successfully download dotfiles. ✔︎ ${NORMAL}"
+  else
+    echo "${BOLD}dotfiles already exists.${NORMAL}"
+  fi
+  if [ ! -d ${ZPLUG_HOME} ]; then
+    echo "Installing zplug ..."
+    curl -sL zplug.sh/installer | zsh
   fi
 }
 
