@@ -1,8 +1,8 @@
 # zplug
 # ===================================
-DEFAULT_USER="hideaki" # for agnoster
 source ~/.zplug/init.zsh
 
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 # zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
@@ -11,22 +11,22 @@ zplug "erikw/tmux-powerline"
 # --------------
 # zplug "frmendes/geometry"
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
-BULLETTRAIN_PROMPT_ORDER=(
+export BULLETTRAIN_PROMPT_ORDER=(
  time status custom context virtualenv dir git hg cmd_exec_time
 )
-BULLETTRAIN_PROMPT_CHAR=⚡
-# BULLETTRAIN_PROMPT_CHAR=💩
-# BULLETTRAIN_PROMPT_CHAR=😈
-# BULLETTRAIN_PROMPT_CHAR=🙃
-# BULLETTRAIN_PROMPT_CHAR=\$
-BULLETTRAIN_TIME_BG=black
-BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
+export BULLETTRAIN_PROMPT_CHAR=⚡
+# export BULLETTRAIN_PROMPT_CHAR=💩
+# export BULLETTRAIN_PROMPT_CHAR=😈
+# export BULLETTRAIN_PROMPT_CHAR=🙃
+# export BULLETTRAIN_PROMPT_CHAR=\$
+export BULLETTRAIN_TIME_BG=black
+export BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
 if [ "$(hostname)" != "Hideaki" ]; then
-  BULLETTRAIN_IS_SSH_CLIENT=true
+  export BULLETTRAIN_IS_SSH_CLIENT=true
 fi
-BULLETTRAIN_GIT_COLORIZE_DIRTY=true
-BULLETTRAIN_GIT_BG=green
-BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
+export BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+export BULLETTRAIN_GIT_BG=green
+export BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -36,7 +36,7 @@ if ! zplug check --verbose; then
     fi
 fi
 
-zplug load --verbose
+zplug load
 
 # User configuration
 # ===================================
@@ -46,6 +46,8 @@ bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
 autoload -Uz compinit; compinit -u
+zstyle ':completion:*' menu select interactive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt correct
 setopt auto_cd
 setopt auto_pushd
@@ -54,10 +56,10 @@ setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
+setopt menucomplete
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+HISTSIZE=77777
+SAVEHIST=77777
 fpath=(/usr/local/share/zsh-completions $fpath)
 # vi mode
 # --------------
@@ -80,7 +82,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # --------------
 # ls
 export LSCOLORS=Cxfxcxdxbxegedabagacad
-# export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors 'di=32' 'ex=31'
 
 # commands
@@ -93,6 +95,9 @@ if [ -x "`which fzf`" ]; then
 fi
 if [ -x "`which pyenv`" ]; then
   eval "$(pyenv init -)"
+fi
+if [ -x "`which jupyter`" ]; then
+  alias j="jupyter"
 fi
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
@@ -110,6 +115,8 @@ alias mv="mv -vi"
 # ls
 alias ll="ls -lhtr"
 alias ll.='ls -ldhtr .*'
+alias lsd="ls -F | grep / | tr '\n' '  '"
+alias lsf="ls -F | grep -v / | tr '\n' '  '"
 # mkdir
 alias mkdir="mkdir -p"
 # OS dependent
@@ -152,5 +159,3 @@ alias be="bundle exec"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-# jupyter
-alias j="jupyter"
