@@ -9,7 +9,12 @@ zplug "zsh-users/zsh-completions"
 zplug "erikw/tmux-powerline"
 # themes
 # --------------
-# zplug "frmendes/geometry"
+# zplug "frmendes/geometry", as:theme
+# zplug "denysdovhan/spaceship-zsh-theme", as:theme
+# zplug "themes/gnzh", from:oh-my-zsh, as:theme
+# zplug "themes/funky", from:oh-my-zsh
+# zplug "lenguyenthanh/nt9-oh-my-zsh-theme"
+# zplug "yarisgutierrez/classyTouch_oh-my-zsh"
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 export BULLETTRAIN_PROMPT_ORDER=(
  time status custom context virtualenv dir git hg cmd_exec_time
@@ -60,7 +65,6 @@ setopt menucomplete
 HISTFILE=~/.zsh_history
 HISTSIZE=77777
 SAVEHIST=77777
-fpath=(/usr/local/share/zsh-completions $fpath)
 # vi mode
 # --------------
 # bindkey -M viins '^j' vi-cmd-mode
@@ -129,6 +133,7 @@ alias mkdir="mkdir -p"
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)
   alias ls='ls -tGAF'
   alias l.='ls -d .*'
   alias htop="sudo htop"
