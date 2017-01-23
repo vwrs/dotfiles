@@ -99,6 +99,9 @@ fi
 if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
 fi
+if [ -x "`which tmux`" ]; then
+  alias tks="tmux kill-server"
+fi
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
 alias latexmk="latexmk -pvc"
@@ -108,6 +111,10 @@ alias sudo="sudo -E "
 alias v="vim"
 # git
 alias g="git"
+# cd
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 # rm, cp, mv
 alias rm="rm -i"
 alias cp="cp -vi"
@@ -151,11 +158,7 @@ alias phpi="php -a"
 alias be="bundle exec"
 # functions
 # --------------
-# cd
 # function cdls(){
 #   \cd "$1" && ls
 # }
 # alias cd=cdls
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
