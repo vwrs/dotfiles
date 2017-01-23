@@ -4,6 +4,7 @@
 ROOT_HOME=/var/root
 DOT_HOME=~/dotfiles
 ZPLUG_HOME=~/.zplug
+TPM_HOME=~/.tmux/plugins/tpm
 REMOTE_URL="git@github.com:H-I-D/dotfiles.git"
 if which tput >/dev/null 2>&1; then
   ncolors=$(tput colors)
@@ -50,7 +51,7 @@ EOF
   echo $BLUE
   cat <<\EOF
 Commands:
-  init (download dotfiles)
+  init (download dotfiles, zplug, tpm)
   deploy (override & symlink dotfiles)
   deploy_root (override & symlink dotfiles, in super user)
 EOF
@@ -58,11 +59,10 @@ EOF
 }
 
 download() {
+  # dotfiles
   if [ ! -d ${DOT_HOME} ]; then
     echo "Downloading dotfiles..."
     mkdir ${DOT_HOME}
-    # install oh-my-zsh
-    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     # install vim-plug
     # curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     if has "git"; then
@@ -71,13 +71,24 @@ download() {
       echo "${RED}Please install git.${NORMAL}"
       exit 1
     fi
-    echo "${GREEN}Successfully download dotfiles. ✔︎ ${NORMAL}"
+    echo "${GREEN}Successfully downloaded dotfiles. ✔︎ ${NORMAL}"
   else
     echo "${BOLD}dotfiles already exists.${NORMAL}"
   fi
+  # zplug
   if [ ! -d ${ZPLUG_HOME} ]; then
-    echo "Installing zplug ..."
+    echo "Downloading zplug ..."
     curl -sL zplug.sh/installer | zsh
+  else
+    echo "${BOLD}zplug already exists.${NORMAL}"
+  fi
+  # tpm
+  if [ ! -d ${TPM_HOME} ]; then
+    echo "Downloading tpm ..."
+    git clone git@github.com:tmux-plugins/tpm $TPM_HOME
+    echo "${GREEN}Successfully downloaded tpm in ${TPM_HOME}. ✔︎ ${NORMAL}"
+  else
+    echo "${BOLD}tpm already exists.${NORMAL}"
   fi
 }
 
