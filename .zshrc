@@ -16,9 +16,7 @@ zplug "erikw/tmux-powerline"
 # zplug "lenguyenthanh/nt9-oh-my-zsh-theme"
 # zplug "yarisgutierrez/classyTouch_oh-my-zsh"
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
-export BULLETTRAIN_PROMPT_ORDER=(
- time status custom context virtualenv dir git hg cmd_exec_time
-)
+export BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
 export BULLETTRAIN_PROMPT_CHAR=⚡
 # export BULLETTRAIN_PROMPT_CHAR=💩
 # export BULLETTRAIN_PROMPT_CHAR=😈
