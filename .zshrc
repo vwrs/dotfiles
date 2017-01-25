@@ -16,20 +16,20 @@ zplug "erikw/tmux-powerline"
 # zplug "lenguyenthanh/nt9-oh-my-zsh-theme"
 # zplug "yarisgutierrez/classyTouch_oh-my-zsh"
 zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
-export BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
-export BULLETTRAIN_PROMPT_CHAR=⚡
-# export BULLETTRAIN_PROMPT_CHAR=💩
-# export BULLETTRAIN_PROMPT_CHAR=😈
-# export BULLETTRAIN_PROMPT_CHAR=🙃
-# export BULLETTRAIN_PROMPT_CHAR=\$
-export BULLETTRAIN_TIME_BG=black
-export BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
+BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
+BULLETTRAIN_PROMPT_CHAR=⚡
+# BULLETTRAIN_PROMPT_CHAR=💩
+# BULLETTRAIN_PROMPT_CHAR=😈
+# BULLETTRAIN_PROMPT_CHAR=🙃
+# BULLETTRAIN_PROMPT_CHAR=\$
+BULLETTRAIN_TIME_BG=black
+BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
 if [ "$(hostname)" != "Hideaki" ]; then
-  export BULLETTRAIN_IS_SSH_CLIENT=true
+  BULLETTRAIN_IS_SSH_CLIENT=true
 fi
-export BULLETTRAIN_GIT_COLORIZE_DIRTY=true
-export BULLETTRAIN_GIT_BG=green
-export BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
+BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+BULLETTRAIN_GIT_BG=green
+BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
