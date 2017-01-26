@@ -11,25 +11,28 @@ zplug "erikw/tmux-powerline"
 # --------------
 # zplug "frmendes/geometry", as:theme
 # zplug "denysdovhan/spaceship-zsh-theme", as:theme
-# zplug "themes/gnzh", from:oh-my-zsh, as:theme
-# zplug "themes/funky", from:oh-my-zsh
-# zplug "lenguyenthanh/nt9-oh-my-zsh-theme"
-# zplug "yarisgutierrez/classyTouch_oh-my-zsh"
-zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
-BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
-BULLETTRAIN_PROMPT_CHAR=⚡
-# BULLETTRAIN_PROMPT_CHAR=💩
-# BULLETTRAIN_PROMPT_CHAR=😈
-# BULLETTRAIN_PROMPT_CHAR=🙃
-# BULLETTRAIN_PROMPT_CHAR=\$
-BULLETTRAIN_TIME_BG=black
-BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
-if [ "$(hostname)" != "Hideaki" ]; then
-  BULLETTRAIN_IS_SSH_CLIENT=true
+# zplug "lenguyenthanh/nt9-oh-my-zsh-theme", as:theme
+# zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
+# random theme
+themes=("frmendes/geometry" "lenguyenthanh/nt9-oh-my-zsh-theme" "caiogondim/bullet-train-oh-my-zsh-theme")
+N=${#themes[@]}
+echo $N
+((N=(RANDOM%N)+1))
+RANDOM_THEME=${themes[$N]}
+zplug $RANDOM_THEME, as:theme
+if [ $N -eq 2 ]; then
+  # BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
+  BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
+  BULLETTRAIN_PROMPT_CHAR=⚡
+  BULLETTRAIN_TIME_BG=white
+  BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
+  if [ "$(hostname)" != "Hideaki" ]; then
+    BULLETTRAIN_IS_SSH_CLIENT=true
+  fi
+  BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+  BULLETTRAIN_GIT_BG=green
+  BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 fi
-BULLETTRAIN_GIT_COLORIZE_DIRTY=true
-BULLETTRAIN_GIT_BG=green
-BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
