@@ -16,11 +16,10 @@ zplug "erikw/tmux-powerline"
 # random theme
 themes=("frmendes/geometry" "lenguyenthanh/nt9-oh-my-zsh-theme" "caiogondim/bullet-train-oh-my-zsh-theme")
 N=${#themes[@]}
-echo $N
 ((N=(RANDOM%N)+1))
 RANDOM_THEME=${themes[$N]}
 zplug $RANDOM_THEME, as:theme
-if [ $N -eq 2 ]; then
+if [ $N -eq 3 ]; then
   # BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
   BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
   BULLETTRAIN_PROMPT_CHAR=⚡
