@@ -31,6 +31,8 @@ if [ "$(uname)" = "Darwin" ]; then
   # git
   # --------------
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+  # tig(--with-docs, docbooks, asciidoc)
+  export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
   # tensorflow
   # --------------
   # CPU only ver.
