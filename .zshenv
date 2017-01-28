@@ -35,4 +35,9 @@ if [ "$(uname)" = "Darwin" ]; then
   # --------------
   # CPU only ver.
   export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0-py3-none-any.whl
+else
+  # lab
+  # --------------
+  export PATH=/usr/local/cuda/bin:$PATH
+  export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 fi
