@@ -85,6 +85,10 @@ noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>n :NERDTree<CR>
+nnoremap <Leader>d :Gdiff<CR>
+nnoremap <Leader>f :FZF<CR>
+
 " autocomp palenthesis
 "inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -120,7 +124,12 @@ let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'php' : '~/.vim/dict/PHP.dict',
   \ 'tex' : '~/.vim/plugged/vim-latex/ftplugin/latex-suite/dictionaries/dictionary',
   \}
-" for vim-R-plugin
+" for Nvim-R
+let R_vsplit=1
+let R_in_buffer=0
+let R_applescript=0
+let R_tmux_split=1
+let R_term='tmux'
 let g:neocomplete#sources#omni#input_patterns.r = '[[:alnum:].\\]\+'
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
