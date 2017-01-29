@@ -105,6 +105,8 @@ if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
 fi
 if [ -x "`which tmux`" ]; then
+  alias ta="tmux a"
+  alias tl="tmux ls"
   alias tks="tmux kill-server"
 fi
 # LaTeX
