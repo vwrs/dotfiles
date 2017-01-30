@@ -52,17 +52,20 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
+
 " syntax
 " ----------
 colorscheme atom-dark-256
 set background=dark
 syntax on
+
 " autocmd
 " ----------
 autocmd BufWritePre * :%s/\s\+$//ge " remove spaces at the end of line
 autocmd FileType * setlocal formatoptions-=r
 autocmd FileType * setlocal formatoptions-=o
 filetype plugin indent on
+
 " programming languages
 " ----------
 autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
@@ -70,10 +73,12 @@ let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
 let g:php_noShortTags   = 1
 let g:php_sql_query     = 1
+let g:tex_conceal=''
 
-" key-mappings
+" default key-mappings
 " ----------
 let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
 " noremap <S-h>   ^
@@ -85,10 +90,6 @@ noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>n :NERDTree<CR>
-nnoremap <Leader>d :Gdiff<CR>
-nnoremap <Leader>f :FZF<CR>
-
 " autocomp palenthesis
 "inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -96,8 +97,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " plugin settings
-" ----------
 " ---------------
+
 " neocomplete
 " ----------
 " Disable AutoComplPop.
@@ -174,46 +175,66 @@ let g:syntastic_tex_checkers = ['']
 " let g:syntastic_r_checkers = ['lintr']
 " let g:syntastic_enable_r_lintr_checker = 1
 
-" vim-latex
-" replace C-J to C-K in ~/.vim/plugged/vim-latex/plugin/imaps.vim
-" or set g:Imap_UsePlaceHolders to 0.
-let g:Imap_UsePlaceHolders = 0
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-let g:Tex_ViewRule_pdf = 'open -a Preview.app'
-
 " vimtex
 let g:vimtex_latexmk_continuous = 1
 let g:tex_flavor = 'latex'
 let g:vimtex_echo_ignore_wait = 1
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tenderplus'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_enable_branch = 1
+
 " jedi-vim
 let g:jedi#goto_command = "<C-d>d"
 " let g:jedi#goto_assignments_command = "<Leader>g"
 " let g:jedi#goto_definitions_command = "<Leader>d"
 let g:jedi#documentation_command = "K"
-" let g:jedi#usages_command = "<Leader>u"
-let g:jedi#completions_command = "<C-c>"
+" let g:jedi#completions_command = "<C-c>"
 let g:jedi#rename_command = "<C-d>r"
+
 " vim-indent-guides
 let g:indent_guides_start_level = 2
+
 " closetag.vim
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+
 " caw.vim
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
+
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+" nerdtree
+nnoremap <Leader>n :NERDTree<CR>
+" vim-fugitive
+nnoremap <Leader>d :Gdiff<CR>
+" fzf
+nnoremap <Leader>f :FZF<CR>
+
+" vim-easymotion
+" map <Leader> <Plug>(easymotion-prefix) " default: <Leader><Leader>
+map  <Leader><Leader>F <Plug>(easymotion-bd-f)
+nmap <Leader><Leader>F <Plug>(easymotion-overwin-f)
+nmap s <Plug>(easymotion-overwin-f2)
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+map  <Leader><Leader>W <Plug>(easymotion-bd-w)
+nmap <Leader><Leader>W <Plug>(easymotion-overwin-w)
+" map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+" map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0
+let g:EasyMotion_smartcase = 1
 
 " vim-plug
-" ----------
 " ---------------
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
@@ -239,6 +260,7 @@ Plug 'Shougo/vimshell.vim'
 Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'easymotion/vim-easymotion'
 " Toggle
 " ----------
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
@@ -248,7 +270,6 @@ Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'vim-latex/vim-latex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
