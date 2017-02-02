@@ -19,20 +19,18 @@ zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 # ((N=(RANDOM%N)+1))
 # RANDOM_THEME=${themes[$N]}
 # zplug $RANDOM_THEME, as:theme
-N=3
-if [ $N -eq 3 ]; then
-  # BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
-  BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
-  BULLETTRAIN_PROMPT_CHAR=⚡
-  BULLETTRAIN_TIME_BG=white
-  BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
-  if [ "$(hostname)" != "Hideaki" ]; then
-    BULLETTRAIN_IS_SSH_CLIENT=true
-  fi
-  BULLETTRAIN_GIT_COLORIZE_DIRTY=true
-  BULLETTRAIN_GIT_BG=green
-  BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
+BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
+# BULLETTRAIN_PROMPT_CHAR="⚡  "
+BULLETTRAIN_PROMPT_CHAR="╚═>>> "
+
+BULLETTRAIN_TIME_BG=white
+BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
+if [ "$(hostname)" != "Hideaki" ]; then
+  BULLETTRAIN_IS_SSH_CLIENT=true
 fi
+BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+BULLETTRAIN_GIT_BG=green
+BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
