@@ -273,7 +273,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'on': 'JediToggle' }
 Plug 'tpope/vim-dispatch', { 'on': 'LaravelToggle' }
 Plug 'tpope/vim-projectionist', { 'on': 'LaravelToggle' }
 Plug 'noahfrederick/vim-composer', { 'on': 'LaravelToggle' }
