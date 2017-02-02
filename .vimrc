@@ -55,7 +55,7 @@ set mouse=a
 
 " syntax
 " ----------
-colorscheme atom-dark-256
+colorscheme inkpot
 set background=dark
 syntax on
 
@@ -288,4 +288,8 @@ Plug 'w0ng/vim-hybrid', { 'do': 'ln -fnsv ~/.vim/plugged/vim-hybrid/colors/* ~/.
 Plug 'gosukiwi/vim-atom-dark', { 'do': 'ln -fnsv ~/.vim/plugged/vim-atom-dark/colors/* ~/.vim/colors' }
 Plug 'joshdick/onedark.vim', { 'do': 'ln -fnsv ~/.vim/plugged/onedark.vim/colors/* ~/.vim/colors' }
 Plug 'jacoborus/tender.vim', { 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors' }
+Plug '29decibel/codeschool-vim-theme', { 'do': 'ln -fnsv ~/.vim/plugged/codeschool-vim-theme/colors/* ~/.vim/colors' }
+Plug 'vim-scripts/twilight', { 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* ~/.vim/colors' }
+Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors' }
+Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors' }
 call plug#end()
