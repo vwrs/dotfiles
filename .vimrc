@@ -52,6 +52,7 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
+set t_ut=
 
 " syntax
 " ----------
