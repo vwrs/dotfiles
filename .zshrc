@@ -162,10 +162,9 @@ if [ "$(uname)" = "Darwin" ]; then
   alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
   alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
   # muratalab
-  alias muratadssh="ssh -D 10080 murata"
+  alias sshdmurata="ssh -D 10080 murata"
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
-  alias wasedassh="ssh 1y14f0496@muse01.mse.waseda.ac.jp"
 else
   alias ls='ls -tAF --color=auto'
 fi
