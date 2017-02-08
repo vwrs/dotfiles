@@ -20,8 +20,10 @@ zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 # RANDOM_THEME=${themes[$N]}
 # zplug $RANDOM_THEME, as:theme
 BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
-# BULLETTRAIN_PROMPT_CHAR="⚡  "
-BULLETTRAIN_PROMPT_CHAR="╚═>>> "
+# BULLETTRAIN_PROMPT_CHAR="╚═>>> "
+# BULLETTRAIN_PROMPT_CHAR="%F{red}»%F{green}»%F{white}»%f "
+# BULLETTRAIN_PROMPT_CHAR="%F{red}➤%F{green}➤%F{white}➤ %f "
+BULLETTRAIN_PROMPT_CHAR="%F{red}>%F{green}>%F{white}>%f "
 
 BULLETTRAIN_TIME_BG=white
 BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
@@ -50,8 +52,6 @@ bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
 autoload -Uz compinit; compinit -u
-zstyle ':completion:*' menu select interactive
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt correct
 setopt auto_cd
 setopt auto_pushd
@@ -60,7 +60,18 @@ setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
-setopt menucomplete
+# completion
+# --------------
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu         # show completion menu on successive tab press
+setopt complete_in_word
+setopt always_to_end
+bindkey -M menuselect '^o' accept-and-infer-next-history
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
+
 HISTFILE=~/.zsh_history
 HISTSIZE=77777
 SAVEHIST=77777
