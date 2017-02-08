@@ -52,6 +52,7 @@ bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
 autoload -Uz compinit; compinit -u
+zmodload zsh/complist
 setopt correct
 setopt auto_cd
 setopt auto_pushd
