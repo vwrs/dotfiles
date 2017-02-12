@@ -19,7 +19,7 @@ zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 # ((N=(RANDOM%N)+1))
 # RANDOM_THEME=${themes[$N]}
 # zplug $RANDOM_THEME, as:theme
-BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
+BULLETTRAIN_PROMPT_ORDER=(time status custom context virtualenv dir git hg cmd_exec_time)
 # BULLETTRAIN_PROMPT_CHAR="╚═>>> "
 # BULLETTRAIN_PROMPT_CHAR="%F{red}»%F{green}»%F{white}»%f "
 # BULLETTRAIN_PROMPT_CHAR="%F{red}➤%F{green}➤%F{white}➤ %f "
@@ -149,17 +149,25 @@ alias cp="cp -vi"
 alias mv="mv -vi"
 # ls
 alias ll="ls -lhtr"
-alias ll.='ls -ldhtr .*'
+alias ll.="ls -ldhtr .*"
 alias lsd="ls -F | grep / | tr '\n' '  '"
 alias lsf="ls -F | grep -v / | tr '\n' '  '"
 # mkdir
 alias mkdir="mkdir -p"
+# programming languages
+# --------------
+# python
+alias py="python"
+# php
+alias phpi="php -a"
+# rails
+alias be="bundle exec"
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
-  alias ls='ls -tGAF'
-  alias l.='ls -d .*'
+  alias ls="ls -tGAF"
+  alias l.="ls -d .*"
   alias htop="sudo htop"
   alias unko="say うんこ | echo うんこ"
   # brew-file
@@ -178,17 +186,6 @@ if [ "$(uname)" = "Darwin" ]; then
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 else
-  alias ls='ls -tAF --color=auto'
+  alias ls="ls -tAF --color=auto"
+  alias smi="nvidia-smi"
 fi
-# programming languages
-# --------------
-# php
-alias phpi="php -a"
-# rails
-alias be="bundle exec"
-# functions
-# --------------
-# function cdls(){
-#   \cd "$1" && ls
-# }
-# alias cd=cdls
