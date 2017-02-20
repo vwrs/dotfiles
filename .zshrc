@@ -133,6 +133,7 @@ fi
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
 alias latexmk="latexmk -pvc"
+alias luajitlatex="luajittex --fmt=luajitlatex.fmt"
 # aliases
 # --------------
 alias sudo="sudo -E "
