@@ -28,20 +28,6 @@ set wrapscan
 set hlsearch
 " statusline
 set laststatus=2
-" set statusline=[%n]
-" set statusline+=%{matchstr(hostname(),'\\w\\+')}@
-" set statusline+=%<%F
-" set statusline+=%m
-" set statusline+=%r
-" set statusline+=%h
-" set statusline+=%w
-" set statusline+=[%{&fileformat}]
-" set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}]
-" set statusline+=%y
-" set statusline+=%=
-" set statusline+=[L=%l/%L]
-" set statusline+=[%p%%]
-" set statusline+=[RG=\"%{getreg()}\"]
 " etc
 set whichwrap=b,s,h,l,<,>,[,]
 set filetype=on
@@ -91,11 +77,6 @@ noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-" autocomp palenthesis
-"inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<ESC>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " plugin settings
 " ---------------
@@ -235,6 +216,14 @@ map <Leader>k <Plug>(easymotion-k)
 let g:EasyMotion_startofline = 0
 let g:EasyMotion_smartcase = 1
 
+" vim-operator-replace
+nmap R <Plug>(operator-replace)
+
+" vim-operator-surround
+nnoremap ys <Plug>(operator-surround-append)
+nnoremap ds <Plug>(operator-surround-delete)
+nnoremap cs <Plug>(operator-surround-replace)
+
 " vim-plug
 " ---------------
 call plug#begin('~/.vim/plugged')
@@ -249,7 +238,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Shougo/neocomplete.vim'
@@ -262,6 +250,20 @@ Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
+Plug 'kana/vim-smartinput'
+" textobj
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-datetime'
+Plug 'kana/vim-textobj-indent'
+Plug 'thinca/vim-textobj-comment'
+Plug 'thinca/vim-textobj-between'
+Plug 'rhysd/vim-textobj-anyblock'
+" operator
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'rhysd/vim-operator-surround'
 " Toggle
 " ----------
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
