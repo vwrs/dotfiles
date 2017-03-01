@@ -155,6 +155,8 @@ alias lsd="ls -F | grep / | tr '\n' '  '"
 alias lsf="ls -F | grep -v / | tr '\n' '  '"
 # mkdir
 alias mkdir="mkdir -p"
+# du
+alias du="du -bch --time"
 # programming languages
 # --------------
 # python
