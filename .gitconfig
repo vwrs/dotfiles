@@ -24,11 +24,11 @@
 	b = branch
 	d = diff
 	dns = diff --name-status
-	s = status
-	sb = status -sb
-	l = log --stat --summary --decorate --remotes
-	lp = log --stat --summary --decorate -p --remotes
-	lg = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s' --remotes
+	s = status -sb
+	ss = status
+	l = log --stat --summary --decorate
+	lp = log --stat --summary --decorate -p
+	lg = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cancel = reset --soft HEAD^
 	unstage = reset HEAD --
 [push]
