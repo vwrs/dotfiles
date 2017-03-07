@@ -55,8 +55,7 @@ else
   export CPATH=/usr/local/cuda/include:$CPATH
   # tensorflow in gorgon(ubuntu)
   # ---------------
-  # gpu
-  export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp35-cp35m-linux_x86_64.whl
-  # cpu
-  # export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp35-cp35m-linux_x86_64.whl
+  if [ "$(hostname)" = "gorgon" ]; then
+    export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.0-cp35-cp35m-linux_x86_64.whl
+  fi
 fi
