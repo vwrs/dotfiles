@@ -155,8 +155,8 @@ alias lsd="ls -F | grep / | tr '\n' '  '"
 alias lsf="ls -F | grep -v / | tr '\n' '  '"
 # mkdir
 alias mkdir="mkdir -p"
-# du
-alias du="du -bch --time"
+# ssh
+alias sshj="ssh -L 8888:127.1:8888"
 # programming languages
 # --------------
 # python
@@ -171,6 +171,7 @@ if [ "$(uname)" = "Darwin" ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
   alias ls="ls -tGAF"
   alias l.="ls -d .*"
+  alias du="du -ch"
   alias htop="sudo htop"
   alias unko="say うんこ | echo うんこ"
   # brew-file
@@ -190,5 +191,6 @@ if [ "$(uname)" = "Darwin" ]; then
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 else
   alias ls="ls -tAF --color=auto"
+  alias du="du -bch --time"
   alias smi="nvidia-smi"
 fi
