@@ -3,6 +3,13 @@ export LANG=ja_JP.UTF-8
 export XDG_CONFIG_HOME=~/.config
 # less
 export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
+# go
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
+if [ -x "`which go`" ]; then
+  export GOROOT=`go env GOROOT`
+  export PATH=$PATH:$GOROOT/bin
+fi
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
@@ -24,10 +31,6 @@ if [ "$(uname)" = "Darwin" ]; then
   # tensorflow
   # CPU only ver.
   export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0-py3-none-any.whl
-  # go
-  export GOROOT=`go env GOROOT`
-  export GOPATH=$HOME/.go
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 else
   # lab
   # --------------
