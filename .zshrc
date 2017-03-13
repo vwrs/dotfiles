@@ -156,7 +156,8 @@ alias lsf="ls -F | grep -v / | tr '\n' '  '"
 # mkdir
 alias mkdir="mkdir -p"
 # ssh
-alias sshj="ssh -L 8888:127.1:8888"
+alias sshj="ssh -L 9000:127.1:9000"
+alias sshvnc="ssh -L 5900:127.1:5900"
 # programming languages
 # --------------
 # python
