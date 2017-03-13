@@ -21,6 +21,7 @@
 	co = checkout
 	com = commit -v
 	comm = commit -m
+	ac = !git add --all && git commit
 	b = branch
 	d = diff
 	dns = diff --name-status
