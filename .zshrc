@@ -20,10 +20,10 @@ zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 # RANDOM_THEME=${themes[$N]}
 # zplug $RANDOM_THEME, as:theme
 BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
-# BULLETTRAIN_PROMPT_CHAR="╚═>>> "
-# BULLETTRAIN_PROMPT_CHAR="%F{red}»%F{green}»%F{white}»%f "
-# BULLETTRAIN_PROMPT_CHAR="%F{red}➤%F{green}➤%F{white}➤ %f "
-BULLETTRAIN_PROMPT_CHAR="%F{red}>%F{green}>%F{white}>%f "
+# BULLETTRAIN_PROMPT_CHAR="╚═>>>"
+# BULLETTRAIN_PROMPT_CHAR="%F{red}»%F{green}»%F{white}»%f"
+# BULLETTRAIN_PROMPT_CHAR="%F{red}➤%F{green}➤%F{white}➤ %f"
+BULLETTRAIN_PROMPT_CHAR="%F{red}>%F{green}>%F{white}>%f"
 
 BULLETTRAIN_TIME_BG=white
 BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
