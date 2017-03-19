@@ -28,12 +28,18 @@ set wrapscan
 set hlsearch
 " statusline
 set laststatus=2
+" fold
+" set foldenable
+" set foldmethod=indent
+" set foldlevelstart=0
+" set foldnestmax=3
 " etc
 set whichwrap=b,s,h,l,<,>,[,]
 set filetype=on
 set virtualedit=onemore
 set nobackup
 set noswapfile
+set wildmenu
 set wildmode=list:longest
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -46,41 +52,50 @@ colorscheme inkpot
 set background=dark
 syntax on
 
-" autocmd
-" ----------
-autocmd BufWritePre * :%s/\s\+$//ge " remove spaces at the end of line
-autocmd FileType * setlocal formatoptions-=r
-autocmd FileType * setlocal formatoptions-=o
+" ensure the autocmd's are applied once
+augroup configgroup
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//ge " remove spaces at the end of line
+  autocmd FileType * setlocal formatoptions-=r
+  autocmd FileType * setlocal formatoptions-=o
+  " language-specific settings
+  autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+  " Enable omni completion.
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup END
 filetype plugin indent on
 
-" programming languages
+" language-specific settings
 " ----------
-autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 let g:php_baselib       = 1
 let g:php_htmlInStrings = 1
 let g:php_noShortTags   = 1
 let g:php_sql_query     = 1
 let g:tex_conceal=''
 
-" default key-mappings
+" change default key-mappings
 " ----------
-let mapleader = "\<Space>"
-let maplocalleader = "\<Space>"
+let g:mapleader = "\<Space>"
+let g:maplocalleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
-" noremap <S-h>   ^
-" noremap <S-j> <S-l>
-" noremap <S-k> <S-h>
-" noremap <S-l>   $
+nnoremap B ^
+nnoremap E $
 nnoremap <ESC><ESC> :noh<CR>
 noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
+" inoremap jk <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+" highlight last inserted text
+nnoremap gV `[v`]
 
 " plugin settings
 " ---------------
-
 " neocomplete
 " ----------
 " Disable AutoComplPop.
@@ -107,19 +122,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
   \ 'php' : '~/.vim/dict/PHP.dict',
   \ 'tex' : '~/.vim/plugged/vim-latex/ftplugin/latex-suite/dictionaries/dictionary',
   \}
-" for Nvim-R
-let R_vsplit=1
-let R_in_buffer=0
-let R_applescript=0
-let R_tmux_split=1
-let R_term='tmux'
 let g:neocomplete#sources#omni#input_patterns.r = '[[:alnum:].\\]\+'
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
@@ -157,19 +160,14 @@ let g:syntastic_tex_checkers = ['']
 " let g:syntastic_r_checkers = ['lintr']
 " let g:syntastic_enable_r_lintr_checker = 1
 
-" vimtex
-let g:vimtex_latexmk_continuous = 1
-let g:tex_flavor = 'latex'
-let g:vimtex_echo_ignore_wait = 1
-let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_manual = 1
-
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tenderplus'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_enable_branch = 1
 
+" language-specific plugins
+" ----------
 " jedi-vim
 let g:jedi#goto_command = "<C-d>d"
 " let g:jedi#goto_assignments_command = "<Leader>g"
@@ -177,6 +175,20 @@ let g:jedi#goto_command = "<C-d>d"
 let g:jedi#documentation_command = "K"
 " let g:jedi#completions_command = "<C-c>"
 let g:jedi#rename_command = "<C-d>r"
+
+" vimtex
+let g:vimtex_latexmk_continuous = 1
+let g:tex_flavor = 'latex'
+let g:vimtex_echo_ignore_wait = 1
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
+
+" Nvim-R
+let R_vsplit=1
+let R_in_buffer=0
+let R_applescript=0
+let R_tmux_split=1
+let R_term='tmux'
 
 " vim-indent-guides
 let g:indent_guides_start_level = 2
