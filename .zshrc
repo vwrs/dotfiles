@@ -183,11 +183,8 @@ if [ "$(uname)" = "Darwin" ]; then
   source ~/.iterm2_shell_integration.zsh
   alias it2dl="~/.iterm2/it2dl"
   alias imgcat="~/.iterm2/imgcat"
-  # meshi
-  alias meshi="ruby /Users/hideaki/programs/densei/who.rb; ruby /Users/hideaki/programs/densei/where_to_go.rb"
+
   alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
-  # muratalab
-  alias sshdmurata="ssh -D 10080 murata"
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 else
