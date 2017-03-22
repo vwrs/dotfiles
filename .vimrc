@@ -216,7 +216,7 @@ nnoremap <Leader>f :FZF<CR>
 " map <Leader> <Plug>(easymotion-prefix) " default: <Leader><Leader>
 map  <Leader><Leader>F <Plug>(easymotion-bd-f)
 nmap <Leader><Leader>F <Plug>(easymotion-overwin-f)
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader><Leader>W <Plug>(easymotion-bd-w)
