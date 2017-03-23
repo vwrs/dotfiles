@@ -138,6 +138,7 @@ alias luajitlatex="luajittex --fmt=luajitlatex.fmt"
 # --------------
 alias sudo="sudo -E "
 alias v="vim"
+alias n="nvim"
 # git
 alias g="git"
 # cd

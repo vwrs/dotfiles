@@ -46,12 +46,6 @@ set clipboard=unnamed
 set mouse=a
 set t_ut=
 
-" syntax
-" ----------
-colorscheme inkpot
-set background=dark
-syntax on
-
 " ensure the autocmd's are applied once
 augroup configgroup
   autocmd!
@@ -308,3 +302,10 @@ Plug 'vim-scripts/twilight', { 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* 
 Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors' }
 Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors' }
 call plug#end()
+
+" syntax
+" ----------
+colorscheme inkpot
+set background=dark
+syntax on
+
