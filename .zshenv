@@ -13,6 +13,10 @@ fi
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
+  if [ "$(hostname)" = "Hideaki" ]; then
+    # less
+    export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+  fi
   # homebrew-cask
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   # homebrew
@@ -22,8 +26,6 @@ if [ "$(uname)" = "Darwin" ]; then
   # pyenv
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/shims:$PATH"
-  # less
-  export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
   # git
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
   # tig(--with-docs, docbooks, asciidoc)
