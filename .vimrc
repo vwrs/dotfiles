@@ -251,6 +251,7 @@ Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-smartinput'
+Plug 'tpope/vim-surround'
 " textobj
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
