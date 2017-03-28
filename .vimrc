@@ -225,11 +225,6 @@ let g:EasyMotion_smartcase = 1
 " vim-operator-replace
 nmap R <Plug>(operator-replace)
 
-" vim-operator-surround
-nnoremap ys <Plug>(operator-surround-append)
-nnoremap ds <Plug>(operator-surround-delete)
-nnoremap cs <Plug>(operator-surround-replace)
-
 " vim-plug
 " ---------------
 call plug#begin('~/.vim/plugged')
@@ -251,7 +246,6 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/vimshell.vim'
 Plug 'honza/vim-snippets'
 Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
@@ -269,7 +263,6 @@ Plug 'rhysd/vim-textobj-anyblock'
 " operator
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-Plug 'rhysd/vim-operator-surround'
 " Toggle
 " ----------
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
@@ -283,9 +276,6 @@ Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
 Plug 'davidhalter/jedi-vim', { 'on': 'JediToggle' }
-Plug 'tpope/vim-dispatch', { 'on': 'LaravelToggle' }
-Plug 'tpope/vim-projectionist', { 'on': 'LaravelToggle' }
-Plug 'noahfrederick/vim-composer', { 'on': 'LaravelToggle' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
