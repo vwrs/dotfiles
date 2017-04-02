@@ -1,0 +1,16 @@
+"3.16.0 (created: 2017/02/01 00:55:15)
+
+source! /Users/hideaki/.vimperatorrc.local
+
+" vim: set ft=vimperator:
+autocmd LocationChange .* :js liberator.modules.modes.passAllKeys=false
+autocmd LocationChange localhost :js liberator.modules.modes.passAllKeys=true
+autocmd LocationChange .*\.google\.com :js liberator.modules.modes.passAllKeys=true
+noremap j 5<C-e>
+noremap k 5<C-y>
+set ignorecase
+set smartcase
+nnoremap s :tabopen<Space>google<Space>
+nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
+vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
+
