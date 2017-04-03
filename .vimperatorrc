@@ -6,6 +6,7 @@ source! /Users/hideaki/.vimperatorrc.local
 autocmd LocationChange .* :js liberator.modules.modes.passAllKeys=false
 autocmd LocationChange localhost :js liberator.modules.modes.passAllKeys=true
 autocmd LocationChange .*\.google\.com :js liberator.modules.modes.passAllKeys=true
+autocmd LocationChange .*\.youtube\.com :js liberator.modules.modes.passAllKeys=true
 noremap j 5<C-e>
 noremap k 5<C-y>
 set ignorecase
