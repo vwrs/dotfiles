@@ -156,6 +156,8 @@ alias lsd="ls -F | grep / | tr '\n' '  '"
 alias lsf="ls -F | grep -v / | tr '\n' '  '"
 # mkdir
 alias mkdir="mkdir -p"
+# grep
+alias grep="grep -in --color"
 # ssh
 alias sshj="ssh -L 9000:127.1:9000"
 alias sshvnc="ssh -L 5900:127.1:5900"
