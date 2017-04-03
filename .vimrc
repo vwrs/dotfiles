@@ -46,6 +46,7 @@ set clipboard=unnamed
 set mouse=a
 set t_ut=
 set scrolloff=10
+execute "set colorcolumn=" . join(range(81, 999), ',')
 
 " ensure the autocmd's are applied once
 augroup configgroup
