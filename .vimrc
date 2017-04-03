@@ -45,6 +45,7 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
 set t_ut=
+set scrolloff=10
 
 " ensure the autocmd's are applied once
 augroup configgroup
