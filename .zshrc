@@ -152,8 +152,8 @@ alias mv="mv -vi"
 # ls
 alias ll="ls -lhtr"
 alias ll.="ls -ldhtr .*"
-alias lsd="ls -F | grep / | tr '\n' '  '"
-alias lsf="ls -F | grep -v / | tr '\n' '  '"
+alias lsd="ls -F | \grep / | tr '\n' '\t'"
+alias lsf="ls -F | \grep -v / | tr '\n' '\t'"
 # mkdir
 alias mkdir="mkdir -p"
 # grep
