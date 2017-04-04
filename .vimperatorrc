@@ -14,4 +14,4 @@ set smartcase
 nnoremap s :tabopen<Space>google<Space>
 nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
 vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
-
+set hintchars=asdfghjkl
