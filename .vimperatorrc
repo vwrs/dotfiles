@@ -11,7 +11,7 @@ noremap j 5<C-e>
 noremap k 5<C-y>
 set ignorecase
 set smartcase
-set complete=lsb
+set complete=l
 nnoremap s :tabopen<Space>google<Space>
 nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
 vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
