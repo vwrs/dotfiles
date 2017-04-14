@@ -25,6 +25,7 @@
 	acm = !git add --all && git commit -m
 	b = branch
 	d = diff
+	dc = diff --cached
 	dns = diff --name-status
 	s = status -sb
 	ss = status
