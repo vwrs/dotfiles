@@ -190,6 +190,25 @@ if [ "$(uname)" = "Darwin" ]; then
   alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
+
+  # upgrade homebrew-cask
+  brew-cask-upgrade () {
+    for app in $(brew cask list); do
+      local latest="$(brew cask info "${app}" | awk 'NR==1{print $2}')";
+      local versions=($(ls -1 "/usr/local/Caskroom/${app}/.metadata/"));
+      local current=$(echo ${versions} | awk '{print $NF}');
+      if [[ "${latest}" = "latest" ]]; then
+        echo "[!] ${app}: ${current} == ${latest}";
+        [[ "$1" = "-f" ]] && brew cask install "${app}" --force;
+        continue;
+      elif [[ "${current}" = "${latest}" ]]; then
+        continue;
+      fi;
+      echo "[+] ${app}: ${current} -> ${latest}";
+      brew cask uninstall "${app}" --force;
+      brew cask install "${app}";
+    done;
+  }
 else
   alias ls="ls -tAF --color=auto"
   alias du="du -bch --time"
