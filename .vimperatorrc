@@ -17,8 +17,9 @@ nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
 vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
 set hintchars=asdfghjkl
 " bookmarks
-qmark g https://github.com/H-I-D
+qmark g https://github.com/vwrs
 qmark w https://my.waseda.jp
-qmark c https://cnavi.waseda.jp/
+qmark c https://cnavi.waseda.jp
 qmark d https://drive.google.com/drive/u/0/recent
 qmark t http://maruta.github.io/timekeeper/#t1=20:00&t2=30:00&t3=99:00&m=院ゼミタイマー
+qmark y https://www.youtube.com
