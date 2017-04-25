@@ -27,6 +27,7 @@
 	d = diff
 	dc = diff --cached
 	dns = diff --name-status
+	f = fetch
 	s = status -sb
 	ss = status
 	l = log --stat --summary --decorate
