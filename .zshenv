@@ -30,7 +30,6 @@ if [ "$(uname)" = "Darwin" ]; then
   export HOMEBREW_BREWFILE=~/dotfiles/.brewfile
   # pyenv
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/shims:$PATH"
   # git
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
   # tig(--with-docs, docbooks, asciidoc)
