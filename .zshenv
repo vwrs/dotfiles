@@ -13,27 +13,26 @@ fi
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
-  if [ "$(hostname)" = "Hideaki" ]; then
-    # less
-    export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-  else  # lab
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    export PATH=$PYENV_ROOT/versions/anaconda3-4.1.0/bin:$PATH
-  fi
   # homebrew-cask
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   # homebrew
   export PATH="/usr/local/sbin:$PATH"
   # brew-file
   export HOMEBREW_BREWFILE=~/dotfiles/.brewfile
-  # pyenv
-  export PYENV_ROOT="$HOME/.pyenv"
   # git
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
   # tig(--with-docs, docbooks, asciidoc)
   export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+  # pyenv
+  export PYENV_ROOT="$HOME/.pyenv"
+  if [ "$(hostname)" = "Hideaki" ]; then
+    # less
+    export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+  else  # lab
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    export PATH=$PYENV_ROOT/versions/anaconda3-4.1.0/bin:$PATH
+  fi
 else
   # lab
   # --------------
