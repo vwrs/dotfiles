@@ -107,7 +107,7 @@ symlink_files() {
     ln -snfv ${DOT_HOME}/${f} $1/${f}
   done
   echo "${GREEN}Successfully symlink dotfiles. ✔︎ ${NORMAL}"
-  echo "${BOLD}To enable zsh, please execute 'chsh -s /path/to/zsh'.${NORMAL}"
+  echo "${BOLD}To enable zsh, please execute 'chsh'.${NORMAL}"
 }
 
 # main

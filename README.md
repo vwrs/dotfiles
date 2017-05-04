@@ -1,7 +1,7 @@
 # dotfiles
 ## Installation
 ```
-$ bash -c "$(curl -fL raw.github.com/vwrs/dotfiles/master/bootstrap)"
+$ bash -c "$(curl -fsSL raw.github.com/vwrs/dotfiles/master/bootstrap)"
 ```
 
 
