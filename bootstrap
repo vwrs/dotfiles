@@ -120,27 +120,33 @@ powerline_fonts() {
 
 # main
 # --------------
-usage
-echo -n "${BOLD}command: ${NORMAL}"
-read command
-case $command in
-  init)
-    download
-    ;;
-  deploy)
-    symlink_files $HOME
-    ;;
-  deploy_root)
-    symlink_files $ROOT_HOME
-    ln -s ${HOME}/.zplug ${ROOT_HOME}/.zplug
-    ;;
-  font)
-    powerline_fonts
-    ;;
-  *)
-    echo "${RED}bootstrap: command not found.${NORMAL}"
-    exit 1
-    ;;
-esac
+main() {
+  usage
+  echo -n "${BOLD}command: ${NORMAL}"
+  read command
+  case $command in
+    init)
+      download
+      main
+      ;;
+    font)
+      powerline_fonts
+      main
+      ;;
+    deploy)
+      symlink_files $HOME
+      ;;
+    deploy_root)
+      symlink_files $ROOT_HOME
+      ln -s ${HOME}/.zplug ${ROOT_HOME}/.zplug
+      ;;
+    *)
+      echo "${RED}bootstrap: command not found.${NORMAL}"
+      exit 1
+      ;;
+  esac
+}
+
+main
 
 exit 0
