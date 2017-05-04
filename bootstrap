@@ -52,6 +52,7 @@ EOF
   cat <<\EOF
 Commands:
   init (download dotfiles, zplug, tpm)
+  font (install powerline patched fonts)
   deploy (override & symlink dotfiles)
   deploy_root (override & symlink dotfiles, in super user)
 EOF
@@ -111,8 +112,8 @@ symlink_files() {
 }
 
 powerline_fonts() {
-  git clone https://github.com/powerline/fonts.git ~
-  cd ~/fonts
+  git clone https://github.com/powerline/fonts.git
+  cd fonts
   ./install.sh
   cd ..
   rm -rf fonts
