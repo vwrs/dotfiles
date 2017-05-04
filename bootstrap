@@ -5,7 +5,7 @@ ROOT_HOME=/var/root
 DOT_HOME=~/dotfiles
 ZPLUG_HOME=~/.zplug
 TPM_HOME=~/.tmux/plugins/tpm
-REMOTE_URL="git@github.com:H-I-D/dotfiles.git"
+REMOTE_URL="git@github.com:vwrs/dotfiles.git"
 if which tput >/dev/null 2>&1; then
   ncolors=$(tput colors)
 fi
@@ -78,7 +78,7 @@ download() {
   # zplug
   if [ ! -d ${ZPLUG_HOME} ]; then
     echo "Downloading zplug ..."
-    curl -sL --proto-redir -all,https https://zplug.sh/installer | zsh
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
     echo "${GREEN}Successfully downloaded zplug in ${ZPLUG_HOME}. ✔︎ ${NORMAL}"
   else
     echo "${BOLD}zplug already exists.${NORMAL}"
