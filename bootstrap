@@ -110,6 +110,14 @@ symlink_files() {
   echo "${BOLD}To enable zsh, please execute 'chsh'.${NORMAL}"
 }
 
+powerline_fonts() {
+  git clone https://github.com/powerline/fonts.git ~
+  cd ~/fonts
+  ./install.sh
+  cd ..
+  rm -rf fonts
+}
+
 # main
 # --------------
 usage
@@ -125,6 +133,9 @@ case $command in
   deploy_root)
     symlink_files $ROOT_HOME
     ln -s ${HOME}/.zplug ${ROOT_HOME}/.zplug
+    ;;
+  font)
+    powerline_fonts
     ;;
   *)
     echo "${RED}bootstrap: command not found.${NORMAL}"
