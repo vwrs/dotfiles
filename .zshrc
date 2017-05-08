@@ -76,25 +76,6 @@ zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-dir
 HISTFILE=~/.zsh_history
 HISTSIZE=77777
 SAVEHIST=77777
-# vi mode
-# --------------
-# bindkey -M viins '^j' vi-cmd-mode
-# bindkey '^P' up-history
-# bindkey '^N' down-history
-# bindkey '^?' backward-delete-char
-# bindkey '^h' backward-delete-char
-# bindkey '^w' backward-kill-word
-# function zle-line-init zle-keymap-select {
-#     VIM_NORMAL="%K{208}%F{black}⮀%k%f%K{208}%F{white} % NORMAL %k%f%K{black}%F{208}⮀%k%f"
-#     VIM_INSERT="%K{075}%F{black}⮀%k%f%K{075}%F{white} % INSERT %k%f%K{black}%F{075}⮀%k%f"
-#     RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
-#     # RPS2=$RPS1
-#     zle reset-prompt
-# }
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-# export KEYTIMEOUT=1
-# --------------
 # ls
 export LSCOLORS=Cxfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
