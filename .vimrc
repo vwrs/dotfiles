@@ -73,7 +73,7 @@ let g:php_noShortTags   = 1
 let g:php_sql_query     = 1
 let g:tex_conceal=''
 
-" change default key-mappings
+" change default key mappings
 " ----------
 let g:mapleader = "\<Space>"
 let g:maplocalleader = "\<Space>"
@@ -89,6 +89,13 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 " highlight last inserted text
 nnoremap gV `[v`]
+" emacs-like key mappings
+inoremap <silent> <C-b> <Left>
+inoremap <silent> <C-f> <Right>
+inoremap <silent> <C-p> <Up>
+inoremap <silent> <C-n> <Down>
+inoremap <silent> <C-a> <ESC>I
+inoremap <silent> <C-e> <End>
 
 " plugin settings
 " ---------------
