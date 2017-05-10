@@ -7,6 +7,8 @@ zplug "zplug/zplug", hook-build:"zplug --self-manage"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "erikw/tmux-powerline"
+zplug "greymd/tmux-xpanes"
+
 # themes
 # --------------
 # zplug "frmendes/geometry", as:theme
