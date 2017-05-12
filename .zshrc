@@ -117,6 +117,7 @@ if [ -d ~/.iterm2 ]; then
   source ~/.iterm2_shell_integration.zsh
   alias it2dl="~/.iterm2/it2dl"
   alias imgcat="~/.iterm2/imgcat"
+  alias imgls="~/.iterm2/imgls"
 fi
 
 # LaTeX
