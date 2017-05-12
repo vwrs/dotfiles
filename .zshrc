@@ -113,6 +113,12 @@ if [ -x "`which pip`" ]; then
   }
   compctl -K _pip_completion pip
 fi
+if [ -d ~/.iterm2 ]; then
+  source ~/.iterm2_shell_integration.zsh
+  alias it2dl="~/.iterm2/it2dl"
+  alias imgcat="~/.iterm2/imgcat"
+fi
+
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
 alias latexmk="latexmk -pvc"
@@ -165,10 +171,6 @@ if [ "$(uname)" = "Darwin" ]; then
   if [ -f $(brew --prefix)/etc/brew-wrap ];then
     source $(brew --prefix)/etc/brew-wrap
   fi
-  # iTerm2
-  source ~/.iterm2_shell_integration.zsh
-  alias it2dl="~/.iterm2/it2dl"
-  alias imgcat="~/.iterm2/imgcat"
 
   alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
