@@ -187,7 +187,7 @@ let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_manual = 1
 
 " Nvim-R
-let R_vsplit=1
+let R_nvimpager='vertical'
 let R_in_buffer=0
 let R_applescript=0
 let R_tmux_split=1
