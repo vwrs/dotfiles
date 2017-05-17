@@ -41,7 +41,7 @@ else
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
-  export PATH=$PYENV_ROOT/versions/anaconda3-4.1.0/bin:$PATH
+  eval "$(pyenv virtualenv-init -)"
   # cuda
   # --------------
   export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH

@@ -91,10 +91,6 @@ fi
 if [ -x "`which fzf`" ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
-if [ -x "`which pyenv`" ]; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
 if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
 fi
