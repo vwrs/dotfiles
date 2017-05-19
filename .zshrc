@@ -1,6 +1,13 @@
 # zplug
 # ===================================
 source ~/.zplug/init.zsh
+# compile if .zwc is old
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   zcompile ~/.zshrc
+fi
+if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
+   zcompile ~/.zshenv
+fi
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 # zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
