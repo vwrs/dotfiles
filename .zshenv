@@ -30,13 +30,13 @@ if [ "$(uname)" = "Darwin" ]; then
   # tig(--with-docs, docbooks, asciidoc)
   export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
   # pyenv
+  export PATH="$PYENV_ROOT/bin:$PATH"
   if [ -x "`which pyenv`" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     if [ "$(hostname)" = "Hideaki" ]; then
       # less
       export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
     else  # lab
-      export PATH="$PYENV_ROOT/bin:$PATH"
       eval "$(pyenv init -)"
     fi
   fi
