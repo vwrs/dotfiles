@@ -96,6 +96,7 @@ inoremap <silent> <C-p> <Up>
 inoremap <silent> <C-n> <Down>
 inoremap <silent> <C-a> <ESC>I
 inoremap <silent> <C-e> <End>
+inoremap <silent> <C-d> <Del>
 
 " plugin settings
 " ---------------
