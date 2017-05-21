@@ -29,24 +29,16 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
   # tig(--with-docs, docbooks, asciidoc)
   export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
-  # pyenv
-  if [ -x "`which pyenv`" ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    if [ "$(hostname)" = "Hideaki" ]; then
-      # less
-      export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-    else  # lab
-      export PATH="$PYENV_ROOT/bin:$PATH"
-      eval "$(pyenv init -)"
-    fi
+
+  if [ "$(hostname)" = "Hideaki" ]; then
+    # less
+    export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+  else  # lab
   fi
 else
   # lab
   # --------------
   export PATH=/usr/local/cuda/bin:$PATH
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
   # cuda
   # --------------
