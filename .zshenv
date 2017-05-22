@@ -29,11 +29,13 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
   # tig(--with-docs, docbooks, asciidoc)
   export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+<<<<<<< HEAD
 
   if [ "$(hostname)" = "Hideaki" ]; then
     # less
     export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
   else  # lab
+
   fi
 else
   # lab
