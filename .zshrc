@@ -98,12 +98,6 @@ fi
 if [ -x "`which fzf`" ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
-# pyenv
-if [ -x "`which pyenv`" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
 if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
 fi
