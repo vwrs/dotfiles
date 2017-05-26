@@ -3,9 +3,11 @@
 source ~/.zplug/init.zsh
 # compile if .zwc is old
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   echo "zcompile .zshrc"
    zcompile ~/.zshrc
 fi
 if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
+   echo "zcompile .zshenv"
    zcompile ~/.zshenv
 fi
 
