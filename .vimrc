@@ -173,7 +173,7 @@ let g:airline_enable_branch = 1
 " language-specific plugins
 " ----------
 " jedi-vim
-let g:jedi#goto_command = "<C-d>d"
+let g:jedi#goto_command = "<Leader>g"
 " let g:jedi#goto_assignments_command = "<Leader>g"
 " let g:jedi#goto_definitions_command = "<Leader>d"
 let g:jedi#documentation_command = "K"
@@ -286,7 +286,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
 Plug 'evidens/vim-twig', { 'for': 'twig' }
-Plug 'davidhalter/jedi-vim', { 'on': 'JediToggle' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
