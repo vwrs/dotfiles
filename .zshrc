@@ -3,9 +3,11 @@
 source ~/.zplug/init.zsh
 # compile if .zwc is old
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   echo "zcompile .zshrc"
    zcompile ~/.zshrc
 fi
 if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
+   echo "zcompile .zshenv"
    zcompile ~/.zshenv
 fi
 
@@ -97,12 +99,6 @@ if [ -x "`which tree`" ]; then
 fi
 if [ -x "`which fzf`" ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fi
-# pyenv
-if [ -x "`which pyenv`" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
 fi
 if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
