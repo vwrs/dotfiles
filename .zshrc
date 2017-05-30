@@ -104,8 +104,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 if [ -d ${PYENV_ROOT} ]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
-fi
-if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
 fi
 if [ -x "`which tmux`" ]; then
