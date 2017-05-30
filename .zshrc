@@ -100,6 +100,11 @@ fi
 if [ -x "`which fzf`" ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d ${PYENV_ROOT} ]; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 if [ -x "`which jupyter`" ]; then
   alias j="jupyter"
 fi
@@ -179,7 +184,7 @@ if [ "$(uname)" = "Darwin" ]; then
     source $(brew --prefix)/etc/brew-wrap
   fi
 
-  alias brew="env PATH=${PATH/${HOME}\/\.pyenv\/shims:/} brew"
+  alias brew="brew"
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 
