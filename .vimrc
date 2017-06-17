@@ -170,35 +170,11 @@ let g:airline_theme='tenderplus'
 let g:airline#extensions#tabline#enabled=1
 let g:airline_enable_branch = 1
 
-" language-specific plugins
-" ----------
-" jedi-vim
-let g:jedi#goto_command = "<Leader>g"
-" let g:jedi#goto_assignments_command = "<Leader>g"
-" let g:jedi#goto_definitions_command = "<Leader>d"
-let g:jedi#documentation_command = "K"
-" let g:jedi#completions_command = "<C-c>"
-let g:jedi#rename_command = "<C-d>r"
-
-" vimtex
-let g:vimtex_latexmk_continuous = 1
-let g:tex_flavor = 'latex'
-let g:vimtex_echo_ignore_wait = 1
-let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_manual = 1
-
-" Nvim-R
-let R_nvimpager='vertical'
-let R_in_buffer=0
-let R_applescript=0
-let R_tmux_split=1
-let R_term='tmux'
-
 " vim-indent-guides
 let g:indent_guides_start_level = 2
 
 " closetag.vim
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.twig"
 
 " caw.vim
 nmap <C-_> <Plug>(caw:hatpos:toggle)
@@ -234,6 +210,34 @@ let g:EasyMotion_smartcase = 1
 
 " vim-operator-replace
 nmap R <Plug>(operator-replace)
+
+" language-specific plugins
+" ----------
+" jedi-vim
+let g:jedi#goto_command = "<Leader>g"
+" let g:jedi#goto_assignments_command = "<Leader>g"
+" let g:jedi#goto_definitions_command = "<Leader>d"
+let g:jedi#documentation_command = "K"
+" let g:jedi#completions_command = "<C-c>"
+let g:jedi#rename_command = "<C-d>r"
+
+" vimtex
+let g:vimtex_latexmk_continuous = 1
+let g:tex_flavor = 'latex'
+let g:vimtex_echo_ignore_wait = 1
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
+
+" Nvim-R
+let R_nvimpager='vertical'
+let R_in_buffer=0
+let R_applescript=0
+let R_tmux_split=1
+let R_term='tmux'
+
+" vim-cellmode
+let g:cellmode_screen_sessionname='jupyter'
+let g:cellmode_tmux_panenumber='1'
 
 " vim-plug
 " ---------------
@@ -285,11 +289,13 @@ Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': 'php' }
-Plug 'evidens/vim-twig', { 'for': 'twig' }
+Plug 'lumiliet/vim-twig', { 'for': 'twig' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
+Plug 'vim-scripts/matchit.zip' ", { 'for': ['html', 'php', 'twig'] }
+Plug 'julienr/vim-cellmode', { 'for': 'python' }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors' }
