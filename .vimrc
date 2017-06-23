@@ -327,8 +327,8 @@ call plug#end()
 
 " syntax
 " ----------
-colorscheme hybrid
+colorscheme inkpot
 set background=dark
-hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
 syntax on
+hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
 
