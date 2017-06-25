@@ -122,7 +122,6 @@ powerline_fonts() {
 # main
 # --------------
 main() {
-  usage
   echo -n "${BOLD}command: ${NORMAL}"
   read command
   case $command in
@@ -148,6 +147,7 @@ main() {
   esac
 }
 
+usage
 main
 
 exit 0
