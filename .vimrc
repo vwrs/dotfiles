@@ -257,9 +257,9 @@ nmap R <Plug>(operator-replace)
 let g:jedi#goto_command = "<Leader>g"
 " let g:jedi#goto_assignments_command = "<Leader>g"
 " let g:jedi#goto_definitions_command = "<Leader>d"
-let g:jedi#documentation_command = "K"
+" let g:jedi#documentation_command = "K"
 " let g:jedi#completions_command = "<C-c>"
-let g:jedi#rename_command = "<C-d>r"
+" let g:jedi#rename_command = "<C-d>r"
 
 " vimtex
 let g:vimtex_latexmk_continuous = 1
