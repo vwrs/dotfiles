@@ -95,7 +95,7 @@ zstyle ':completion:*' list-colors 'di=32' 'ex=31'
 # commands
 # --------------
 if [ -x "`which tree`" ]; then
-  alias tree="tree -aC"
+  alias tree="tree -aC -I '.git|.DS_Store'"
 fi
 if [ -x "`which fzf`" ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
