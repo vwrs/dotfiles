@@ -127,6 +127,13 @@ if [ -x "`which pip`" ]; then
   }
   compctl -K _pip_completion pip
 fi
+if [ -x "`which convert`" ]; then
+  img2pdf () {
+    for f in *.(png|jpg); do
+      convert $f ${f%.*}.pdf
+    done
+  }
+fi
 if [ -d ~/.iterm2 ]; then
   source ~/.iterm2_shell_integration.zsh
   alias it2dl="~/.iterm2/it2dl"
