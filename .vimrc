@@ -328,8 +328,8 @@ Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
-Plug 'stanangeloff/php.vim', { 'for': 'php' }
+Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php', 'twig'] }
+Plug 'stanangeloff/php.vim', { 'for': ['php', 'twig'] }
 Plug 'lumiliet/vim-twig', { 'for': 'twig' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
@@ -340,15 +340,15 @@ Plug 'julienr/vim-cellmode', { 'for': 'python' }
 " colorscheme
 " ----------
 " Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors' }
-Plug 'tomasr/molokai', { 'do': 'ln -fnsv ~/.vim/plugged/molokai/colors/* ~/.vim/colors' }
-Plug 'w0ng/vim-hybrid', { 'do': 'ln -fnsv ~/.vim/plugged/vim-hybrid/colors/* ~/.vim/colors' }
-Plug 'gosukiwi/vim-atom-dark', { 'do': 'ln -fnsv ~/.vim/plugged/vim-atom-dark/colors/* ~/.vim/colors' }
-Plug 'joshdick/onedark.vim', { 'do': 'ln -fnsv ~/.vim/plugged/onedark.vim/colors/* ~/.vim/colors' }
-Plug 'jacoborus/tender.vim', { 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors' }
-" Plug '29decibel/codeschool-vim-theme', { 'do': 'ln -fnsv ~/.vim/plugged/codeschool-vim-theme/colors/* ~/.vim/colors' }
-" Plug 'vim-scripts/twilight', { 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* ~/.vim/colors' }
-" Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors' }
-Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors' }
+Plug 'tomasr/molokai', { 'do': 'ln -fnsv ~/.vim/plugged/molokai/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'w0ng/vim-hybrid', { 'do': 'ln -fnsv ~/.vim/plugged/vim-hybrid/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'gosukiwi/vim-atom-dark', { 'do': 'ln -fnsv ~/.vim/plugged/vim-atom-dark/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'joshdick/onedark.vim', { 'do': 'ln -fnsv ~/.vim/plugged/onedark.vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'jacoborus/tender.vim', { 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors'}
+" Plug '29decibel/codeschool-vim-theme', { 'do': 'ln -fnsv ~/.vim/plugged/codeschool-vim-theme/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+" Plug 'vim-scripts/twilight', { 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+" Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 call plug#end()
 
 " syntax
