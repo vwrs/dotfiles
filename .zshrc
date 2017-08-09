@@ -68,7 +68,7 @@ setopt correct
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
-# setopt share_history
+setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
