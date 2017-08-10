@@ -106,7 +106,10 @@ symlink_files() {
     [[ $f = ".gitignore" ]] && continue
     [[ $f = ".gitmodules" ]] && continue
     [[ $f = ".brewfile" ]] && continue
-    [[ $f = ".htoprc" ]] && ln -snfv $DOT_HOME/$f $CONFIG_HTOP/${f:1}
+    if [ $f = ".htoprc" ]; then
+      ln -snfv $DOT_HOME/$f $CONFIG_HTOP/${f:1}
+      continue
+    fi
     # symlink files
     ln -snfv $DOT_HOME/$f $1/$f
   done
