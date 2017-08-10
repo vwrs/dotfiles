@@ -6,6 +6,7 @@ DOT_HOME=~/dotfiles
 ZPLUG_HOME=~/.zplug
 TPM_HOME=~/.tmux/plugins/tpm
 REMOTE_URL="git@github.com:vwrs/dotfiles.git"
+CONFIG_HTOP=$HOME/.config/htop
 if which tput >/dev/null 2>&1; then
   ncolors=$(tput colors)
 fi
@@ -61,11 +62,11 @@ EOF
 
 download() {
   # dotfiles
-  if [ ! -d ${DOT_HOME} ]; then
+  if [ ! -d $DOT_HOME ]; then
     echo "Downloading dotfiles..."
-    mkdir ${DOT_HOME}
+    mkdir $DOT_HOME
     if has "git"; then
-      git clone --recursive "${REMOTE_URL}" "${DOT_HOME}"
+      git clone --recursive $REMOTE_URL $DOT_HOME
     else
       echo "${RED}Please install git.${NORMAL}"
       exit 1
@@ -77,7 +78,7 @@ download() {
   # install vim-plug
   # curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   # zplug
-  if [ ! -d ${ZPLUG_HOME} ]; then
+  if [ ! -d $ZPLUG_HOME ]; then
     echo "Downloading zplug ..."
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
     echo "${GREEN}Successfully downloaded zplug in ${ZPLUG_HOME}. ✔︎ ${NORMAL}"
@@ -85,7 +86,7 @@ download() {
     echo "${BOLD}zplug already exists.${NORMAL}"
   fi
   # tpm
-  if [ ! -d ${TPM_HOME} ]; then
+  if [ ! -d $TPM_HOME ]; then
     echo "Downloading tpm ..."
     git clone git@github.com:tmux-plugins/tpm $TPM_HOME
     echo "${GREEN}Successfully downloaded tpm in ${TPM_HOME}. ✔︎ ${NORMAL}"
@@ -96,16 +97,18 @@ download() {
 
 symlink_files() {
   echo "Symlinking dotfiles..."
+  [ ! -e $CONFIG_HTOP ] && mkdir -p $CONFIG_HTOP
   for f in .??*
   do
     # ignore list
-    [[ ${f} = ".DS_Store" ]] && continue
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitignore" ]] && continue
-    [[ ${f} = ".gitmodules" ]] && continue
-    [[ ${f} = ".brewfile" ]] && continue
+    [[ $f = ".DS_Store" ]] && continue
+    [[ $f = ".git" ]] && continue
+    [[ $f = ".gitignore" ]] && continue
+    [[ $f = ".gitmodules" ]] && continue
+    [[ $f = ".brewfile" ]] && continue
+    [[ $f = ".htoprc" ]] && ln -snfv $DOT_HOME/$f $CONFIG_HTOP/${f:1}
     # symlink files
-    ln -snfv ${DOT_HOME}/${f} $1/${f}
+    ln -snfv $DOT_HOME/$f $1/$f
   done
   echo "${GREEN}Successfully symlink dotfiles. ✔︎ ${NORMAL}"
   echo "${BOLD}To enable zsh, please execute 'chsh'.${NORMAL}"
