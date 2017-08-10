@@ -37,8 +37,6 @@
 	unstage = reset HEAD --
 [push]
 	default = matching
-[commit]
-	template = ~/.stCommitMsg
 [color "diff"]
 	# old = red strike
 	# new = green bold italic
