@@ -11,11 +11,13 @@ brew automake
 brew boost
 brew cairo
 brew cmake
+brew cowsay
 brew doxygen
 brew elixir
 brew erlang
 brew figlet
 brew fontconfig
+brew fortune
 brew freetype
 brew fzf
 brew gcc
@@ -29,6 +31,7 @@ brew git-lfs
 brew glib
 brew gmp
 brew go
+brew hdf5
 brew htop
 brew imagemagick
 brew isl
@@ -51,6 +54,7 @@ brew mas
 brew mpfr
 brew msgpack
 brew mysql
+brew neovim
 brew nkf
 brew nmap
 brew node
@@ -63,6 +67,7 @@ brew pixman
 brew pkg-config
 brew pyenv
 brew python
+brew r
 brew readline
 brew selenium-server-standalone
 brew source-highlight
@@ -85,11 +90,8 @@ brew zsh-completions
 tap homebrew/dupes
 
 tap homebrew/science
-brew hdf5
-brew r
 
 tap neovim/neovim
-brew neovim
 
 tap rcmdnk/file
 brew brew-file
