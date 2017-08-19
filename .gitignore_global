@@ -9,6 +9,6 @@ Vagrantfile
 __pycache__
 .Rproj.user
 .Rhistory
+.RData
 .ipynb_checkpoints
 *.pyc
-
