@@ -47,6 +47,7 @@ set mouse=a
 set t_ut=
 set scrolloff=10
 set colorcolumn=80
+set conceallevel=0
 
 " ensure the autocmd's are applied once
 augroup configgroup
@@ -160,9 +161,9 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" if has('conceal')
+"   set conceallevel=2 concealcursor=niv
+" endif
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory = '~/.vim/plugged/vim-snippets/snippets'
 
