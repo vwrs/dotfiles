@@ -62,7 +62,7 @@ zplug load
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
-autoload -Uz compinit; compinit -u
+autoload -Uz compinit; compinit -Cu
 zmodload zsh/complist
 setopt correct
 setopt auto_cd
