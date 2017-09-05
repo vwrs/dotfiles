@@ -31,6 +31,7 @@ brew git-lfs
 brew glib
 brew gmp
 brew go
+brew gobject-introspection
 brew hdf5
 brew htop
 brew imagemagick
@@ -58,6 +59,7 @@ brew neovim
 brew nkf
 brew nmap
 brew node
+brew openjpeg
 brew openssl
 brew pacvim
 brew pandoc
@@ -65,6 +67,7 @@ brew pcre
 brew peco
 brew pixman
 brew pkg-config
+brew poppler
 brew pyenv
 brew python
 brew r
