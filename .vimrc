@@ -340,21 +340,22 @@ Plug 'vim-scripts/matchit.zip' ", { 'for': ['html', 'php', 'twig'] }
 Plug 'julienr/vim-cellmode', { 'for': 'python' }
 " colorscheme
 " ----------
-" Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors' }
+Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'tomasr/molokai', { 'do': 'ln -fnsv ~/.vim/plugged/molokai/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'w0ng/vim-hybrid', { 'do': 'ln -fnsv ~/.vim/plugged/vim-hybrid/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'gosukiwi/vim-atom-dark', { 'do': 'ln -fnsv ~/.vim/plugged/vim-atom-dark/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'joshdick/onedark.vim', { 'do': 'ln -fnsv ~/.vim/plugged/onedark.vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'jacoborus/tender.vim', { 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors'}
+Plug 'jacoborus/tender.vim', { 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 " Plug '29decibel/codeschool-vim-theme', { 'do': 'ln -fnsv ~/.vim/plugged/codeschool-vim-theme/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 " Plug 'vim-scripts/twilight', { 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 " Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 call plug#end()
 
 " syntax
 " ----------
-colorscheme inkpot
+colorscheme nord
 set background=dark
 syntax on
 hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
