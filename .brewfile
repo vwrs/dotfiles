@@ -30,6 +30,8 @@ brew git
 brew git-lfs
 brew glib
 brew gmp
+brew gnu-getopt
+brew gnupg
 brew go
 brew gobject-introspection
 brew hdf5
@@ -63,6 +65,7 @@ brew openjpeg
 brew openssl
 brew pacvim
 brew pandoc
+brew pass
 brew pcre
 brew peco
 brew pixman
@@ -70,6 +73,7 @@ brew pkg-config
 brew poppler
 brew pyenv
 brew python
+brew qrencode
 brew r
 brew readline
 brew selenium-server-standalone
