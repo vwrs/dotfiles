@@ -11,12 +11,12 @@ if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
    zcompile ~/.zshenv
 fi
 
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "erikw/tmux-powerline"
-zplug "greymd/tmux-xpanes"
+# zplug "zplug/zplug", hook-build:"zplug --self-manage"
+# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+# zplug "greymd/tmux-xpanes"
 
 # themes
 # --------------
@@ -46,12 +46,12 @@ BULLETTRAIN_GIT_BG=green
 BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install(zplug)? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if ! zplug check --verbose; then
+#   printf "Install(zplug)? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 
 zplug load
 
@@ -62,7 +62,7 @@ zplug load
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
-autoload -Uz compinit; compinit -Cu
+autoload -Uz compinit; compinit -u
 zmodload zsh/complist
 setopt correct
 setopt auto_cd
@@ -185,7 +185,6 @@ alias be="bundle exec"
 # OS dependent
 # --------------
 if [ "$(uname)" = "Darwin" ]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
   alias ls="ls -tGAF"
   alias l.="ls -d .*"
   alias du="du -ch"
