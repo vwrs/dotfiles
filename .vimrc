@@ -88,6 +88,13 @@ noremap! <C-j> <ESC>
 " inoremap jk <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+" fzf
+nnoremap <Leader>f :FZF<CR>
+" nerdtree
+nnoremap <Leader>n :NERDTree<CR>
+" vim-fugitive
+nnoremap <Leader>d :Gdiff<CR>
+nnoremap <Leader>b :Gblame<CR>
 " highlight last inserted text
 nnoremap gV `[v`]
 " emacs-like key mappings
@@ -201,12 +208,7 @@ vmap <C-_> <Plug>(caw:hatpos:toggle)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-" nerdtree
-nnoremap <Leader>n :NERDTree<CR>
-" vim-fugitive
-nnoremap <Leader>d :Gdiff<CR>
 " fzf
-nnoremap <Leader>f :FZF<CR>
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,css,r,config,py,cpp,c,go,hs,rb,conf}"
