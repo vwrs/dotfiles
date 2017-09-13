@@ -45,11 +45,11 @@ usage() {
               \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
 EOF
   echo $YELLOW
-  cat <<\EOF
-note:
-Please make sure that you have completed adding ssh key to GitHub.
-EOF
-  echo $BLUE
+#   cat <<\EOF
+# note:
+# Please make sure that you have completed adding ssh key to GitHub.
+# EOF
+  # echo $BLUE
   cat <<\EOF
 Commands:
   init (download dotfiles, zplug, tpm)
