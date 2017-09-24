@@ -49,10 +49,23 @@ set scrolloff=10
 set colorcolumn=80
 set conceallevel=0
 
+" remove spaces at the end of each line
+function! Rstrip()
+  let s:tmppos = getpos(".")
+  if &filetype == "markdown"
+    " >= 2 spaces -> 2 spaces, 1space -> delete
+    %s/\v(\s{2})?(\s+)?$/\1/e
+    match Underlined /\s\{2}$/
+  else
+    %s/\v\s+$//e
+  endif
+  call setpos(".", s:tmppos)
+endfunction
+
 " ensure the autocmd's are applied once
 augroup configgroup
   autocmd!
-  autocmd BufWritePre * :%s/\s\+$//ge " remove spaces at the end of line
+  autocmd BufWritePre * :call Rstrip()
   autocmd FileType * setlocal formatoptions-=r
   autocmd FileType * setlocal formatoptions-=o
   " language-specific settings
@@ -105,6 +118,7 @@ inoremap <silent> <C-n> <Down>
 inoremap <silent> <C-a> <ESC>I
 inoremap <silent> <C-e> <End>
 inoremap <silent> <C-d> <Del>
+
 
 " plugin settings
 " ---------------
