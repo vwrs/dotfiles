@@ -16,6 +16,7 @@ brew doxygen
 brew elixir
 brew erlang
 brew figlet
+brew fish
 brew fontconfig
 brew fortune
 brew freetype
@@ -67,6 +68,7 @@ brew pacvim
 brew pandoc
 brew pass
 brew pcre
+brew pcre2
 brew peco
 brew pixman
 brew pkg-config
