@@ -2,103 +2,160 @@
 # tap repositories and their packages
 
 tap caskroom/cask
+cask calibre
+cask kap
+cask osxfuse
 cask rstudio
 
+tap d12frosted/emacs-plus
+brew emacs-plus
+
+tap homebrew/bundle
+
 tap homebrew/core
-brew antiword
-brew autoconf
-brew automake
-brew boost
-brew cairo
-brew cmake
-brew cowsay
-brew doxygen
-brew elixir
-brew erlang
-brew figlet
-brew fish
-brew fontconfig
-brew fortune
-brew freetype
-brew fzf
-brew gcc
-brew gdb
-brew gdbm
-brew gettext
-brew ghostscript
-brew gibo
-brew git
-brew git-lfs
-brew glib
-brew gmp
-brew gnu-getopt
-brew gnupg
-brew go
-brew gobject-introspection
-brew hdf5
-brew htop
-brew imagemagick
-brew isl
-brew jpeg
-brew json-c
-brew leptonica
-brew libdnet
-brew libevent
-brew libffi
-brew libmpc
-brew libpng
-brew libtermkey
-brew libtiff
-brew libtool
-brew libuv
-brew libvterm
-brew little-cms2
-brew lua
-brew mas
-brew mpfr
-brew msgpack
-brew mysql
-brew neovim
-brew nkf
-brew nmap
-brew node
-brew openjpeg
-brew openssl
-brew pacvim
-brew pandoc
-brew pass
-brew pcre
-brew pcre2
-brew peco
-brew pixman
-brew pkg-config
-brew poppler
 brew pyenv
+brew mysql
+brew gd
+brew libunistring
+brew gdk-pixbuf
+brew thefuck
+brew shared-mime-info
+brew git-lfs
+brew node
+brew imagemagick
+brew librsvg
+brew json-c
+brew adns
+brew tor
+brew gnutls
+brew libusb
+brew libcroco
+brew gibo
+brew fontconfig
+brew elixir
+brew cairo
+brew libvterm
+brew isl
 brew python
-brew qrencode
-brew r
-brew readline
-brew selenium-server-standalone
-brew source-highlight
-brew sqlite
-brew szip
-brew tesseract
-brew tmux
-brew tree
-brew unibilium
-brew utf8proc
-brew vim --with-lua
-brew wakatime-cli
-brew wget
-brew wxmac
-brew xz
-brew zmap
-brew zsh
+brew gdb
+brew pango
+brew docbook
+brew freetype
 brew zsh-completions
+brew reattach-to-user-namespace
+brew pinentry
+brew xmlto
+brew vim --with-lua
+brew libffi
+brew doxygen
+brew gobject-introspection
+brew libuv
+brew fish
+brew ghostscript
+brew hdf5
+brew zsh
+brew nettle
+brew pcre2
+brew gdbm
+brew git
+brew asciidoc
+brew lua
+brew fortune
+brew pandoc
+brew poppler
+brew pacvim
+brew openssl
+brew htop
+brew xz
+brew pkg-config
+brew sshfs
+brew wxmac
+brew utf8proc
+brew jemalloc
+brew cowsay
+brew peco
+brew lftp
+brew imagemagick@6
+brew go
+brew graphviz
+brew webp
+brew figlet
+brew libevent
+brew r
+brew libidn
+brew emacs
+brew docbook-xsl
+brew harfbuzz
+brew zmap
+brew little-cms2
+brew pixman
+brew libtiff
+brew libtasn1
+brew tmux
+brew source-highlight
+brew nmap
+brew grip
+brew mas
+brew qrencode
+brew glib
+brew msgpack
+brew gcal
+brew fzf
+brew libassuan
+brew python3
+brew googler
+brew cmake
+brew autoconf
+brew boost
+brew readline
+brew wget
+brew tig --with-docs
+brew npth
+brew libgpg-error
+brew ctags
+brew pcre
+brew gcc --without-multilib
+brew libtool
+brew gmp
+brew automake
+brew neovim
+brew mpfr
+brew guetzli
+brew blueutil
+brew ripgrep
+brew sqlite
+brew gettext
+brew icu4c
+brew erlang
+brew libpng
+brew libdnet
+brew tree
+brew wakatime-cli
+brew openssl@1.1
+brew pass
+brew gnupg
+brew nkf
+brew p11-kit
+brew libtermkey
+brew leptonica
+brew unibilium
+brew libgcrypt
+brew openjpeg
+brew gnu-getopt
+brew libmpc
+brew libksba
+brew szip
+brew graphite2
+brew jpeg
 
 tap homebrew/dupes
 
+tap homebrew/fuse
+
 tap homebrew/science
+
+tap jmhobbs/parrot
+brew terminal-parrot
 
 tap neovim/neovim
 
@@ -106,17 +163,19 @@ tap rcmdnk/file
 brew brew-file
 
 # App Store applications
-appstore 1024640650 CotEditor (3.1.1)
+appstore 1024640650 CotEditor (3.2.1)
 appstore 449589707 Dash (3.3.1)
+appstore 865500966 feedly (1.1)
 appstore 510934532 FreeMan (1.4.1)
+appstore 408981434 iMovie (10.1.7)
 appstore 1059196126 KeePass Desktop (1.0.6)
-appstore 409183694 Keynote (6.6.2)
+appstore 409183694 Keynote (7.3)
 appstore 896624060 Kobito (2.3.8)
-appstore 539883307 LINE (4.10.2)
-appstore 409203825 Numbers (3.6.2)
-appstore 409201541 Pages (5.6.2)
-appstore 803453959 Slack (2.3.2)
-appstore 1176895641 Spark (1.0.0)
+appstore 539883307 LINE (5.3.3)
+appstore 409203825 Numbers (4.3)
+appstore 409201541 Pages (6.3)
+appstore 803453959 Slack (2.8.0)
+appstore 1176895641 Spark (1.4.2)
+appstore 1071253172 Super Stickman Golf 3 (1.7.9)
 appstore 415166115 Typist (2.4.0)
-appstore 497799835 Xcode (8.1)
-appstore 408981434 iMovie (10.1.3)
+appstore 497799835 Xcode (9.0)
