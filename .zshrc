@@ -143,11 +143,10 @@ fi
 
 # LaTeX
 alias lualatex="lualatex --file-line-error --synctex=1"
-alias latexmk="latexmk -pvc"
 alias luajitlatex="luajittex --fmt=luajitlatex.fmt"
 # aliases
 # --------------
-alias sudo="sudo -E "
+alias sudo="sudo -E"
 alias v="vim"
 alias n="nvim"
 # git
@@ -189,13 +188,11 @@ if [ "$(uname)" = "Darwin" ]; then
   alias l.="ls -d .*"
   alias du="du -ch"
   alias htop="sudo htop"
-  alias unko="say うんこ | echo うんこ"
   # brew-file
   if [ -f $(brew --prefix)/etc/brew-wrap ];then
     source $(brew --prefix)/etc/brew-wrap
   fi
 
-  alias brew="brew"
   alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
   alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 
