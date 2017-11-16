@@ -21,8 +21,7 @@
 	co = checkout
 	com = commit -v
 	comm = commit -m
-	ac = !git add --all && git commit -v
-	acm = !git add --all && git commit -m
+	coma = commit -a -m
 	b = branch
 	d = diff
 	dc = diff --cached
