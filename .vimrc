@@ -293,7 +293,8 @@ let R_tmux_split=1
 let R_term='tmux'
 
 " vim-cellmode
-let g:cellmode_screen_sessionname='jupyter'
+let g:cellmode_tmux_sessionname=''  " Will try to automatically pickup tmux session
+let g:cellmode_tmux_windowname=''
 let g:cellmode_tmux_panenumber='1'
 
 " vim-plug
