@@ -22,6 +22,8 @@
 	com = commit -v
 	comm = commit -m
 	coma = commit -a -m
+	ac = !git add --all && git commit -v
+	acm = !git add --all && git commit -m
 	b = branch
 	d = diff
 	dc = diff --cached
