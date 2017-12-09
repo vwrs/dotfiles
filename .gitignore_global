@@ -2,8 +2,6 @@
 .DS_Store
 ._*
 .idea
-.vagrant
-Vagrantfile
 .tags*
 .*.un~
 __pycache__
