@@ -103,11 +103,13 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 " fzf
 nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>g :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>c :Commits<CR>
 " nerdtree
 nnoremap <Leader>n :NERDTree<CR>
 " vim-fugitive
 nnoremap <Leader>d :Gdiff<CR>
-nnoremap <Leader>b :Gblame<CR>
 " highlight last inserted text
 nnoremap gV `[v`]
 " emacs-like key mappings
