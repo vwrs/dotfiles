@@ -56,7 +56,6 @@ brew gobject-introspection
 brew googler
 brew graphite2
 brew graphviz
-brew grip
 brew guetzli
 brew harfbuzz
 brew hdf5
