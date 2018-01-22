@@ -31,9 +31,14 @@
 	f = fetch
 	s = status -sb
 	ss = status
+	pl = pull
+	ps = push
 	l = log --stat --summary --decorate
 	lp = log --stat --summary --decorate -p
 	lg = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+	lgr = log --graph --date=short --oneline --remotes
+	lgn = log --graph --date=short --oneline --name-status
+	lgnr = log --graph --date=short --oneline --name-status --remotes
 	cancel = reset --soft HEAD^
 	unstage = reset HEAD --
 [push]
