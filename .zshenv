@@ -10,8 +10,6 @@ if [ -x "`which go`" ]; then
   export GOROOT=`go env GOROOT`
   export PATH=$PATH:$GOROOT/bin
 fi
-# itermplot
-export MPLBACKEND="module://itermplot"
 
 # OS dependent
 # --------------
