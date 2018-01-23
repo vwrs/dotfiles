@@ -29,6 +29,7 @@ brew doxygen
 brew elixir
 brew emacs
 brew erlang
+brew exa
 brew figlet
 brew fish
 brew fontconfig
