@@ -204,10 +204,10 @@ let g:syntastic_tex_checkers = ['']
 " let g:syntastic_enable_r_lintr_checker = 1
 
 " vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme='tenderplus'
-let g:airline#extensions#tabline#enabled=1
-let g:airline_enable_branch = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='tenderplus'
+" let g:airline#extensions#tabline#enabled=1
+" let g:airline_enable_branch = 1
 
 " vim-indent-guides
 let g:indent_guides_start_level = 2
@@ -307,8 +307,9 @@ call plug#begin('~/.vim/plugged')
 " ----------
 Plug 'junegunn/vim-easy-align'
 Plug 'tyru/caw.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fugitive'
@@ -321,7 +322,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'honza/vim-snippets'
-Plug 'shougo/unite.vim'
+" Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'kana/vim-smartinput'
@@ -341,21 +342,20 @@ Plug 'kana/vim-operator-replace'
 " Toggle
 " ----------
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
-Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
+" Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 " programming languages
 " ----------
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php', 'twig'] }
-Plug 'stanangeloff/php.vim', { 'for': ['php', 'twig'] }
-Plug 'lumiliet/vim-twig', { 'for': 'twig' }
+Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
+Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
-Plug 'vim-scripts/matchit.zip' ", { 'for': ['html', 'php', 'twig'] }
-Plug 'julienr/vim-cellmode', { 'for': 'python' }
+Plug 'vim-scripts/matchit.zip'
+" Plug 'julienr/vim-cellmode', { 'for': 'python' }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
