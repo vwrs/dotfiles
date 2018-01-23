@@ -7,6 +7,8 @@ nnoremap E $
 nnoremap <ESC><ESC> :noh<CR>
 noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
+noremap <C-p> :bprev<CR>
+noremap <C-n> :bnext<CR>
 " inoremap jk <ESC>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
