@@ -6,9 +6,8 @@ call plug#begin('~/.vim/plugged')
 " ----------
 Plug 'junegunn/vim-easy-align'
 Plug 'tyru/caw.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
+Plug 'taohex/lightline-buffer'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-fugitive'

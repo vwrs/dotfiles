@@ -25,6 +25,7 @@ set incsearch
 set wrapscan
 set hlsearch
 " statusline
+set showtabline=2
 set laststatus=2
 " fold
 " set foldenable
@@ -46,4 +47,5 @@ set t_ut=
 set scrolloff=10
 set colorcolumn=80
 set conceallevel=0
+set hidden  " allow buffer switching without saving
 
