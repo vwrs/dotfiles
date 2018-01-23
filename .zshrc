@@ -101,7 +101,7 @@ if [ -x "`which fzf`" ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
 if [ -x "`which rg`" ]; then
-  export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow -g '!{.git,.vim}/*' 2> /dev/null"
+  export FZF_DEFAULT_COMMAND="rg --files --hidden --follow -g '!{.git}/*' 2> /dev/null"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
