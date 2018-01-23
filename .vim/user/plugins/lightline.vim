@@ -1,28 +1,35 @@
 " use lightline-buffer in lightline
 let g:lightline = {
-    \ 'tabline': {
-    \   'left': [ [ 'bufferinfo' ],
-    \             [ 'separator' ],
-    \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-    \   'right': [ [ 'close' ], ],
-    \ },
-    \ 'component_expand': {
-    \   'buffercurrent': 'lightline#buffer#buffercurrent',
-    \   'bufferbefore': 'lightline#buffer#bufferbefore',
-    \   'bufferafter': 'lightline#buffer#bufferafter',
-    \ },
-    \ 'component_type': {
-    \   'buffercurrent': 'tabsel',
-    \   'bufferbefore': 'raw',
-    \   'bufferafter': 'raw',
-    \ },
-    \ 'component_function': {
-    \   'bufferinfo': 'lightline#buffer#bufferinfo',
-    \ },
-    \ 'component': {
-    \   'separator': '',
-    \ },
-    \ }
+\ 'colorscheme': 'default',
+\ 'active': {
+\   'left': [ ['mode', 'paste' ],
+\             ['fugitive', 'readonly', 'filename', 'modified'],
+\           ],
+\ },
+\ 'tabline': {
+\   'left': [ [ 'bufferinfo' ],
+\             [ 'separator' ],
+\             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+\   'right': [ [ 'close' ], ],
+\ },
+\ 'component_expand': {
+\   'buffercurrent': 'lightline#buffer#buffercurrent',
+\   'bufferbefore': 'lightline#buffer#bufferbefore',
+\   'bufferafter': 'lightline#buffer#bufferafter',
+\ },
+\ 'component_type': {
+\   'buffercurrent': 'tabsel',
+\   'bufferbefore': 'raw',
+\   'bufferafter': 'raw',
+\ },
+\ 'component_function': {
+\   'bufferinfo': 'lightline#buffer#bufferinfo',
+\   'fugitive':   'LightlineFugitive',
+\ },
+\ 'component': {
+\   'separator': '',
+\ },
+\}
 
 " lightline-buffer ui settings
 " replace these symbols with ascii characters if your environment does not support unicode
@@ -50,3 +57,17 @@ let g:lightline_buffer_minflen = 16
 let g:lightline_buffer_minfextlen = 3
 let g:lightline_buffer_reservelen = 20
 
+" custom tabline color
+" :h lightline-colorscheme
+" let s:p = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+" let s:p.tabline.middle = [ ['#81DAF5', 'Gray80', 255, 0] ]
+" let g:lightline#colorscheme#{g:lightline.colorscheme}#palette = s:p
+
+" functions
+function! LightlineFugitive()
+  if exists('*fugitive#head')
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
