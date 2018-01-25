@@ -16,24 +16,20 @@ zplug "zsh-users/zsh-completions"
 zplug "erikw/tmux-powerline"
 # zplug "zplug/zplug", hook-build:"zplug --self-manage"
 # zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-# zplug "greymd/tmux-xpanes"
 
 # themes
 # --------------
 # zplug "frmendes/geometry", as:theme
 # zplug "denysdovhan/spaceship-zsh-theme", as:theme
 # zplug "lenguyenthanh/nt9-oh-my-zsh-theme", as:theme
-zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
+# zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 # random theme
-# themes=("frmendes/geometry" "lenguyenthanh/nt9-oh-my-zsh-theme" "caiogondim/bullet-train-oh-my-zsh-theme")
-# N=${#themes[@]}
-# ((N=(RANDOM%N)+1))
-# RANDOM_THEME=${themes[$N]}
-# zplug $RANDOM_THEME, as:theme
+themes=("frmendes/geometry" "lenguyenthanh/nt9-oh-my-zsh-theme" "caiogondim/bullet-train-oh-my-zsh-theme")
+N=${#themes[@]}
+((N=(RANDOM%N)+1))
+RANDOM_THEME=${themes[$N]}
+zplug $RANDOM_THEME, as:theme
 BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
-# BULLETTRAIN_PROMPT_CHAR="╚═>>>"
-# BULLETTRAIN_PROMPT_CHAR="%F{red}»%F{green}»%F{white}»%f"
-# BULLETTRAIN_PROMPT_CHAR="%F{red}➤%F{green}➤%F{white}➤ %f"
 BULLETTRAIN_PROMPT_CHAR="%F{red}>%F{green}>%F{white}>%f"
 
 BULLETTRAIN_TIME_BG=white
