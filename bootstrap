@@ -123,21 +123,18 @@ download() {
 symlink_files() {
   echo "Symlinking dotfiles..."
   [ ! -e $CONFIG_HTOP ] && mkdir -p $CONFIG_HTOP
-  for f in .??*
+  for f in *
   do
     # ignore list
-    [[ $f = ".DS_Store" ]] && continue
-    [[ $f = ".git" ]] && continue
-    [[ $f = ".gitignore" ]] && continue
-    [[ $f = ".gitmodules" ]] && continue
-    [[ $f = ".brewfile" ]] && continue
-    if [ $f = ".htoprc" ]; then
-      ln -snfv $DOT_HOME/$f $CONFIG_HTOP/${f:1}
-      continue
+    [[ $f = "README.md" ]] && continue
+    [[ $f = "bootstrap" ]] && continue
+    if [ $f = "htoprc" ]; then
+      ln -snfv $DOT_HOME/$f $CONFIG_HTOP/$f
+    else
+      ln -snfv $DOT_HOME/$f $1/.$f
     fi
-    # symlink files
-    ln -snfv $DOT_HOME/$f $1/$f
   done
+
   if [ $? = 0 ]; then
     echo "${GREEN}Successfully symlink dotfiles. ✔︎ $NORMAL"
   else

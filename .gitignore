@@ -1,5 +1,5 @@
-.vim/.netrwhist
-.vim/colors/*
-.vim/plugged/*
-.vim/autoload/*
+vim/.netrwhist
+vim/colors/*
+vim/plugged/*
+vim/autoload/*
 !.gitkeep
