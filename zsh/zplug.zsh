@@ -31,20 +31,20 @@ zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 # zplug $RANDOM_THEME, as:theme
 
 # spaceship
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  docker        # Docker section
-  # pyenv         # Pyenv section
-  exec_time     # Execution time
-  line_sep      # Line break
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
+if [ "$(hostname)" != "Hideaki" ]; then
+  SPACESHIP_USER_SHOW="always"
+  SPACESHIP_HOST_SHOW="always"
+fi
+SPACESHIP_USER_COLOR="black"
+SPACESHIP_USER_SUFFIX=""
+SPACESHIP_HOST_COLOR="black"
+SPACESHIP_HOST_COLOR_SSH="blue"
+SPACESHIP_HOST_PREFIX="@"
+SPACESHIP_DIR_PREFIX=":: "
+SPACESHIP_DIR_COLOR="cyan"
+SPACESHIP_GIT_PREFIX=":: "
+SPACESHIP_PYENV_PREFIX=":: "
+SPACESHIP_DOCKER_PREFIX=":: "
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_CHAR_COLOR_SUCCESS="white"
 SPACESHIP_GIT_BRANCH_COLOR="green"
