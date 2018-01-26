@@ -7,13 +7,14 @@ if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
    echo "zcompile .zshenv"
    zcompile ~/.zshenv
 fi
-for f in ${ZSH_HOME}*.zsh; do
+ZSH_HOME=~/.zsh/
+for f (${ZSH_HOME}*.zsh) {
   if [ $f -nt $f.zwc ]; then
     echo "zcompile $f"
     zcompile $f
-done
+  fi
+}
 
-ZSH_HOME=~/.zsh/
 source ${ZSH_HOME}zplug.zsh
 source ${ZSH_HOME}basic.zsh
 source ${ZSH_HOME}commands.zsh
