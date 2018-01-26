@@ -1,3 +1,18 @@
+# compile if .zwc is old
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+   echo "zcompile .zshrc"
+   zcompile ~/.zshrc
+fi
+if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
+   echo "zcompile .zshenv"
+   zcompile ~/.zshenv
+fi
+for f in ${ZSH_HOME}*.zsh; do
+  if [ $f -nt $f.zwc ]; then
+    echo "zcompile $f"
+    zcompile $f
+done
+
 ZSH_HOME=~/.zsh/
 source ${ZSH_HOME}zplug.zsh
 source ${ZSH_HOME}basic.zsh

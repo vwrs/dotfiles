@@ -1,16 +1,6 @@
 # zplug
 # ===
 source ~/.zplug/init.zsh
-# compile if .zwc is old
-if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
-   echo "zcompile .zshrc"
-   zcompile ~/.zshrc
-fi
-if [ ~/.zshenv -nt ~/.zshenv.zwc ]; then
-   echo "zcompile .zshenv"
-   zcompile ~/.zshenv
-fi
-
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "erikw/tmux-powerline"
@@ -48,9 +38,13 @@ SPACESHIP_DOCKER_PREFIX=":: "
 SPACESHIP_CHAR_SUFFIX=" "
 SPACESHIP_CHAR_COLOR_SUCCESS="white"
 SPACESHIP_GIT_BRANCH_COLOR="green"
+SPACESHIP_GIT_STATUS_COLOR="magenta"
+SPACESHIP_GIT_STATUS_PREFIX=" <"
+SPACESHIP_GIT_STATUS_SUFFIX=">"
+SPACESHIP_GIT_STATUS_MODIFIED="!"
 
 # bullet-train
-BULLETTRAIN_PROMPT_ORDER=(time status custom context dir git hg cmd_exec_time)
+BULLETTRAIN_PROMPT_ORDER=(status custom context dir git cmd_exec_time)
 BULLETTRAIN_PROMPT_CHAR="%F{red}>%F{green}>%F{white}>%f"
 BULLETTRAIN_TIME_BG=white
 BULLETTRAIN_CONTEXT_DEFAULT_USER=hideaki
