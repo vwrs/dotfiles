@@ -6,7 +6,6 @@ source ${ZSH_HOME}aliases.zsh
 source ${ZSH_HOME}python.zsh
 
 # OS dependent
-# --------------
 if [ "$(uname)" = "Darwin" ]; then
   source ${ZSH_HOME}darwin.zsh
 else # Linux
