@@ -30,7 +30,7 @@
 
 # earthquake.sh {
 	# The data provider to use. Currently only "goo" is supported.
-	export TMUX_POWERLINE_SEG_EARTHQUAKE_DATA_PROVIDER="goo"
+	export TMUX_POWERLINE_SEG_EARTHQUAKE_DATA_PROVIDER=""
 	# How often to update the earthquake data in seconds.
 	# Note: This is not an early warning detector, use this
 	# to be informed about recent earthquake magnitudes in your
@@ -128,7 +128,7 @@
 
 # weather.sh {
 	# The data provider to use. Currently only "yahoo" is supported.
-	export TMUX_POWERLINE_SEG_WEATHER_DATA_PROVIDER="yahoo"
+	export TMUX_POWERLINE_SEG_WEATHER_DATA_PROVIDER=""
 	# What unit to use. Can be any of {c,f,k}.
 	export TMUX_POWERLINE_SEG_WEATHER_UNIT="c"
 	# How often to update the weather in seconds.

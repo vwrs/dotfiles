@@ -23,8 +23,6 @@ Plug 'bronson/vim-trailing-whitespace'
 " completion
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-jedi'
-  Plug 'zchee/deoplete-zsh'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -58,10 +56,14 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
+Plug 'keith/tmux.vim', { 'for': 'tmux'}
 Plug 'vim-scripts/matchit.zip'
+if has('nvim')
+  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+  Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
+endif
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
