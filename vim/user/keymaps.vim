@@ -21,6 +21,7 @@ nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Commits<CR>
 " caw.vim
+nmap <C-/> <Plug>(caw:hatpos:toggle)
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
 " nerdtree
