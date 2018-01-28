@@ -8,6 +8,7 @@ ZPLUG_HOME=~/.zplug
 TPM_HOME=~/.tmux/plugins/tpm
 REMOTE_URL="https://github.com/vwrs/dotfiles.git"
 CONFIG_HTOP=$HOME/.config/htop
+CONFIG_NVIM=$HOME/.config/nvim
 if which tput >/dev/null 2>&1; then
   ncolors=$(tput colors)
 fi
@@ -123,6 +124,7 @@ download() {
 symlink_files() {
   echo "Symlinking dotfiles..."
   [ ! -e $CONFIG_HTOP ] && mkdir -p $CONFIG_HTOP
+  [ ! -e $CONFIG_NVIM ] && mkdir -p $CONFIG_NVIM
   for f in *
   do
     # ignore list
@@ -130,6 +132,9 @@ symlink_files() {
     [[ $f = "bootstrap" ]] && continue
     if [ $f = "htoprc" ]; then
       ln -snfv $DOT_HOME/$f $CONFIG_HTOP/$f
+    elif [ $f = "vimrc" ]; then
+      ln -snfv $DOT_HOME/$f $1/.$f
+      ln -snfv $DOT_HOME/$f $CONFIG_NVIM/init.vim
     else
       ln -snfv $DOT_HOME/$f $1/.$f
     fi
