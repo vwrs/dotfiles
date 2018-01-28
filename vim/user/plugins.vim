@@ -4,27 +4,28 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 " always
 " ----------
-Plug 'junegunn/vim-easy-align'
-Plug 'tyru/caw.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'taohex/lightline-buffer'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
+Plug 'tyru/caw.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kana/vim-smartinput'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-easy-align'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'bronson/vim-trailing-whitespace'
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" Plug 'shougo/unite.vim'
+" completion
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'honza/vim-snippets'
-" Plug 'shougo/unite.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'easymotion/vim-easymotion'
-Plug 'kana/vim-smartinput'
-Plug 'tpope/vim-surround'
 " textobj
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
@@ -53,7 +54,6 @@ Plug 'noahfrederick/vim-laravel', { 'on': 'LaravelToggle' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 Plug 'vim-scripts/matchit.zip'
-" Plug 'julienr/vim-cellmode', { 'for': 'python' }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
@@ -68,5 +68,6 @@ Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/col
 Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'arcticicestudio/nord-vim', { 'branch': 'develop', 'do': 'ln -fnsv ~/.vim/plugged/nord-vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
 Plug 'yuttie/hydrangea-vim', { 'do': 'ln -fnsv ~/.vim/plugged/hydrangea-vim/colors/* ~/.vim/colors' }
-Plug 'jonathanfilip/vim-lucius', { 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors' }
+Plug 'jonathanfilip/vim-lucius', { 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
+Plug 'NLKNguyen/papercolor-theme', { 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors' }
 call plug#end()

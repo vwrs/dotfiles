@@ -1,3 +1,9 @@
+" neovim
+if has('nvim')
+  set runtimepath^=~/.vim
+  let &packpath = &runtimepath
+endif
+
 " basics
 runtime! user/sets.vim
 
@@ -15,7 +21,7 @@ runtime! user/plugins/*.vim
 
 " colorscheme
 " ----------
-colorscheme hydrangea
+colorscheme PaperColor
 set background=dark
 syntax on
 hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE

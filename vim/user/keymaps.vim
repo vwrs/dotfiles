@@ -13,17 +13,22 @@ noremap <C-p> :bprev<CR>
 noremap <C-n> :bnext<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+" highlight last inserted text
+nnoremap gV `[v`]
 " fzf
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Commits<CR>
+" caw.vim
+nmap <C-_> <Plug>(caw:hatpos:toggle)
+vmap <C-_> <Plug>(caw:hatpos:toggle)
 " nerdtree
 nnoremap <Leader>n :NERDTree<CR>
 " vim-fugitive
 nnoremap <Leader>d :Gdiff<CR>
-" highlight last inserted text
-nnoremap gV `[v`]
+" vim-operator-replace
+nmap R <Plug>(operator-replace)
 
 " insert mode
 " ------------
