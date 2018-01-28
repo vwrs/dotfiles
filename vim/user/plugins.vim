@@ -21,7 +21,15 @@ Plug 'bronson/vim-trailing-whitespace'
 " Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " Plug 'shougo/unite.vim'
 " completion
-Plug 'Shougo/neocomplete.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-jedi'
+  Plug 'zchee/deoplete-zsh'
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
