@@ -19,6 +19,12 @@ runtime! user/plugins.vim
 " plugin-specific settings
 runtime! user/plugins/*.vim
 
+" macvim
+if has('gui_macvim')
+  set guifont=SauceCodePowerline-Semibold:h13
+  set antialias
+endif
+
 " colorscheme
 " ----------
 colorscheme PaperColor
