@@ -1,6 +1,6 @@
 " use lightline-buffer in lightline
 let g:lightline = {
-\ 'colorscheme': 'default',
+\ 'colorscheme': 'hydrangea',
 \ 'active': {
 \   'left': [ ['mode', 'paste' ],
 \             ['fugitive', 'readonly', 'filename', 'modified'],
