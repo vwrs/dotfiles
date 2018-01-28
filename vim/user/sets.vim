@@ -44,6 +44,7 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
 set t_ut=
+set t_Co=256
 set scrolloff=10
 set colorcolumn=80
 set conceallevel=0

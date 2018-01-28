@@ -1,6 +1,7 @@
 alias sudo="sudo -E"
 alias v="vim"
 alias n="nvim"
+alias gv="gvim"
 # git
 alias g="git"
 # cd

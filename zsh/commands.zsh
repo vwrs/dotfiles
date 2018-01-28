@@ -1,7 +1,7 @@
 if [ -x "`which tree`" ]; then
   alias tree="tree -aC -I '.git|.DS_Store'"
 fi
-if [ -x "`which fzf`" ]; then
+if [ -d ~/.fzf ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
 if [ -x "`which rg`" ]; then

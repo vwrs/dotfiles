@@ -22,6 +22,7 @@ brew boost
 brew cairo
 brew cmake
 brew cowsay
+brew cscope
 brew ctags
 brew docbook
 brew docbook-xsl
@@ -92,6 +93,7 @@ brew libuv
 brew libvterm
 brew little-cms2
 brew lua
+brew macvim
 brew mas
 brew mpfr
 brew msgpack
