@@ -3,7 +3,8 @@
 # --------------
 ROOT_HOME=/var/root
 DOT_HOME=~/dotfiles
-VIMPLUG_FILE=~/.vim/autoload/plug.vim
+AUTOLOAD_DIR=$DOT_HOME/vim/autoload
+VIMPLUG_FILE=$DOT_HOME/vim/autoload/plug.vim
 ZPLUG_HOME=~/.zplug
 TPM_HOME=~/.tmux/plugins/tpm
 REMOTE_URL="https://github.com/vwrs/dotfiles.git"
@@ -58,15 +59,16 @@ Commands:
   font (install powerline patched fonts)
   deploy (override & symlink dotfiles)
   deploy_root (override & symlink dotfiles, in super user)
+  quit
 EOF
   echo $NORMAL
 }
 
 download() {
+  cd $HOME
   # dotfiles
   if [ ! -d $DOT_HOME ]; then
     echo "Downloading dotfiles..."
-    mkdir $DOT_HOME
     if has "git"; then
       git clone --recursive $REMOTE_URL $DOT_HOME
     else
@@ -84,7 +86,7 @@ download() {
   fi
   # vim-plug
   if [ ! -f $VIMPLUG_FILE ]; then
-    echo "Dowloading vim-plug ..."
+    echo "Downloading vim-plug ..."
     curl -fLo $VIMPLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     if [ $? = 0 ]; then
       echo "${GREEN}Successfully downloaded vim-plug at $VIMPLUG_FILE. ✔︎ $NORMAL"
@@ -92,6 +94,8 @@ download() {
       echo "${RED}An unexpected error occurred when trying to install vim-plug.$NORMAL"
       exit 1
     fi
+  else
+    echo "${BOLD}vim-plug already exists.$NORMAL"
   fi
   # zplug
   if [ ! -d $ZPLUG_HOME ]; then
@@ -122,9 +126,14 @@ download() {
 }
 
 symlink_files() {
+  if [ ! -d $DOT_HOME ]; then
+    echo 'dotfiles do not exist.'
+    exit 1
+  fi
   echo "Symlinking dotfiles..."
   [ ! -e $CONFIG_HTOP ] && mkdir -p $CONFIG_HTOP
   [ ! -e $CONFIG_NVIM ] && mkdir -p $CONFIG_NVIM
+  cd $DOT_HOME
   for f in *
   do
     # ignore list
@@ -160,6 +169,7 @@ powerline_fonts() {
 # main
 # --------------
 main() {
+  usage
   echo -n "${BOLD}command: $NORMAL"
   read command
   case $command in
@@ -178,14 +188,17 @@ main() {
       symlink_files $ROOT_HOME
       ln -s ${HOME}/.zplug ${ROOT_HOME}/.zplug
       ;;
+    quit)
+      echo "bye!"
+      exit 0
+      ;;
     *)
       echo "${RED}bootstrap: command not found.$NORMAL"
-      exit 1
+      main
       ;;
   esac
 }
 
-usage
 main
 
 exit 0
