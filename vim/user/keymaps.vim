@@ -22,6 +22,7 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Commits<CR>
 " caw.vim
 nmap <C-/> <Plug>(caw:hatpos:toggle)
+vmap <C-/> <Plug>(caw:hatpos:toggle)
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
 " nerdtree
@@ -41,6 +42,12 @@ inoremap <silent> <C-n> <Down>
 inoremap <silent> <C-a> <ESC>I
 inoremap <silent> <C-e> <End>
 inoremap <silent> <C-d> <Del>
+" completion
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " command mode
 " ------------
