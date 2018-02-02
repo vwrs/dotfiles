@@ -34,8 +34,7 @@ has() {
   type "$1" > /dev/null 2>&1
 }
 
-usage() {
-  name=`basename $0`
+dotfiles() {
   echo $BLUE
   cat <<\EOF
 
@@ -47,12 +46,16 @@ usage() {
 \/______/     /\_\ \___,_\ \____/\ \__\\ \_\  \ \_\/\____\ \____\/\____/    \/______/
               \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
 EOF
-  echo $YELLOW
+#   echo $YELLOW
 #   cat <<\EOF
 # note:
 # Please make sure that you have completed adding ssh key to GitHub.
 # EOF
-  # echo $BLUE
+  echo $NORMAL
+}
+
+usage() {
+  echo $YELLOW
   cat <<\EOF
 Commands:
   init (download dotfiles, zplug, tpm)
@@ -199,6 +202,7 @@ main() {
   esac
 }
 
+dotfiles
 main
 
 exit 0
