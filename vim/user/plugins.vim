@@ -56,6 +56,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 Plug 'keith/tmux.vim', { 'for': 'tmux'}
