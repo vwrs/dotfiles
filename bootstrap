@@ -46,11 +46,6 @@ dotfiles() {
 \/______/     /\_\ \___,_\ \____/\ \__\\ \_\  \ \_\/\____\ \____\/\____/    \/______/
               \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
 EOF
-#   echo $YELLOW
-#   cat <<\EOF
-# note:
-# Please make sure that you have completed adding ssh key to GitHub.
-# EOF
   echo $NORMAL
 }
 
@@ -58,10 +53,10 @@ usage() {
   echo $YELLOW
   cat <<\EOF
 Commands:
-  init (download dotfiles, zplug, tpm)
+  init (download dotfiles, vim-plug, zplug, tpm)
   font (install powerline patched fonts)
-  deploy (override & symlink dotfiles)
-  deploy_root (override & symlink dotfiles, in super user)
+  deploy (symlink (force override) dotfiles)
+  deploy_root (symlink dotfiles in super user)
   quit
 EOF
   echo $NORMAL
