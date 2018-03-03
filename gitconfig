@@ -1,6 +1,3 @@
-[user]
-	name = Hideaki Kanehara
-	email = sss_ftr.hid@icloud.com
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
