@@ -73,22 +73,67 @@ if has('nvim')
   Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
 endif
 " language server
-Plug 'prabirshrestha/async.vim', { 'for': ['python', 'rust'] }
-Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'rust'] }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+" Plug 'prabirshrestha/async.vim', { 'for': ['python', 'rust'] }
+" Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'rust'] }
 " colorscheme
 " ----------
-Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'tomasr/molokai', { 'do': 'ln -fnsv ~/.vim/plugged/molokai/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'w0ng/vim-hybrid', { 'do': 'ln -fnsv ~/.vim/plugged/vim-hybrid/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'gosukiwi/vim-atom-dark', { 'do': 'ln -fnsv ~/.vim/plugged/vim-atom-dark/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'joshdick/onedark.vim', { 'do': 'ln -fnsv ~/.vim/plugged/onedark.vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'jacoborus/tender.vim', { 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug '29decibel/codeschool-vim-theme', { 'do': 'ln -fnsv ~/.vim/plugged/codeschool-vim-theme/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'vim-scripts/twilight', { 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'vim-scripts/phd', { 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'ciaranm/inkpot', { 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'arcticicestudio/nord-vim', { 'branch': 'develop', 'do': 'ln -fnsv ~/.vim/plugged/nord-vim/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'yuttie/hydrangea-vim', { 'do': 'ln -fnsv ~/.vim/plugged/hydrangea-vim/colors/* ~/.vim/colors' }
-Plug 'jonathanfilip/vim-lucius', { 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors', 'on': 'NeverToggle' }
-Plug 'NLKNguyen/papercolor-theme', { 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors' }
+Plug 'altercation/vim-colors-solarized', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'tomasr/molokai', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/molokai/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'w0ng/vim-hybrid', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-hybrid/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'gosukiwi/vim-atom-dark', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-atom-dark/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'joshdick/onedark.vim', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/onedark.vim/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'jacoborus/tender.vim', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/tender.vim/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug '29decibel/codeschool-vim-theme', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/codeschool-vim-theme/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'vim-scripts/twilight', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/twilight/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'vim-scripts/phd', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/phd/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'ciaranm/inkpot', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/inkpot/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'arcticicestudio/nord-vim', {
+    \ 'branch': 'develop',
+    \ 'do': 'ln -fnsv ~/.vim/plugged/nord-vim/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'jonathanfilip/vim-lucius', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors',
+    \ 'on': 'NeverToggle'
+    \ }
+Plug 'yuttie/hydrangea-vim', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/hydrangea-vim/colors/* ~/.vim/colors'
+    \ }
+Plug 'NLKNguyen/papercolor-theme', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors'
+    \ }
 call plug#end()

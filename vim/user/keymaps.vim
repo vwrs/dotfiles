@@ -31,6 +31,8 @@ nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>d :Gdiff<CR>
 " vim-operator-replace
 nmap R <Plug>(operator-replace)
+" LanguageClient-neovim
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
 " insert mode
 " ------------

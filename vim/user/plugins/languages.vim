@@ -1,33 +1,40 @@
 " language server
 " ----------
-let g:lsp_signs_enabled = 1           " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-" python
-" do `pip install python-language-server`
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-" Rust
-" do `rustup update; rustup component add rls-preview rust-analysis rust-src`
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
+" LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'python': ['pyls']
+    \ }
+
+" " vim-lsp
+" let g:lsp_signs_enabled = 1           " enable signs
+" let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+" " python
+" " do `pip install python-language-server`
+" if executable('pyls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
+" " Rust
+" " do `rustup update; rustup component add rls-preview rust-analysis rust-src`
+" if executable('rls')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'rls',
+"         \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+"         \ 'whitelist': ['rust'],
+"         \ })
+" endif
 
 " language-specific settings
 " ----------
 " jedi-vim
-let g:jedi#goto_command = "<Leader>g"
-" let g:jedi#goto_assignments_command = "<Leader>g"
-" let g:jedi#goto_definitions_command = "<Leader>d"
-" let g:jedi#documentation_command = "K"
+let g:jedi#documentation_command = "K"
+let g:jedi#goto_command = "go"
+" let g:jedi#goto_definitions_command = "gd"
+" let g:jedi#goto_assignments_command = "ga"
 " let g:jedi#completions_command = "<C-c>"
 " let g:jedi#rename_command = "<C-d>r"
 
