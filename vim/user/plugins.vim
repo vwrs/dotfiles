@@ -72,6 +72,9 @@ if has('nvim')
   Plug 'zchee/deoplete-jedi', { 'for': 'python' }
   Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
 endif
+" language server
+Plug 'prabirshrestha/async.vim', { 'for': ['python', 'rust'] }
+Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'rust'] }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', { 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors', 'on': 'NeverToggle' }

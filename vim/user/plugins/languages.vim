@@ -1,4 +1,27 @@
-" language-specific plugins
+" language server
+" ----------
+let g:lsp_signs_enabled = 1           " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+" python
+" do `pip install python-language-server`
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+" Rust
+" do `rustup update; rustup component add rls-preview rust-analysis rust-src`
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+" language-specific settings
 " ----------
 " jedi-vim
 let g:jedi#goto_command = "<Leader>g"
