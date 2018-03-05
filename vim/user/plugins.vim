@@ -18,9 +18,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'vim-scripts/matchit.zip'
 " Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " Plug 'shougo/unite.vim'
+"
 " completion
+" ----------
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -33,6 +36,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " textobj
+" ----------
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-syntax'
@@ -42,6 +46,7 @@ Plug 'thinca/vim-textobj-comment'
 Plug 'thinca/vim-textobj-between'
 Plug 'rhysd/vim-textobj-anyblock'
 " operator
+" ----------
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 " Toggle
@@ -58,9 +63,11 @@ Plug 'stanangeloff/php.vim', { 'for': ['php'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'vim-scripts/matchit.zip'
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 Plug 'keith/tmux.vim', { 'for': 'tmux'}
-Plug 'vim-scripts/matchit.zip'
 if has('nvim')
   Plug 'zchee/deoplete-jedi', { 'for': 'python' }
   Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
