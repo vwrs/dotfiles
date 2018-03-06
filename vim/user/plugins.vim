@@ -19,8 +19,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/matchit.zip'
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" Plug 'shougo/unite.vim'
 "
 " completion
 " ----------
@@ -52,7 +50,6 @@ Plug 'kana/vim-operator-replace'
 " Toggle
 " ----------
 Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
-" Plug 'ujihisa/unite-colorscheme', { 'on': 'ColorschemeToggle' }
 " programming languages
 " ----------
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -77,8 +74,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-" Plug 'prabirshrestha/async.vim', { 'for': ['python', 'rust'] }
-" Plug 'prabirshrestha/vim-lsp', { 'for': ['python', 'rust'] }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', {

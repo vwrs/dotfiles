@@ -2,31 +2,36 @@
 " ----------
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'python': ['pyls']
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+let g:LanguageClient_diagnosticsDisplay = {
+    \ 1: {
+        \ "name": "Error",
+        \ "texthl": "ALEError",
+        \ "signText": "✖",
+        \ "signTexthl": "Error",
+        \ },
+    \ 2: {
+        \ "name": "Warning",
+        \ "texthl": "ALEWarning",
+        \ "signText": "⚠",
+        \ "signTexthl": "WarningMsg",
+        \ },
+    \ 3: {
+        \ "name": "Information",
+        \ "texthl": "ALEInfo",
+        \ "signText": "ℹ",
+        \ "signTexthl": "ALEInfoSign",
+        \ },
+    \ 4: {
+        \ "name": "Hint",
+        \ "texthl": "ALEInfo",
+        \ "signText": "➤",
+        \ "signTexthl": "ALEInfoSign",
+        \ },
     \ }
 
-" " vim-lsp
-" let g:lsp_signs_enabled = 1           " enable signs
-" let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-" " python
-" " do `pip install python-language-server`
-" if executable('pyls')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'pyls',
-"         \ 'cmd': {server_info->['pyls']},
-"         \ 'whitelist': ['python'],
-"         \ })
-" endif
-" " Rust
-" " do `rustup update; rustup component add rls-preview rust-analysis rust-src`
-" if executable('rls')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'rls',
-"         \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-"         \ 'whitelist': ['rust'],
-"         \ })
-" endif
 
 " language-specific settings
 " ----------
