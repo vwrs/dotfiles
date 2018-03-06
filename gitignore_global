@@ -10,3 +10,4 @@ __pycache__
 .RData
 .ipynb_checkpoints
 *.pyc
+.ropeproject

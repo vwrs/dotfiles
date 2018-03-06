@@ -2,7 +2,7 @@
 " ----------
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls']
+    \ 'python': ['pyls'],
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ }
 let g:LanguageClient_diagnosticsDisplay = {

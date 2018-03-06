@@ -47,9 +47,13 @@ Plug 'rhysd/vim-textobj-anyblock'
 " ----------
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-" Toggle
-" ----------
-Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
+" linter
+Plug 'w0rp/ale'
+" language server
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " programming languages
 " ----------
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -69,11 +73,9 @@ if has('nvim')
   Plug 'zchee/deoplete-jedi', { 'for': 'python' }
   Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
 endif
-" language server
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Toggle
+" ----------
+" Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', {
