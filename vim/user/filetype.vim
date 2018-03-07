@@ -7,7 +7,7 @@ let g:tex_conceal=''
 " remove spaces at the end of each line
 function! Rstrip()
   let s:tmppos = getpos('.')
-  if &filetype == 'markdown'
+  if &filetype ==? 'markdown'
     " >= 2 spaces -> 2 spaces, 1space -> delete
     %s/\v(\s{2})?(\s+)?$/\1/e
     match Underlined /\s\{2}$/

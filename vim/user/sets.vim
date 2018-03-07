@@ -1,5 +1,7 @@
-set enc=utf-8
-set fenc=utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+scriptencoding utf-8
+
 " display
 set title
 set number

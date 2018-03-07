@@ -73,9 +73,6 @@ if has('nvim')
   Plug 'zchee/deoplete-jedi', { 'for': 'python' }
   Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
 endif
-" Toggle
-" ----------
-" Plug 'vim-syntastic/syntastic', { 'on': 'SyntasticToggle' }
 " colorscheme
 " ----------
 Plug 'altercation/vim-colors-solarized', {

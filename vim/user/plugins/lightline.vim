@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " use lightline-buffer in lightline
 let g:lightline = {
 \ 'colorscheme': 'hydrangea',
@@ -66,8 +68,8 @@ let g:lightline_buffer_reservelen = 20
 " functions
 function! LightlineFugitive()
   if exists('*fugitive#head')
-    let branch = fugitive#head()
-    return branch !=# '' ? ' '.branch : ''
+    let l:branch = fugitive#head()
+    return l:branch !=# '' ? ' '.l:branch : ''
   endif
   return ''
 endfunction
