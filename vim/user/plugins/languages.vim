@@ -1,10 +1,11 @@
 scriptencoding utf-8
 
 " Asynchronous Lint Engine
-" TODO: resolve the conflict between ALE and LSP
 let g:ale_linters = {
-    \ 'python': ['flake8'],
+    \ 'python': ['pycodestyle'],
     \}
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
 
 " language server
 " ----------
@@ -24,7 +25,7 @@ let g:LanguageClient_diagnosticsDisplay = {
         \ 'name': 'Warning',
         \ 'texthl': 'ALEWarning',
         \ 'signText': '⚠',
-        \ 'signTexthl': 'WarningMsg',
+        \ 'signTexthl': 'ALEWarningSign',
         \ },
     \ 3: {
         \ 'name': 'Information',
