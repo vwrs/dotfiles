@@ -29,11 +29,6 @@ set hlsearch
 " statusline
 set showtabline=2
 set laststatus=2
-" fold
-" set foldenable
-" set foldmethod=indent
-" set foldlevelstart=0
-" set foldnestmax=3
 " etc
 set whichwrap=b,s,h,l,<,>,[,]
 set filetype=on
@@ -52,4 +47,8 @@ set scrolloff=10
 set colorcolumn=80
 set conceallevel=0
 set hidden  " allow buffer switching without saving
+
+if has('nvim')
+  set inccommand=nosplit
+endif
 
