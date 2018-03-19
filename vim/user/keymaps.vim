@@ -59,3 +59,12 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 
+" terminal mode
+" ------------
+if has('nvim')
+  tnoremap <silent> <ESC> <C-\><C-n>
+endif
+" neoterm
+nnoremap <Leader>rl :TREPLSendLine<CR>j0
+vnoremap <Leader>rl :TREPLSendSelection<CR>'>j0
+

@@ -19,7 +19,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/matchit.zip'
-"
+Plug 'kassio/neoterm'
 " completion
 " ----------
 if has('nvim')
