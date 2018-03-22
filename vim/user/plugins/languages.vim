@@ -13,6 +13,7 @@ let g:ale_sign_warning = '⚠'
 let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'r': ['R', '--quiet', '--slave', '-e', 'languageserver::run()'],
     \ }
 let g:LanguageClient_diagnosticsDisplay = {
     \ 1: {
