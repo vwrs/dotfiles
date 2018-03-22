@@ -63,8 +63,21 @@ cnoremap <C-d> <Del>
 " ------------
 if has('nvim')
   tnoremap <silent> <ESC> <C-\><C-n>
+  " neoterm
+  nnoremap <Leader>rq :Tclose<CR>
+  nnoremap <Leader>rl :TREPLSendLine<CR>j0
+  vnoremap <Leader>rl $:TREPLSendSelection<CR>'>j0
 endif
-" neoterm
-nnoremap <Leader>rl :TREPLSendLine<CR>j0
-vnoremap <Leader>rl :TREPLSendSelection<CR>'>j0
 
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" vim-easymotion
+" map <Leader> <Plug>(easymotion-prefix) " default: <Leader><Leader>
+nmap <Leader><Leader>F <Plug>(easymotion-overwin-f)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader><Leader>W <Plug>(easymotion-overwin-w)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
