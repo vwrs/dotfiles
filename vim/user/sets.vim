@@ -42,7 +42,6 @@ set clipboard=unnamed
 set mouse=a
 set t_ut=
 set t_Co=256
-set termguicolors
 set scrolloff=10
 set colorcolumn=80
 set conceallevel=0
@@ -50,5 +49,6 @@ set hidden  " allow buffer switching without saving
 
 if has('nvim')
   set inccommand=nosplit
+  set termguicolors
 endif
 
