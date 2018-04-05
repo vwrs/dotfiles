@@ -16,7 +16,7 @@ if [ -x "`which tmux`" ]; then
 fi
 if [ -x "`which convert`" ]; then
   img2pdf () {
-    for f in *.(png|jpg); do
+    for f in *.(png|jpg|eps); do
       convert $f ${f%.*}.pdf
     done
   }
