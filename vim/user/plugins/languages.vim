@@ -62,10 +62,8 @@ let g:vimtex_fold_manual = 1
 
 " Nvim-R
 let g:R_nvimpager='vertical'
-let g:R_in_buffer=0
-let g:R_applescript=0
-let g:R_tmux_split=1
-let g:R_term='tmux'
+let g:R_tmux_title='Nvim-R'
+let g:R_source='$HOME/.vim/plugged/Nvim-R/R/tmux_split.vim'
 
 " vim-cellmode
 let g:cellmode_tmux_sessionname=''  " Will try to automatically pickup tmux session
