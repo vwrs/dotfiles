@@ -13,6 +13,12 @@ noremap <C-p> :bprev<CR>
 noremap <C-n> :bnext<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 " highlight last inserted text
 nnoremap gV `[v`]
 " fzf
