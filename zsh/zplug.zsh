@@ -2,15 +2,15 @@
 # ===
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
 zplug "erikw/tmux-powerline"
-# zplug "zplug/zplug", hook-build:"zplug --self-manage"
-# zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+zplug "zsh-users/zsh-completions"
+zplug "docker/cli", use:contrib/completion/zsh
+zplug "docker/compose", use:contrib/completion/zsh
+zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # themes
 # --------------
-# zplug "frmendes/geometry", as:theme
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, as:theme
 # zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
 
 # random theme

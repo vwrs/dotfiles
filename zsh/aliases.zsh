@@ -26,6 +26,9 @@ alias sshj="ssh -L 9000:127.1:9000"
 alias sshvnc="ssh -L 5900:127.1:5900"
 # git
 alias gs="git status -sb"
+# docker
+alias d="docker"
+alias dc="docker-compose"
 # programming languages
 # --------------
 # php
