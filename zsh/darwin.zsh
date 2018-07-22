@@ -14,11 +14,6 @@ alias ls="ls -tGAF"
 alias l.="ls -d .*"
 alias du="du -ch"
 alias htop="sudo htop"
-# brew-file
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
-
 alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
 alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 
@@ -44,7 +39,7 @@ brew-cask-upgrade () {
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # homebrew
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # brew-file
 export HOMEBREW_BREWFILE=~/dotfiles/.brewfile
 # git
@@ -57,4 +52,12 @@ if [ "$(hostname)" = "Hideaki" ]; then  # my own pc
 else
 
 fi
+
+# brew-file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
+
+# iTerm2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
