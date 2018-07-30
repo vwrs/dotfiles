@@ -2,7 +2,7 @@
 # ===
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# zplug "erikw/tmux-powerline"
+zplug "erikw/tmux-powerline"
 zplug "zsh-users/zsh-completions"
 zplug "docker/cli", use:contrib/completion/zsh
 zplug "docker/compose", use:contrib/completion/zsh
