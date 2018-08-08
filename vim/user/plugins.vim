@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 " always
 " ----------
 Plug 'itchyny/lightline.vim'
-Plug 'taohex/lightline-buffer'
+Plug 'taohexxx/lightline-buffer'
 Plug 'tpope/vim-sleuth'
 Plug 'tyru/caw.vim'
 Plug 'tpope/vim-fugitive'
