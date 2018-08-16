@@ -2,11 +2,7 @@ alias sudo="sudo -E"
 alias v="vim"
 alias n="nvim"
 # git
-if [ -x `which hub` ]; then
-  alias g="hub"
-else
-  alias g="git"
-fi
+alias g="git"
 alias gs="git status -sb"
 alias gd="git diff"
 # ls
