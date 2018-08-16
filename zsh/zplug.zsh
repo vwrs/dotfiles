@@ -6,6 +6,7 @@ zplug "zsh-users/zsh-completions"
 zplug "docker/cli", use:contrib/completion/zsh
 zplug "docker/compose", use:contrib/completion/zsh
 zplug "jwilm/alacritty", use: alacritty-completions.zsh
+zplug "github/hub", use: etc/hub.zsh_completion
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
 
 # themes
