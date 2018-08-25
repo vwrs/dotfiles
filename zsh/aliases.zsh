@@ -49,6 +49,9 @@ fi
 if [ -x "`which luajittex`" ]; then
   alias luajitlatex="luajittex --fmt=luajitlatex.fmt"
 fi
+if [ -x "`which bat`" ]; then
+  alias cat="bat"
+fi
 
 # programming languages
 # ----------
