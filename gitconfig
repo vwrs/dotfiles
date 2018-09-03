@@ -1,72 +1,77 @@
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  excludesfile = ~/.gitignore_global
+  editor = vim
 [filter "lfs"]
-	required = true
-	smudge = git-lfs smudge -- %f
-	clean = git-lfs clean -- %f
+  required = true
+  smudge = git-lfs smudge -- %f
+  clean = git-lfs clean -- %f
 [alias]
-	alias = !git config --get-regexp alias
-	a = add
-	aa = add --all
-	co = checkout
-	com = commit -v
-	comm = commit -m
-	coma = commit -a -m
-	ac = !git add --all && git commit -v
-	acm = !git add --all && git commit -m
-	b = branch
-	d = diff
-	dc = diff --cached
-	dns = diff --name-status
-	f = fetch
-	s = status -sb
-	ss = status
-	pl = pull
-	ps = push
-	l = log --stat --summary --decorate
-	lp = log --stat --summary --decorate -p
-	lg = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-	lgr = log --graph --date=short --oneline --remotes
-	lgn = log --graph --date=short --oneline --name-status
-	lgnr = log --graph --date=short --oneline --name-status --remotes
-	cancel = reset --soft HEAD^
-	unstage = reset HEAD --
+  alias = !git config --get-regexp alias
+  a = add
+  aa = add --all
+  co = checkout
+  com = commit -v
+  comm = commit -m
+  coma = commit -a -m
+  ac = !git add --all && git commit -v
+  acm = !git add --all && git commit -m
+  b = branch
+  d = diff
+  dc = diff --cached
+  dns = diff --name-status
+  f = fetch
+  s = status -sb
+  ss = status
+  pl = pull
+  ps = push
+  l = log --stat --summary --decorate
+  lp = log --stat --summary --decorate -p
+  lg = log --graph --date=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+  lgr = log --graph --date=short --oneline --remotes
+  lgn = log --graph --date=short --oneline --name-status
+  lgnr = log --graph --date=short --oneline --name-status --remotes
+  cancel = reset --soft HEAD^
+  unstage = reset HEAD --
 [push]
-	default = matching
+  default = matching
 [color "diff"]
-	# old = red strike
-	# new = green bold italic
-	# meta = blue black bold
+  # old = red strike
+  # new = green bold italic
+  # meta = blue black bold
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
 [pager]
-	# log = diff-highlight | less
-	# show = diff-highlight | less
-	# diff = diff-highlight | less
-[diff]
-	compactionHeuristic = true
+  # log = diff-highlight | less
+  # show = diff-highlight | less
+  # diff = diff-highlight | less
 [interactive]
-	# diffFilter = diff-highlight
-[diff "jupyternotebook"]
-	command = git-nbdiffdriver diff
-[merge "jupyternotebook"]
-	driver = git-nbmergedriver merge %O %A %B %L %P
-	name = jupyter notebook merge driver
-[difftool "nbdime"]
-	cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\"
+  # diffFilter = diff-highlight
+[diff]
+  tool = meld
 [difftool]
-	prompt = false
-[mergetool "nbdime"]
-	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  prompt = false
+[merge]
+  tool = meld
 [mergetool]
-	prompt = false
+  prompt = false
+
+[diff "jupyternotebook"]
+  command = git-nbdiffdriver diff
+[merge "jupyternotebook"]
+  driver = git-nbmergedriver merge %O %A %B %L %P
+  name = jupyter notebook merge driver
+[difftool "nbdime"]
+  cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\"
+[mergetool "nbdime"]
+  cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+
