@@ -51,7 +51,7 @@ use "/path/to/zsh"
 
 $ zplug install
 $ nvim [vim]
-Run `PlugInstall`.
+Run `:PlugInstall`.
 $ tmux
 Run `Prefix+I`.
 ```
