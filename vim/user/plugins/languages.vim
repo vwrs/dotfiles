@@ -10,10 +10,14 @@ let g:ale_sign_warning = '⚠'
 " language server
 " ----------
 " LanguageClient-neovim
+" vue: npm install -g vue-language-server
 let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'r': ['R', '--quiet', '--slave', '-e', 'languageserver::run()'],
+    \ 'vue': ['vls'],
+    \ 'html': [],
+    \ 'javascript': [],
     \ }
 let g:LanguageClient_diagnosticsDisplay = {
     \ 1: {
