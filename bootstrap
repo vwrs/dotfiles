@@ -54,7 +54,8 @@ usage() {
   cat <<\EOF
 Commands:
   init (download dotfiles, vim-plug, zplug, tpm)
-  font (install powerline patched fonts)
+  font-powerline (install powerline patched fonts)
+  font-nerd (install Nerd Fonts)
   deploy (symlink (force override) dotfiles)
   deploy_root (symlink dotfiles in super user)
   quit
@@ -157,11 +158,19 @@ symlink_files() {
 }
 
 powerline_fonts() {
-  git clone https://github.com/powerline/fonts.git
+  git clone --depth=1 https://github.com/powerline/fonts.git
   cd fonts
   ./install.sh
   cd ..
   rm -rf fonts
+}
+
+nerd_fonts() {
+  git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git
+  cd nerd-fonts
+  ./install.sh $1  # "Source" to install Sauce Code Nerd Font
+  cd ..
+  rm -rf nerd-fonts
 }
 
 # main
@@ -175,8 +184,12 @@ main() {
       download
       main
       ;;
-    font)
+    font-powerline)
       powerline_fonts
+      main
+      ;;
+    font-nerd)
+      nerd_fonts Source
       main
       ;;
     deploy)
