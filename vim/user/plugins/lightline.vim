@@ -18,7 +18,7 @@ let g:lightline = {
 \ 'tabline': {
 \   'left': [
 \             ['bufferinfo'],
-\             ['separator'],
+\             ['separator_tab'],
 \             ['bufferbefore', 'buffercurrent', 'bufferafter']
 \           ],
 \   'right': [['close']],
@@ -47,17 +47,19 @@ let g:lightline = {
 \   'ale': 'LightlineALE',
 \ },
 \ 'component': {
-\   'separator': '',
+\   'separator_tab': '',
 \ },
+\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
 \}
 
 " lightline-buffer ui settings
 " replace these symbols with ascii characters if your environment does not support unicode
 " ---------------------------------------------------
-let g:lightline_buffer_logo = ' '
-let g:lightline_buffer_readonly_icon = ''
-let g:lightline_buffer_modified_icon = '✭'
-let g:lightline_buffer_git_icon = ' '
+let g:lightline_buffer_logo = "\ue62b "
+let g:lightline_buffer_readonly_icon = "\ufafa"
+let g:lightline_buffer_modified_icon = "\ufac1"
+let g:lightline_buffer_git_icon = "\ue0a0 "
 let g:lightline_buffer_ellipsis_icon = '..'
 let g:lightline_buffer_expand_left_icon = '◀ '
 let g:lightline_buffer_expand_right_icon = ' ▶'
@@ -78,13 +80,10 @@ let g:lightline_buffer_minfextlen = 3
 let g:lightline_buffer_reservelen = 20
 
 " lightline-ale
-let g:lightline#ale#indicator_warnings = "⚠ "
-let g:lightline#ale#indicator_errors = "✖ "
-let g:lightline#ale#indicator_ok = "⬥ "
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf00c"
+let g:lightline#ale#indicator_checking = " \uf110 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_ok = "\uf00c "
 
 " custom tabline color
 " :h lightline-colorscheme
@@ -96,7 +95,7 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 function! LightlineFugitive()
   if exists('*fugitive#head')
     let l:branch = fugitive#head()
-    return l:branch !=# '' ? ' '.l:branch : ''
+    return l:branch !=# '' ? "\ue0a0 ".l:branch : ''
   endif
   return ''
 endfunction

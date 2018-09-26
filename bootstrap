@@ -55,7 +55,7 @@ usage() {
 Commands:
   init (download dotfiles, vim-plug, zplug, tpm)
   font-powerline (install powerline patched fonts)
-  font-nerd (install Nerd Fonts)
+  font-nerd (install SauceCodePro Nerd Font)
   deploy (symlink (force override) dotfiles)
   deploy_root (symlink dotfiles in super user)
   quit

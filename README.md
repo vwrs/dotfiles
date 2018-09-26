@@ -8,7 +8,7 @@ dotfiles
 - htop
 - zplug
 - vim-plug
-- Powerline patched fonts
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 
 ## Preliminary
 ### requirements
@@ -33,14 +33,15 @@ $ bash -c "`curl -fsSL raw.github.com/vwrs/dotfiles/master/bootstrap`"
 
 Commands:
   init (download dotfiles, vim-plug, zplug, tpm)
-  font (install powerline patched fonts)
+  font-nerd (install SauceCodePro Nerd Font)
+  font-powerline (install powerline patched fonts)
   deploy (symlink (force override) dotfiles)
   deploy_root (symlink dotfiles in super user)
   quit
 
 command: init
 ...
-command: font
+command: font-nerd
 ...
 command: deploy
 ...

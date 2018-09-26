@@ -8,15 +8,15 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \ 'javascript': ['standard'],
   \ }
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = "\uf05e"
+let g:ale_sign_warning = "\uf071"
 
 " language server
 " ----------
 " LanguageClient-neovim
 " vue: npm install -g vue-language-server
 let g:LanguageClient_serverCommands = {
-  \ 'python': ['pyls'],
+  \ 'python': [],
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'r': ['R', '--quiet', '--slave', '-e', 'languageserver::run()'],
   \ 'vue': ['vls'],
@@ -27,25 +27,25 @@ let g:LanguageClient_diagnosticsDisplay = {
   \ 1: {
     \ 'name': 'Error',
     \ 'texthl': 'ALEError',
-    \ 'signText': '✖',
+    \ 'signText':  "\uf05e",
     \ 'signTexthl': 'Error',
     \ },
   \ 2: {
     \ 'name': 'Warning',
     \ 'texthl': 'ALEWarning',
-    \ 'signText': '⚠',
+    \ 'signText':  "\uf071",
     \ 'signTexthl': 'ALEWarningSign',
     \ },
   \ 3: {
     \ 'name': 'Information',
     \ 'texthl': 'ALEInfo',
-    \ 'signText': 'ℹ',
+    \ 'signText': "\uf05a",
     \ 'signTexthl': 'ALEInfoSign',
     \ },
   \ 4: {
     \ 'name': 'Hint',
     \ 'texthl': 'ALEInfo',
-    \ 'signText': '➤',
+    \ 'signText': "\uf05a",
     \ 'signTexthl': 'ALEInfoSign',
     \ },
   \ }
