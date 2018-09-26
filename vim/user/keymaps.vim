@@ -39,6 +39,9 @@ nnoremap <Leader>d :Gdiff<CR>
 nmap R <Plug>(operator-replace)
 " LanguageClient-neovim
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" ALE
+nmap <silent> <Leader>e <Plug>(ale_next_wrap)
+nmap <silent> <Leader>E <Plug>(ale_previous_wrap)
 
 " insert mode
 " ------------
