@@ -2,8 +2,12 @@ scriptencoding utf-8
 
 " Asynchronous Lint Engine
 let g:ale_linters = {
-    \ 'python': ['pycodestyle'],
-    \}
+  \ 'python': ['pycodestyle'],
+  \ 'javascript': ['standard'],
+  \ }
+let g:ale_fixers = {
+  \ 'javascript': ['standard'],
+  \ }
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 
@@ -12,39 +16,39 @@ let g:ale_sign_warning = '⚠'
 " LanguageClient-neovim
 " vue: npm install -g vue-language-server
 let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'r': ['R', '--quiet', '--slave', '-e', 'languageserver::run()'],
-    \ 'vue': ['vls'],
-    \ 'html': [],
-    \ 'javascript': [],
-    \ }
+  \ 'python': ['pyls'],
+  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+  \ 'r': ['R', '--quiet', '--slave', '-e', 'languageserver::run()'],
+  \ 'vue': ['vls'],
+  \ 'javascript': [],
+  \ 'html': [],
+  \ }
 let g:LanguageClient_diagnosticsDisplay = {
-    \ 1: {
-        \ 'name': 'Error',
-        \ 'texthl': 'ALEError',
-        \ 'signText': '✖',
-        \ 'signTexthl': 'Error',
-        \ },
-    \ 2: {
-        \ 'name': 'Warning',
-        \ 'texthl': 'ALEWarning',
-        \ 'signText': '⚠',
-        \ 'signTexthl': 'ALEWarningSign',
-        \ },
-    \ 3: {
-        \ 'name': 'Information',
-        \ 'texthl': 'ALEInfo',
-        \ 'signText': 'ℹ',
-        \ 'signTexthl': 'ALEInfoSign',
-        \ },
-    \ 4: {
-        \ 'name': 'Hint',
-        \ 'texthl': 'ALEInfo',
-        \ 'signText': '➤',
-        \ 'signTexthl': 'ALEInfoSign',
-        \ },
-    \ }
+  \ 1: {
+    \ 'name': 'Error',
+    \ 'texthl': 'ALEError',
+    \ 'signText': '✖',
+    \ 'signTexthl': 'Error',
+    \ },
+  \ 2: {
+    \ 'name': 'Warning',
+    \ 'texthl': 'ALEWarning',
+    \ 'signText': '⚠',
+    \ 'signTexthl': 'ALEWarningSign',
+    \ },
+  \ 3: {
+    \ 'name': 'Information',
+    \ 'texthl': 'ALEInfo',
+    \ 'signText': 'ℹ',
+    \ 'signTexthl': 'ALEInfoSign',
+    \ },
+  \ 4: {
+    \ 'name': 'Hint',
+    \ 'texthl': 'ALEInfo',
+    \ 'signText': '➤',
+    \ 'signTexthl': 'ALEInfoSign',
+    \ },
+  \ }
 
 
 " language-specific settings
