@@ -4,29 +4,47 @@ scriptencoding utf-8
 let g:lightline = {
 \ 'colorscheme': 'hydrangea',
 \ 'active': {
-\   'left': [ ['mode', 'paste' ],
-\             ['fugitive', 'readonly', 'filename', 'modified'],
+\   'left': [
+\              ['mode', 'paste'],
+\              ['fugitive', 'readonly', 'filename', 'modified'],
 \           ],
+\   'right': [
+\              ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+\              ['lineinfo'],
+\              ['percent'],
+\              ['fileformat', 'fileencoding', 'filetype', 'charvaluehex'],
+\            ]
 \ },
 \ 'tabline': {
-\   'left': [ [ 'bufferinfo' ],
-\             [ 'separator' ],
-\             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-\   'right': [ [ 'close' ], ],
+\   'left': [
+\             ['bufferinfo'],
+\             ['separator'],
+\             ['bufferbefore', 'buffercurrent', 'bufferafter']
+\           ],
+\   'right': [['close']],
 \ },
 \ 'component_expand': {
 \   'buffercurrent': 'lightline#buffer#buffercurrent',
 \   'bufferbefore': 'lightline#buffer#bufferbefore',
 \   'bufferafter': 'lightline#buffer#bufferafter',
+\   'linter_checking': 'lightline#ale#checking',
+\   'linter_warnings': 'lightline#ale#warnings',
+\   'linter_errors': 'lightline#ale#errors',
+\   'linter_ok': 'lightline#ale#ok',
 \ },
 \ 'component_type': {
 \   'buffercurrent': 'tabsel',
 \   'bufferbefore': 'raw',
 \   'bufferafter': 'raw',
+\   'linter_checking': 'left',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error',
+\   'linter_ok': 'left',
 \ },
 \ 'component_function': {
 \   'bufferinfo': 'lightline#buffer#bufferinfo',
 \   'fugitive':   'LightlineFugitive',
+\   'ale': 'LightlineALE',
 \ },
 \ 'component': {
 \   'separator': '',
@@ -59,13 +77,22 @@ let g:lightline_buffer_minflen = 16
 let g:lightline_buffer_minfextlen = 3
 let g:lightline_buffer_reservelen = 20
 
+" lightline-ale
+let g:lightline#ale#indicator_warnings = "⚠ "
+let g:lightline#ale#indicator_errors = "✖ "
+let g:lightline#ale#indicator_ok = "⬥ "
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
+
 " custom tabline color
 " :h lightline-colorscheme
 " let s:p = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 " let s:p.tabline.middle = [ ['#81DAF5', 'Gray80', 255, 0] ]
 " let g:lightline#colorscheme#{g:lightline.colorscheme}#palette = s:p
 
-" functions
+" fugitive
 function! LightlineFugitive()
   if exists('*fugitive#head')
     let l:branch = fugitive#head()
@@ -73,3 +100,4 @@ function! LightlineFugitive()
   endif
   return ''
 endfunction
+

@@ -49,6 +49,7 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
 " linter
 Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
 " language server
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
