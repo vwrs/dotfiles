@@ -59,6 +59,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 " ----------
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'tpope/vim-rails'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
 Plug 'stanangeloff/php.vim', { 'for': ['php'] }

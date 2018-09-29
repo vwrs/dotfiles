@@ -1,9 +1,11 @@
 scriptencoding utf-8
 
 " Asynchronous Lint Engine
+" ruby: gem install robocop
 let g:ale_linters = {
   \ 'python': ['pycodestyle'],
   \ 'javascript': ['standard'],
+  \ 'ruby': ['robocop'],
   \ }
 let g:ale_fixers = {
   \ 'javascript': ['standard'],
@@ -15,6 +17,7 @@ let g:ale_sign_warning = "\uf071"
 " ----------
 " LanguageClient-neovim
 " vue: npm install -g vue-language-server
+" ruby: gem install solargraph
 let g:LanguageClient_serverCommands = {
   \ 'python': [],
   \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
@@ -22,6 +25,7 @@ let g:LanguageClient_serverCommands = {
   \ 'vue': ['vls'],
   \ 'javascript': [],
   \ 'html': [],
+  \ 'ruby': ['solargraph', 'stdio'],
   \ }
 let g:LanguageClient_diagnosticsDisplay = {
   \ 1: {
