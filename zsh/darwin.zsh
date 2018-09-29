@@ -13,6 +13,7 @@ SPACESHIP_PROMPT_ORDER=(
 alias ls="ls -tGAF"
 alias l.="ls -d .*"
 alias du="du -ch"
+alias dusort"du -d 1 -ch | sort -hr"
 alias htop="sudo htop"
 alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
 alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"

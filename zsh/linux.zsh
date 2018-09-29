@@ -14,4 +14,5 @@ SPACESHIP_PROMPT_ORDER=(
 )
 alias ls="ls -tAF --color=auto"
 alias du="du -bch --time"
+alias dusort="du --max-depth=1 -bch | sort -hr"
 
