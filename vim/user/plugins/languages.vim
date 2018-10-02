@@ -1,11 +1,11 @@
 scriptencoding utf-8
 
 " Asynchronous Lint Engine
-" ruby: gem install robocop
+" ruby: gem install rubocop
 let g:ale_linters = {
   \ 'python': ['pycodestyle'],
   \ 'javascript': ['standard'],
-  \ 'ruby': ['robocop'],
+  \ 'ruby': ['rubocop'],
   \ }
 let g:ale_fixers = {
   \ 'javascript': ['standard'],
@@ -25,7 +25,7 @@ let g:LanguageClient_serverCommands = {
   \ 'vue': ['vls'],
   \ 'javascript': [],
   \ 'html': [],
-  \ 'ruby': ['solargraph', 'stdio'],
+  \ 'ruby': [],
   \ }
 let g:LanguageClient_diagnosticsDisplay = {
   \ 1: {
