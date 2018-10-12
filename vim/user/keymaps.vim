@@ -48,8 +48,8 @@ nmap <silent> <Leader>E <Plug>(ale_previous_wrap)
 " emacs-like key mappings
 inoremap <silent> <C-b> <Left>
 inoremap <silent> <C-f> <Right>
-inoremap <silent> <C-p> <Up>
-inoremap <silent> <C-n> <Down>
+imap <silent> <C-p> <ESC>gka
+imap <silent> <C-n> <ESC>gja
 inoremap <silent> <C-a> <ESC>I
 inoremap <silent> <C-e> <End>
 inoremap <silent> <C-d> <Del>
