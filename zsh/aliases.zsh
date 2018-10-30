@@ -33,6 +33,7 @@ if [ -x "`which git`" ]; then
 fi
 if [ -x "`which docker`" ]; then
   alias d="docker"
+  alias dit="docker exec -it"
   alias dc="docker-compose"
 fi
 if [ -x "`which tree`" ]; then
