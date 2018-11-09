@@ -72,6 +72,7 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 Plug 'keith/tmux.vim', { 'for': 'tmux'}
 Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 if has('nvim')
   Plug 'zchee/deoplete-jedi', { 'for': 'python' }
   Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
