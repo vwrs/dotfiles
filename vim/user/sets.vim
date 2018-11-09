@@ -12,7 +12,8 @@ set cursorline
 " set cursorcolumn
 set showcmd
 " tab, indent
-set list listchars=tab:\▸\-
+set list
+set listchars=tab:\│\ ,trail:·,nbsp:_
 set smarttab
 set expandtab
 set tabstop=2
