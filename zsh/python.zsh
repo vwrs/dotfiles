@@ -3,6 +3,7 @@ if [ -d ${PYENV_ROOT} ]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
   if [ -d ${PYENV_ROOT}/plugins/pyenv-virtualenv ]; then
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv virtualenv-init -)"
   fi
 fi
