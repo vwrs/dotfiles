@@ -21,27 +21,36 @@ zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, as:theme
 # zplug $RANDOM_THEME, as:theme
 
 # spaceship
-if [ "$(hostname)" != "Hideaki" ]; then
-  SPACESHIP_USER_SHOW="always"
-  SPACESHIP_HOST_SHOW="always"
-fi
+SPACESHIP_PROMPT_ORDER=(
+  time user host dir git docker pyenv exec_time line_sep jobs exit_code char
+)
+# \uf943 \u2502
+SPACESHIP_PROMPT_DEFAULT_PREFIX="\u2591 "
+SPACESHIP_DIR_PREFIX=$SPACESHIP_PROMPT_DEFAULT_PREFIX
+SPACESHIP_GIT_PREFIX=$SPACESHIP_PROMPT_DEFAULT_PREFIX
+SPACESHIP_PYENV_PREFIX=$SPACESHIP_PROMPT_DEFAULT_PREFIX
+SPACESHIP_DOCKER_PREFIX=$SPACESHIP_PROMPT_DEFAULT_PREFIX
+
 SPACESHIP_USER_COLOR="blue"
 SPACESHIP_USER_SUFFIX=""
+
 SPACESHIP_HOST_COLOR="blue"
 SPACESHIP_HOST_COLOR_SSH="blue"
 SPACESHIP_HOST_PREFIX="%F{blue}@%f"
-SPACESHIP_DIR_PREFIX=":: "
+
 SPACESHIP_DIR_COLOR="cyan"
-SPACESHIP_GIT_PREFIX=":: "
-SPACESHIP_PYENV_PREFIX=":: "
-SPACESHIP_DOCKER_PREFIX=":: "
-SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_CHAR_COLOR_SUCCESS="white"
+
 SPACESHIP_GIT_BRANCH_COLOR="green"
 SPACESHIP_GIT_STATUS_COLOR="yellow"
 SPACESHIP_GIT_STATUS_PREFIX=" <"
 SPACESHIP_GIT_STATUS_SUFFIX=">"
 SPACESHIP_GIT_STATUS_MODIFIED="!"
+
+SPACESHIP_DOCKER_SYMBOL="\uf308 "
+SPACESHIP_PYENV_SYMBOL="\ue235 \ue73c \uf81f \ue606 "
+
+SPACESHIP_CHAR_SYMBOL="\uf460"
+SPACESHIP_CHAR_SUFFIX=" "
 
 # bullet-train
 BULLETTRAIN_PROMPT_ORDER=(status custom context dir git cmd_exec_time)
@@ -56,12 +65,12 @@ BULLETTRAIN_GIT_BG=green
 BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
 # Install plugins if there are plugins that have not been installed
-# if ! zplug check --verbose; then
-#   printf "Install(zplug)? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
+if ! zplug check --verbose; then
+  printf "Install(zplug)? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
 zplug load
 
