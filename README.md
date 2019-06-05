@@ -1,23 +1,18 @@
 dotfiles
 ===
-**zsh + tmux + Neovim [Vim]**
+**zsh + Neovim/Vim + tmux**
 
 - zsh
+  - [zplug](https://github.com/zplug/zplug)
+- Neovim/Vim
+  - [vim-plug](https://github.com/junegunn/vim-plug)
 - tmux
-- Neovim / Vim
+  - [tpm](https://github.com/tmux-plugins/tpm)
+- Homebrew (macOS)
+  - [homebrew-bundle](https://github.com/Homebrew/homebrew-bundle)
+- git
 - htop
-- zplug
-- vim-plug
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
-
-## Preliminary
-### requirements
-Install `zsh`, `git`, `neovim` or `vim`, and `tmux`.
-
-### recommended tools
-- [fzf](https://github.com/junegunn/fzf) (automatically installed via vim-plug)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [reattach-to-user-namespace](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) (for macOS)
 
 ## Installation
 ```
@@ -32,7 +27,7 @@ $ bash -c "`curl -fsSL raw.github.com/vwrs/dotfiles/master/bootstrap`"
 
 
 Commands:
-  init (download dotfiles, vim-plug, zplug, tpm)
+  init (download dotfiles, Homebrew (macOS), vim-plug, zplug and tpm)
   font-nerd (install SauceCodePro Nerd Font)
   font-powerline (install powerline patched fonts)
   deploy (symlink (force override) dotfiles)
