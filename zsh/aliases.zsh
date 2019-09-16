@@ -17,6 +17,8 @@ alias grep="grep -in --color"
 # ssh
 alias sshj="ssh -L 9000:127.1:9000"
 alias sshvnc="ssh -L 5900:127.1:5900"
+alias sshtb="ssh -L 6006:127.1:6006"
+alias sshjtb="ssh -L 9000:127.1:9000 -L 6006:127.1:6006"
 
 # non-builtin commands
 # ----------
