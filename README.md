@@ -50,6 +50,8 @@ $ nvim [vim]
 Run `:PlugInstall`.
 $ tmux
 Run `Prefix+I`.
+$ git config --global user.name "{{user.name}}"
+$ git config --global user.email "{{user.email}}"
 ```
 
 ## Screenshot
