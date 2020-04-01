@@ -28,8 +28,6 @@ brew "libtool"
 brew "imagemagick"
 brew "lftp"
 brew "libxml2"
-brew "python@2"
-brew "libimobiledevice", args: ["HEAD"]
 brew "libzip"
 brew "lolcat"
 brew "mas"
@@ -68,36 +66,17 @@ brew "zegervdv/zathura/zathura"
 brew "zegervdv/zathura/zathura-pdf-poppler"
 cask "alfred"
 cask "appcleaner"
-cask "atom"
 cask "basictex"
 cask "bettertouchtool"
-cask "bibdesk"
-cask "boostnote"
-cask "calibre"
 cask "cmd-eikana"
 cask "dash"
 cask "firefox"
 cask "flux"
+cask "google-japanese-ime"
 cask "iterm2"
-cask "java"
 cask "jupyter-notebook-viewer"
 cask "latexit"
-cask "mendeley"
-cask "oni"
 cask "sequel-pro"
 cask "slack"
-cask "vagrant"
 cask "vimr"
-cask "virtualbox"
-cask "virtualbox-extension-pack"
-cask "wireshark"
 cask "xquartz"
-mas "GIPHY CAPTURE", id: 668208984
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "LINE", id: 539883307
-mas "Mathpix Snipping Tool", id: 1349670778
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Spark", id: 1176895641
-mas "Xcode", id: 497799835
