@@ -30,3 +30,7 @@ source ${ZSH_HOME}commands.zsh
 source ${ZSH_HOME}aliases.zsh
 source ${ZSH_HOME}python.zsh
 
+# specific
+if [ -x "`which kubectl`" ]; then
+  source ${ZSH_HOME}kubectl.zsh
+fi
