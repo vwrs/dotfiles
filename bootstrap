@@ -133,30 +133,38 @@ download() {
     echo "${BOLD}vim-plug already exists.$NORMAL"
   fi
   # zplug
-  if [ ! -d $ZPLUG_HOME ]; then
-    echo "Downloading zplug ..."
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-    if [ $? = 0 ]; then
-      echo "${GREEN}Successfully downloaded zplug in ${ZPLUG_HOME}. ✔︎ $NORMAL"
+  if [ -x "`which zsh`" ]; then
+    if [ ! -d $ZPLUG_HOME ]; then
+      echo "Downloading zplug ..."
+      curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+      if [ $? = 0 ]; then
+        echo "${GREEN}Successfully downloaded zplug in ${ZPLUG_HOME}. ✔︎ $NORMAL"
+      else
+        echo "${RED}An unexpected error occurred when trying to install zplug.$NORMAL"
+        exit 1
+      fi
     else
-      echo "${RED}An unexpected error occurred when trying to install zplug.$NORMAL"
-      exit 1
+      echo "${BOLD}zplug already exists.$NORMAL"
     fi
   else
-    echo "${BOLD}zplug already exists.$NORMAL"
+    echo "${RED}zsh is currently not installed.$NORMAL"
   fi
   # tpm
-  if [ ! -d $TPM_HOME ]; then
-    echo "Downloading tpm ..."
-    git clone https://github.com/tmux-plugins/tpm $TPM_HOME
-    if [ $? = 0 ]; then
-      echo "${GREEN}Successfully downloaded tpm in $TPM_HOME. ✔︎ $NORMAL"
+  if [ -x "`which tmux`" ]; then
+    if [ ! -d $TPM_HOME ]; then
+      echo "Downloading tpm ..."
+      git clone https://github.com/tmux-plugins/tpm $TPM_HOME
+      if [ $? = 0 ]; then
+        echo "${GREEN}Successfully downloaded tpm in $TPM_HOME. ✔︎ $NORMAL"
+      else
+        echo "${RED}An unexpected error occurred when trying to install tpm.$NORMAL"
+        exit 1
+      fi
     else
-      echo "${RED}An unexpected error occurred when trying to install tpm.$NORMAL"
-      exit 1
+      echo "${BOLD}tpm already exists.$NORMAL"
     fi
   else
-    echo "${BOLD}tpm already exists.$NORMAL"
+    echo "${RED}tmux is currently not installed.$NORMAL"
   fi
 }
 
