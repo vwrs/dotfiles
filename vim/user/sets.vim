@@ -44,7 +44,7 @@ set mouse=a
 set t_ut=
 set t_Co=256
 set scrolloff=10
-set colorcolumn=80
+set colorcolumn=120
 set conceallevel=0
 set hidden  " allow buffer switching without saving
 

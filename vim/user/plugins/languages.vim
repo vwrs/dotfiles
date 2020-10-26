@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Asynchronous Lint Engine
 " ruby: gem install rubocop
 let g:ale_linters = {
-  \ 'python': ['pycodestyle'],
+  \ 'python': ['flake8'],
   \ 'javascript': ['standard'],
   \ 'ruby': ['rubocop'],
   \ }
@@ -12,6 +12,8 @@ let g:ale_fixers = {
   \ }
 let g:ale_sign_error = "\uf05e"
 let g:ale_sign_warning = "\uf071"
+let g:ale_python_flake8_executable = 'python'
+let g:ale_python_flake8_options = '-m flake8 --max-line-length=120'
 
 " language server
 " ----------
