@@ -1,3 +1,4 @@
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d ${PYENV_ROOT} ]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
@@ -19,6 +20,8 @@ if [ -x "`which pip`" ]; then
   }
   compctl -K _pip_completion pip
 fi
+# poetry
+export PATH="$HOME/.local/bin:$PATH"
 
 # aliases
 alias py="python"
