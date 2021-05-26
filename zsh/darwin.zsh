@@ -61,3 +61,6 @@ fi
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# prevent git errors (pyenv)
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
