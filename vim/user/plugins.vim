@@ -33,6 +33,7 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
+Plug 'github/copilot.vim'
 " textobj
 " ----------
 Plug 'kana/vim-textobj-user'
