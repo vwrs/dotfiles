@@ -13,10 +13,9 @@ if [ -x "`which convert`" ]; then
     done
   }
 fi
-if [ -d ~/.iterm2 ]; then
-  source ~/.iterm2_shell_integration.zsh
-  alias it2dl="~/.iterm2/it2dl"
-  alias imgcat="~/.iterm2/imgcat"
-  alias imgls="~/.iterm2/imgls"
+
+if [ -x "`which kubectl`" ]; then
+  source ${ZSH_HOME}kubectl.zsh
 fi
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

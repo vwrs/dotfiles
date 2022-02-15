@@ -1,7 +1,7 @@
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d ${PYENV_ROOT} ]; then
-  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
   eval "$(pyenv init -)"
   if [ -d ${PYENV_ROOT}/plugins/pyenv-virtualenv ]; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -22,6 +22,7 @@ if [ -x "`which pip`" ]; then
 fi
 # poetry
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # aliases
 alias py="python"
