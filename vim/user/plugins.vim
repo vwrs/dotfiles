@@ -9,7 +9,7 @@ Plug 'taohexxx/lightline-buffer'
 Plug 'tpope/vim-sleuth'
 Plug 'tyru/caw.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'kana/vim-smartinput'

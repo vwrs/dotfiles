@@ -2,7 +2,7 @@ scriptencoding utf-8
 
 " use lightline-buffer in lightline
 let g:lightline = {
-\ 'colorscheme': 'hydrangea',
+\ 'colorscheme': 'powerline',
 \ 'active': {
 \   'left': [
 \              ['mode', 'paste'],
