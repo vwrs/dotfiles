@@ -4,9 +4,11 @@
 ROOT_HOME=/var/root
 DOT_HOME=~/dotfiles
 AUTOLOAD_DIR=$DOT_HOME/vim/autoload
+CARGO_HOME=~/.cargo
 VIMPLUG_FILE=$DOT_HOME/vim/autoload/plug.vim
 ZPLUG_HOME=~/.zplug
 TPM_HOME=~/.tmux/plugins/tpm
+FZF_HOME=~/.fzf
 REMOTE_URL="https://github.com/vwrs/dotfiles.git"
 CONFIG_HTOP=$HOME/.config/htop
 CONFIG_NVIM=$HOME/.config/nvim
@@ -64,12 +66,24 @@ EOF
 }
 
 init_darwin() {
-  echo "${BOLD}Installing Homebrew ...$NORMAL"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  read -p "Install Homebrew packages from Brewfile? [Y/n]" -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    /usr/local/bin/brew bundle --file=~/dotfiles/Brewfile
+  # Rosetta2 for Apple silicon
+  if [ "$(uname -m)" = "arm64" ]; then
+    echo "${BOLD}Installing Rosetta2 ...$NORMAL"
+    sudo softwareupdate --install-rosetta --agree-to-license
+  fi
+
+  # Homebrew
+  if [ ! -x "`which brew`" ]; then
+    echo "${BOLD}Installing Homebrew ...$NORMAL"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    read -p "Install Homebrew packages from Brewfile? [Y/n]" -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      brew bundle --file=~/dotfiles/Brewfile
+    fi
+  else
+    echo "${BOLD}Homebrew has already been installed.$NORMAL"
   fi
   echo "${BOLD}Setting defaults ...$NORMAL"
   # Key Repeat
@@ -83,11 +97,11 @@ init_darwin() {
   defaults write com.apple.screencapture include-date -bool false
   defaults write com.apple.screencapture location ~/screencapture
   # Disable animations
-  defaults write com.apple.dock autohide-delay -float 0
-  defaults write com.apple.dock autohide-time-modifier -float 0
-  defaults delete com.apple.dock expose-animation-duration
-  defaults write com.apple.dock springboard-show-duration -int 0
-  defaults write com.apple.dock springboard-hide-duration -int 0
+  # defaults write com.apple.dock autohide-delay -float 0
+  # defaults write com.apple.dock autohide-time-modifier -float 0
+  # defaults delete com.apple.dock expose-animation-duration
+  # defaults write com.apple.dock springboard-show-duration -int 0
+  # defaults write com.apple.dock springboard-hide-duration -int 0
   defaults write com.apple.finder DisableAllAnimations -bool true
   defaults write -g NSInitialToolTipDelay -integer 100
 }
@@ -119,6 +133,19 @@ download() {
     init_darwin
   fi
 
+  # Rust
+  # Install Rust and Cargo for dependencies
+  # https://doc.rust-lang.org/cargo/getting-started/installation.html
+  if [ ! -d $CARGO_HOME ]; then
+    echo "${BOLD}Installing Rust ...$NORMAL"
+    curl https://sh.rustup.rs -sSf | sh
+    if [ ! $? = 0 ]; then
+      echo "${RED}An unexpected error occurred when trying to install Rust.$NORMAL"
+    fi
+  else
+    echo "${BOLD} $CARGO_HOME already exists.$NORMAL"
+  fi
+
   # vim-plug
   if [ ! -f $VIMPLUG_FILE ]; then
     echo "Downloading vim-plug ..."
@@ -132,10 +159,11 @@ download() {
   else
     echo "${BOLD}vim-plug already exists.$NORMAL"
   fi
+
   # zplug
   if [ -x "`which zsh`" ]; then
     if [ ! -d $ZPLUG_HOME ]; then
-      echo "Downloading zplug ..."
+      echo "${BOLD}Downloading zplug ...$NORMAL"
       curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
       if [ $? = 0 ]; then
         echo "${GREEN}Successfully downloaded zplug in ${ZPLUG_HOME}. ✔︎ $NORMAL"
@@ -149,6 +177,7 @@ download() {
   else
     echo "${RED}zsh is currently not installed.$NORMAL"
   fi
+
   # tpm
   if [ -x "`which tmux`" ]; then
     if [ ! -d $TPM_HOME ]; then
@@ -166,6 +195,21 @@ download() {
   else
     echo "${RED}tmux is currently not installed.$NORMAL"
   fi
+
+  # fzf
+  if [ ! -d $FZF_HOME ]; then
+    echo "${BOLD}Downloading fzf ...$NORMAL"
+    git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_HOME
+    ~/.fzf/install
+    if [ $? = 0 ]; then
+      echo "${GREEN}Successfully installed fzf in $FZF_HOME. ✔︎ $NORMAL"
+    else
+      echo "${RED}An unexpected error occurred when trying to install fzf.$NORMAL"
+    fi
+  else
+    echo "${BOLD}fzf already exists.$NORMAL"
+  fi
+
 }
 
 symlink_files() {
