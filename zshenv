@@ -7,10 +7,9 @@ export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 # rust
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
 
 if [ -x "`which go`" ]; then
   export GOROOT=`go env GOROOT`
   export PATH=$PATH:$GOROOT/bin
 fi
-

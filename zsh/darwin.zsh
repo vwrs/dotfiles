@@ -17,6 +17,8 @@ alias dusort"du -d 1 -ch | sort -hr"
 alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
 alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 # upgrade homebrew-cask
 brew-cask-upgrade () {
   for app in $(brew cask list); do
@@ -38,8 +40,6 @@ brew-cask-upgrade () {
 
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-# homebrew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # brew-file
 export HOMEBREW_BREWFILE=~/dotfiles/.brewfile
 # git
@@ -61,6 +61,5 @@ fi
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# prevent git errors (pyenv)
+# avoid git errors (pyenv)
 export PATH="/usr/local/opt/gettext/bin:$PATH"
-
