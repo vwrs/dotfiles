@@ -3,11 +3,6 @@
   editor = vim
   pager = delta
 
-[filter "lfs"]
-  required = true
-  smudge = git-lfs smudge -- %f
-  clean = git-lfs clean -- %f
-
 [alias]
   alias = !git config --get-regexp alias
   a = add
@@ -39,11 +34,6 @@
 [push]
   default = matching
 
-[color "diff"]
-  # old = red strike
-  # new = green bold italic
-  # meta = blue black bold
-
 [color]
   diff = auto
   status = auto
@@ -54,18 +44,13 @@
   diffFilter = delta --color-only
 
 [diff]
-  tool = meld
   colorMoved = default
 
-[difftool]
-  prompt = false
-
 [merge]
-  tool = meld
   conflictstyle = diff3
 
-[mergetool]
-  prompt = false
+[delta]
+  navigate = true
 
 [diff "jupyternotebook"]
   command = git-nbdiffdriver diff
@@ -80,13 +65,8 @@
 [mergetool "nbdime"]
   cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
-[difftool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[filter "lfs"]
+  required = true
+  smudge = git-lfs smudge -- %f
+  clean = git-lfs clean -- %f
 
-[mergetool "meld"]
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
-
-[delta]
-  navigate = true
