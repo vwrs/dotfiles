@@ -8,11 +8,15 @@ dotfiles
   - [vim-plug](https://github.com/junegunn/vim-plug)
 - tmux
   - [tpm](https://github.com/tmux-plugins/tpm)
-- Homebrew (macOS)
-  - [homebrew-bundle](https://github.com/Homebrew/homebrew-bundle)
 - git
+  - aliases
+  - [delta](https://github.com/dandavison/delta)
+  - [nbdime](https://github.com/jupyter/nbdime)
 - htop
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+- Homebrew (macOS only)
+  - [homebrew-bundle](https://github.com/Homebrew/homebrew-bundle)
+- Rosetta2 (macOS with Apple silicon only)
 
 ## Installation
 ```
