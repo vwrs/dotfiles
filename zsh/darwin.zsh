@@ -18,39 +18,14 @@ alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
 alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 
 # homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# upgrade homebrew-cask
-brew-cask-upgrade () {
-  for app in $(brew cask list); do
-    local latest="$(brew cask info "${app}" | awk 'NR==1{print $2}')";
-    local versions=($(ls -1 "/usr/local/Caskroom/${app}/.metadata/"));
-    local current=$(echo ${versions} | awk '{print $NF}');
-    if [[ "${latest}" = "latest" ]]; then
-      echo "[!] ${app}: ${current} == ${latest}";
-      [[ "$1" = "-f" ]] && brew cask install "${app}" --force;
-      continue;
-    elif [[ "${current}" = "${latest}" ]]; then
-      continue;
-    fi;
-    echo "[+] ${app}: ${current} -> ${latest}";
-    brew cask uninstall "${app}" --force;
-    brew cask install "${app}";
-  done;
-}
-
-# homebrew-cask
+eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-# brew-file
-export HOMEBREW_BREWFILE=~/dotfiles/.brewfile
-# git
-export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
-# tig(--with-docs, docbooks, asciidoc)
-export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 
-if [ "$(hostname)" = "Hideaki" ]; then  # my own pc
-  export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-else
-
+# source-highlight
+# https://www.gnu.org/software/src-highlite/source-highlight.html#Using-source_002dhighlight-with-less
+if [ -x "`which source-highlight`" ]; then
+  export LESSOPEN="| $HOMEBREW_PREFIX/bin/src-hilite-lesspipe.sh %s"
 fi
 
 # brew-file
@@ -58,8 +33,11 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi
 
+# tig(--with-docs, docbooks, asciidoc)
+export XML_CATALOG_FILES=$HOMEBREW_PREFIX/etc/xml/catalog
+
 # iTerm2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # avoid git errors (pyenv)
-export PATH="/usr/local/opt/gettext/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/gettext/bin:$PATH"
