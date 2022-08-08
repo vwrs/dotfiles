@@ -18,6 +18,11 @@ alias sockson="networksetup -setsocksfirewallproxystate Ethernet on"
 alias socksoff="networksetup -setsocksfirewallproxystate Ethernet off"
 
 # homebrew
+if [ "$(uname -m)" = "arm64" ]; then
+  export HOMEBREW_PREFIX=/opt/homebrew
+else
+  export HOMEBREW_PREFIX=/usr/local
+fi
 eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
