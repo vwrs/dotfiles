@@ -26,16 +26,24 @@ fi
 eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
+# completion
+# https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+# brew-file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
 
 # source-highlight
 # https://www.gnu.org/software/src-highlite/source-highlight.html#Using-source_002dhighlight-with-less
 if [ -x "`which source-highlight`" ]; then
   export LESSOPEN="| $HOMEBREW_PREFIX/bin/src-hilite-lesspipe.sh %s"
-fi
-
-# brew-file
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
 fi
 
 # tig(--with-docs, docbooks, asciidoc)
