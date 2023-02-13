@@ -24,7 +24,7 @@ jobs:
       - name: Load .zshrc
         if: success()
         run: |
-          source ~/.zshrc 2> zsh-error.log; cat zsh-error.log
+          zsh ~/.zshrc 2> zsh-error.log; cat zsh-error.log
           if [ -s zsh-error.log ]; then false; fi
 
       - name: Install vim plugins
