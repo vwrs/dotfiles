@@ -1,4 +1,8 @@
-#!/bin/bash -eu
+#!/bin/bash
+set -euo pipefail
+if test ${CI:-}; then
+    set -x  # For better debugging
+
 # consts
 # --------------
 ROOT_HOME=/var/root
@@ -110,7 +114,7 @@ init_darwin() {
   defaults write -g NSInitialToolTipDelay -integer 100
 }
 
-download() {
+init() {
   cd $HOME
 
   # dotfiles
@@ -270,7 +274,7 @@ show_help() {
   cat <<EOF
 usage: $0 [-a|--all] [-h|--help]
   $0           ... run in interactive mode
-  $0 -a|--all  ... run all installation scripts and symlink dotfiles
+  $0 -a|--all  ... run all installation scripts except fonts and symlink dotfiles
   $0 -h|--help ... show this message
 EOF
   echo $NORMAL
@@ -284,7 +288,7 @@ main() {
   read command
   case $command in
     init)
-      download
+      init
       main
       ;;
     font-powerline)
@@ -322,9 +326,7 @@ else
       show_help
       ;;
     -a|--all)
-      download
-      powerline_fonts
-      nerd_fonts SourceCodePro
+      init
       symlink_files $HOME
       ;;
     -*|--*)
