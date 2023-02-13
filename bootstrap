@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-if test "${CI:-}"; then
+if [ -n "${CI:-}" ]; then
     set -x  # For better debugging
 fi
 
@@ -86,14 +86,18 @@ init_darwin() {
     echo "${BOLD}Installing Homebrew ...$NORMAL"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
+  else
+    echo "${BOLD}Homebrew has already been installed.$NORMAL"
+  fi
+
+  if [ -z "${CI:-}" ]; then
     read -p "Install Homebrew packages from Brewfile? [Y/n]" -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
       brew bundle --file=~/dotfiles/Brewfile
     fi
-  else
-    echo "${BOLD}Homebrew has already been installed.$NORMAL"
   fi
+
   echo "${BOLD}Setting defaults ...$NORMAL"
   # Key Repeat
   defaults write -g InitialKeyRepeat -int 14

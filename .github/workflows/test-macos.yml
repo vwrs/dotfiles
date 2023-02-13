@@ -21,10 +21,6 @@ jobs:
           export CI=1
           ./bootstrap --all
 
-      - name: Install from Brewfile by Homebrew Bundle
-        if: success()
-        run: brew bundle --file=~/dotfiles/Brewfile
-
       # - name: Load .zshrc
       #   if: success()
       #   run: |
@@ -35,5 +31,3 @@ jobs:
         run: |
           vim +'PlugInstall --sync' +qall
           nvim --headless +PlugInstall +qall
-
-
