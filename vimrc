@@ -27,8 +27,8 @@ endif
 
 " colorscheme
 " ----------
-colorscheme PaperColor
+syntax enable
+silent! colorscheme PaperColor
 set background=dark
-syntax on
 hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
 
