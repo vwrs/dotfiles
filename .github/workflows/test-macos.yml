@@ -14,7 +14,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a set of commands using the runners shell
       - name: Run an installation script
         run: |
           export TERM=xterm
@@ -27,7 +26,7 @@ jobs:
       #     zsh ~/.zshrc 2> zsh-error.log; cat zsh-error.log
       #     if [ -s zsh-error.log ]; then false; fi
 
-      - name: Install vim plugins
-        run: |
-          vim +'PlugInstall --sync' +qall
-          nvim --headless +PlugInstall +qall
+      # - name: Install vim plugins
+      #   run: |
+      #     vim +'PlugInstall --sync' +qall
+      #     nvim --headless +PlugInstall +qall
