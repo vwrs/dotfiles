@@ -6,13 +6,13 @@ let g:lightline = {
 \ 'active': {
 \   'left': [
 \              ['mode', 'paste'],
-\              ['fugitive', 'readonly', 'filename', 'modified'],
+\              ['fugitive', 'readonly', 'relativepath', 'modified'],
 \           ],
 \   'right': [
 \              ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
 \              ['lineinfo'],
 \              ['percent'],
-\              ['fileformat', 'fileencoding', 'filetype', 'charvaluehex'],
+\              ['fileformat', 'fileencoding', 'filetype'],
 \            ]
 \ },
 \ 'tabline': {
