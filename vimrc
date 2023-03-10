@@ -18,6 +18,7 @@ runtime! user/plugins.vim
 
 " plugin-specific settings
 runtime! user/plugins/*.vim
+runtime! user/plugins/*.lua
 
 " macvim
 if has('gui_macvim')

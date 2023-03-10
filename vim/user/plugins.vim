@@ -2,17 +2,22 @@
 " ---------------
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
-" always
+" utils
 " ----------
-Plug 'itchyny/lightline.vim'
-Plug 'taohexxx/lightline-buffer'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'rcarriga/nvim-notify'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
+Plug 'folke/trouble.nvim'
+
 Plug 'tpope/vim-sleuth'
 Plug 'tyru/caw.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-Plug 'nvim-tree/nvim-tree.lua'
 Plug 'kana/vim-smartinput'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
@@ -22,11 +27,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/matchit.zip'
 Plug 'kassio/neoterm'
 Plug 'unblevable/quick-scope'
-Plug 'rcarriga/nvim-notify'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
-Plug 'folke/trouble.nvim'
 
 " completion
 " ----------
