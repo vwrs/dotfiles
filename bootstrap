@@ -243,7 +243,8 @@ symlink_files() {
       ln -snfv $DOT_HOME/$f $CONFIG_HTOP/$f
     elif [ $f = "vimrc" ]; then
       ln -snfv $DOT_HOME/$f $1/.$f
-      ln -snfv $DOT_HOME/$f $CONFIG_NVIM/init.vim
+      # neovim
+      echo "vim.cmd('source ~/.vimrc')" >> $CONFIG_NVIM/init.lua
     else
       ln -snfv $DOT_HOME/$f $1/.$f
     fi
