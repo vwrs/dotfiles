@@ -25,7 +25,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # pipx
-eval "$(register-python-argcomplete pipx)"
+if [ -x "`which pipx`" ]; then
+  eval "$(register-python-argcomplete pipx)"
+fi
 
 # aliases
 alias py="python"
