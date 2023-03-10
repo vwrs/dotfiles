@@ -21,9 +21,12 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 " highlight last inserted text
 nnoremap gV `[v`]
-" fzf
-nnoremap <Leader>f :FZF<CR>
-nnoremap <Leader>g :GFiles<CR>
+" fuzzy finder
+nnoremap <Leader>f <cmd>Telescope find_files<CR>
+nnoremap <Leader>g <cmd>Telescope live_grep<CR>
+
+" nnoremap <Leader>f :FZF<CR>
+" nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Commits<CR>
 " caw.vim
@@ -31,8 +34,8 @@ nmap <C-/> <Plug>(caw:hatpos:toggle)
 vmap <C-/> <Plug>(caw:hatpos:toggle)
 nmap <C-_> <Plug>(caw:hatpos:toggle)
 vmap <C-_> <Plug>(caw:hatpos:toggle)
-" nerdtree
-nnoremap <Leader>n :NERDTree<CR>
+" nvim-tree
+nnoremap <Leader>n :NvimTreeToggle<CR>
 " vim-fugitive
 nnoremap <Leader>d :Gdiff<CR>
 " vim-operator-replace
@@ -54,11 +57,20 @@ inoremap <silent> <C-a> <ESC>I
 inoremap <silent> <C-e> <End>
 inoremap <silent> <C-d> <Del>
 " completion
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" vsnip
+" expand
+imap <expr> <C-l>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-l>'
+smap <expr> <C-l>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-l>'
+" Expand or jump
+imap <expr> <C-k>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-k>'
+smap <expr> <C-k>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-k>'
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 " command mode
 " ------------

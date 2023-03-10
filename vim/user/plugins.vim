@@ -11,7 +11,8 @@ Plug 'tyru/caw.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'kana/vim-smartinput'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
@@ -20,20 +21,33 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/matchit.zip'
 Plug 'kassio/neoterm'
+Plug 'unblevable/quick-scope'
+Plug 'rcarriga/nvim-notify'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
+Plug 'folke/trouble.nvim'
+
 " completion
 " ----------
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+" snippets
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+" lsp
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'jose-elias-alvarez/null-ls.nvim'  " formatter & linter
+" AI
 Plug 'github/copilot.vim'
+
 " textobj
 " ----------
 Plug 'kana/vim-textobj-user'
@@ -48,39 +62,21 @@ Plug 'rhysd/vim-textobj-anyblock'
 " ----------
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-operator-replace'
-" linter
-Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
-" language server
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-" programming languages
+
+" language-specific
 " ----------
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'tpope/vim-endwise', { 'for': 'ruby' }
-Plug 'pangloss/vim-javascript', { 'for': ['html', 'javascript', 'php'] }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'vim-scripts/matchit.zip'
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 Plug 'keith/tmux.vim', { 'for': 'tmux'}
 Plug 'cespare/vim-toml'
-" Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
-" Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-" Plug 'stanangeloff/php.vim', { 'for': ['php'] }
-" Plug 'tpope/vim-rails'
-" Plug 'lervag/vimtex', { 'for': 'tex' }
-if has('nvim')
-  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-  Plug 'zchee/deoplete-zsh', { 'for': 'zsh' }
-endif
+
 " colorscheme
 " ----------
+Plug 'EdenEast/nightfox.nvim'
 Plug 'altercation/vim-colors-solarized', {
     \ 'do': 'ln -fnsv ~/.vim/plugged/vim-colors-solarized/colors/* ~/.vim/colors',
     \ 'on': 'NeverToggle'
