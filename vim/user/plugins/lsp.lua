@@ -93,15 +93,15 @@ cmp.setup({
     end,
   },
   window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-,>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item.
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -161,13 +161,37 @@ null_ls.setup({
     null_ls.builtins.code_actions.shellcheck,
 
     -- completion
-    null_ls.builtins.completion.spell,
+    -- null_ls.builtins.completion.spell,
 
     -- diagnostics
+    null_ls.builtins.diagnostics.actionlint,  -- GitHub Actions
     null_ls.builtins.diagnostics.checkmake,
-    null_ls.builtins.diagnostics.flake8,
+    null_ls.builtins.diagnostics.dotenv_linter,
+    -- Python
+    -- null_ls.builtins.diagnostics.flake8,
+    null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.pydocstyle.with({
+      -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
+      extra_args = { "--ignore", "D100,D400,D415" }
+    }),
+    --
+    null_ls.builtins.diagnostics.sqlfluff.with({
+      extra_args = { "--dialect", "bigquery" },
+    }),
+    null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.diagnostics.zsh,
+
+    null_ls.builtins.diagnostics.hadolint,  -- Docker
+    null_ls.builtins.diagnostics.yamllint,
+    null_ls.builtins.diagnostics.markdownlint,
+    null_ls.builtins.diagnostics.textlint,
+    null_ls.builtins.diagnostics.terraform_validate,
+    null_ls.builtins.diagnostics.vint,
+    null_ls.builtins.diagnostics.luacheck,
 
     -- formatting
+    null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.textlint,
     null_ls.builtins.formatting.yq,
