@@ -8,7 +8,6 @@ fi
 # --------------
 ROOT_HOME=/var/root
 DOT_HOME=~/dotfiles
-AUTOLOAD_DIR=$DOT_HOME/vim/autoload
 CARGO_HOME=~/.cargo
 VIMPLUG_FILE=$DOT_HOME/vim/autoload/plug.vim
 ZPLUG_HOME=~/.zplug
@@ -45,7 +44,7 @@ has() {
 }
 
 print_dotfiles() {
-  echo $BLUE $BOLD
+  echo "$BLUE $BOLD"
   cat <<\EOF
 
        _   _        __ ___      ___
@@ -57,11 +56,11 @@ print_dotfiles() {
               /_/ \/_/ \/_/   \/_/\/____/\/____/\/___/
 
 EOF
-  echo $NORMAL
+  echo "$NORMAL"
 }
 
 usage() {
-  echo $YELLOW
+  echo "$YELLOW"
   cat <<\EOF
 Commands:
   init (download dotfiles, Homebrew (macOS), vim-plug, zplug and tpm)
@@ -71,7 +70,7 @@ Commands:
   deploy_root (symlink dotfiles in super user)
   quit
 EOF
-  echo $NORMAL
+  echo "$NORMAL"
 }
 
 init_darwin() {
@@ -82,7 +81,7 @@ init_darwin() {
   fi
 
   # Homebrew
-  if [ ! -x "`which brew`" ]; then
+  if [ ! -x "$(which brew)" ]; then
     echo "${BOLD}Installing Homebrew ...$NORMAL"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -120,21 +119,20 @@ init_darwin() {
 }
 
 init() {
-  cd $HOME
+  cd "$HOME"
 
   # dotfiles
   if [ ! -d $DOT_HOME ]; then
     echo "Downloading dotfiles..."
     if has "git"; then
-      git clone --recursive $REMOTE_URL $DOT_HOME
+      if git clone --recursive $REMOTE_URL $DOT_HOME; then
+        echo "${GREEN}Successfully downloaded dotfiles. ✔︎ $NORMAL"
+      else
+        echo "${RED}An unexpected error occurred when trying to install git.$NORMAL"
+        exit 1
+      fi
     else
       echo "${RED}Please install git.$NORMAL"
-      exit 1
-    fi
-    if [ $? = 0 ]; then
-      echo "${GREEN}Successfully downloaded dotfiles. ✔︎ $NORMAL"
-    else
-      echo "${RED}An unexpected error occurred when trying to install git.$NORMAL"
       exit 1
     fi
   else
@@ -151,8 +149,7 @@ init() {
   # https://doc.rust-lang.org/cargo/getting-started/installation.html
   if [ ! -d $CARGO_HOME ]; then
     echo "${BOLD}Installing Rust ...$NORMAL"
-    curl https://sh.rustup.rs -sSf | sh
-    if [ ! $? = 0 ]; then
+    if ! curl https://sh.rustup.rs -sSf | sh; then
       echo "${RED}An unexpected error occurred when trying to install Rust.$NORMAL"
     fi
   else
@@ -162,8 +159,7 @@ init() {
   # vim-plug
   if [ ! -f $VIMPLUG_FILE ]; then
     echo "Downloading vim-plug ..."
-    curl -fLo $VIMPLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    if [ $? = 0 ]; then
+    if curl -fLo $VIMPLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim; then
       echo "${GREEN}Successfully downloaded vim-plug at $VIMPLUG_FILE. ✔︎ $NORMAL"
     else
       echo "${RED}An unexpected error occurred when trying to install vim-plug.$NORMAL"
@@ -174,11 +170,10 @@ init() {
   fi
 
   # zplug
-  if [ -x "`which zsh`" ]; then
+  if [ -x "$(which zsh)" ]; then
     if [ ! -d $ZPLUG_HOME ]; then
       echo "${BOLD}Downloading zplug ...$NORMAL"
-      curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-      if [ $? = 0 ]; then
+      if curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh; then
         echo "${GREEN}Successfully downloaded zplug in ${ZPLUG_HOME}. ✔︎ $NORMAL"
       else
         echo "${RED}An unexpected error occurred when trying to install zplug.$NORMAL"
@@ -192,11 +187,10 @@ init() {
   fi
 
   # tpm
-  if [ -x "`which tmux`" ]; then
+  if [ -x "$(which tmux)" ]; then
     if [ ! -d $TPM_HOME ]; then
       echo "Downloading tpm ..."
-      git clone https://github.com/tmux-plugins/tpm $TPM_HOME
-      if [ $? = 0 ]; then
+      if git clone https://github.com/tmux-plugins/tpm $TPM_HOME; then
         echo "${GREEN}Successfully downloaded tpm in $TPM_HOME. ✔︎ $NORMAL"
       else
         echo "${RED}An unexpected error occurred when trying to install tpm.$NORMAL"
@@ -213,8 +207,7 @@ init() {
   if [ ! -d $FZF_HOME ]; then
     echo "${BOLD}Downloading fzf ...$NORMAL"
     git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_HOME
-    ~/.fzf/install
-    if [ $? = 0 ]; then
+    if ~/.fzf/install; then
       echo "${GREEN}Successfully installed fzf in $FZF_HOME. ✔︎ $NORMAL"
     else
       echo "${RED}An unexpected error occurred when trying to install fzf.$NORMAL"
@@ -231,26 +224,25 @@ symlink_files() {
     exit 1
   fi
   echo "Symlinking dotfiles..."
-  [ ! -e $CONFIG_HTOP ] && mkdir -p $CONFIG_HTOP
-  [ ! -e $CONFIG_NVIM ] && mkdir -p $CONFIG_NVIM
+  [ ! -e "$CONFIG_HTOP" ] && mkdir -p "$CONFIG_HTOP"
+  [ ! -e "$CONFIG_NVIM" ] && mkdir -p "$CONFIG_NVIM"
   cd $DOT_HOME
-  for f in *
-  do
-    # ignore list
-    [[ $f = "README.md" ]] && continue
-    [[ $f = "bootstrap" ]] && continue
-    if [ $f = "htoprc" ]; then
-      ln -snfv $DOT_HOME/$f $CONFIG_HTOP/$f
-    elif [ $f = "vimrc" ]; then
-      ln -snfv $DOT_HOME/$f $1/.$f
-      # neovim
-      echo "vim.cmd('source ~/.vimrc')" >> $CONFIG_NVIM/init.lua
-    else
-      ln -snfv $DOT_HOME/$f $1/.$f
-    fi
-  done
-
-  if [ $? = 0 ]; then
+  if for f in *
+    do
+      # ignore list
+      [[ $f = "README.md" ]] && continue
+      [[ $f = "bootstrap" ]] && continue
+      if [ "$f" = "htoprc" ]; then
+        ln -snfv "$DOT_HOME/$f" "$CONFIG_HTOP/$f"
+      elif [ "$f" = "vimrc" ]; then
+        ln -snfv "$DOT_HOME/$f" "$1/.$f"
+        # neovim
+        echo "vim.cmd('source ~/.vimrc')" >> "$CONFIG_NVIM/init.lua"
+      else
+        ln -snfv "$DOT_HOME/$f" "$1/.$f"
+      fi
+    done
+  then
     echo "${GREEN}Successfully symlink dotfiles. ✔︎ $NORMAL"
   else
     echo "${RED}An unexpected error occurred when trying to symlink dotfiles.$NORMAL"
@@ -270,20 +262,20 @@ powerline_fonts() {
 nerd_fonts() {
   git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git
   cd nerd-fonts
-  ./install.sh $1
+  ./install.sh "$1"
   cd ..
   rm -rf nerd-fonts
 }
 
 show_help() {
-  echo $YELLOW
+  echo "$YELLOW"
   cat <<EOF
 usage: $0 [-a|--all] [-h|--help]
   $0           ... run in interactive mode
   $0 -a|--all  ... run all installation scripts except fonts and symlink dotfiles
   $0 -h|--help ... show this message
 EOF
-  echo $NORMAL
+  echo "$NORMAL"
 }
 
 # main
@@ -291,7 +283,7 @@ EOF
 main() {
   usage
   echo -n "${BOLD}command: $NORMAL"
-  read command
+  read -r command
   case $command in
     init)
       init
@@ -306,11 +298,11 @@ main() {
       main
       ;;
     deploy)
-      symlink_files $HOME
+      symlink_files "$HOME"
       ;;
     deploy_root)
       symlink_files $ROOT_HOME
-      ln -s ${HOME}/.zplug ${ROOT_HOME}/.zplug
+      ln -s "${HOME}/.zplug" "${ROOT_HOME}/.zplug"
       ;;
     quit)
       echo "bye!"
@@ -333,9 +325,9 @@ else
       ;;
     -a|--all)
       init
-      symlink_files $HOME
+      symlink_files "$HOME"
       ;;
-    -*|--*)
+    -*)
       echo "$0: unrecognized option \`$1\`"
       show_help
       exit 1
