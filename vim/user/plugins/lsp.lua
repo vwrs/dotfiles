@@ -1,9 +1,9 @@
 -- mason
-require("mason").setup()
-require("mason-lspconfig").setup({
+require('mason').setup()
+require('mason-lspconfig').setup({
   ensure_installed = {
-    "pyright", "dockerls", "docker_compose_language_service",
-    "marksman", "vimls", "lua_ls", "bashls", "clangd"
+    'pyright', 'dockerls', 'docker_compose_language_service',
+    'marksman', 'vimls', 'lua_ls', 'bashls', 'clangd'
   }
 })
 
@@ -18,7 +18,7 @@ vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -86,10 +86,10 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
     end,
   },
   window = {
@@ -99,16 +99,41 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-,>'] = cmp.mapping.complete(),
+    ['<C-m>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item.
+    -- vsnip
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn['vsnip#jumpable'](1) == 1 then
+        feedkey('<Plug>(vsnip-jump-next)', '')
+      else
+        fallback() -- The fallback function sends a already mapped key. i.e., `<Tab>`.
+      end
+    end, {'i', 's'}),
+    ['<S-Tab>'] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+        feedkey('<Plug>(vsnip-jump-prev)', '')
+      end
+    end, {'i', 's'}),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
   }, {
     { name = 'buffer' },
-  })
+  }),
+	completion = {
+		autocomplete = {
+			  cmp.TriggerEvent.TextChanged,
+			  cmp.TriggerEvent.InsertEnter,
+    },
+    completeopt = 'menuone,noinsert,noselect',
+    keyword_length = 1,
+	},
 })
 
 -- Set configuration for specific filetype.
@@ -139,66 +164,72 @@ cmp.setup.cmdline(':', {
 })
 
 -- null-ls
-local null_ls = require("null-ls")
+local null_ls = require('null-ls')
+local nlbuiltins = null_ls.builtins
 -- register installed formatters and linters automatically
--- local mason_package = require("mason-core.package")
--- local mason_registry = require("mason-registry")
+-- local mason_package = require('mason-core.package')
+-- local mason_registry = require('mason-registry')
 -- local null_sources = {}
 -- for _, package in ipairs(mason_registry.get_installed_packages()) do
 --         local package_categories = package.spec.categories[1]
 --         if package_categories == mason_package.Cat.Formatter then
---                 table.insert(null_sources, null_ls.builtins.formatting[package.name])
+--                 table.insert(null_sources, nlbuiltins.formatting[package.name])
 --         end
 --         if package_categories == mason_package.Cat.Linter then
---                 table.insert(null_sources, null_ls.builtins.diagnostics[package.name])
+--                 table.insert(null_sources, nlbuiltins.diagnostics[package.name])
 --         end
 -- end
 
 null_ls.setup({
   sources = {
     -- code actions
-    null_ls.builtins.code_actions.eslint,
-    null_ls.builtins.code_actions.shellcheck,
+    nlbuiltins.code_actions.eslint,
+    nlbuiltins.code_actions.shellcheck,
 
     -- completion
-    -- null_ls.builtins.completion.spell,
+    -- nlbuiltins.completion.spell,
 
     -- diagnostics
-    null_ls.builtins.diagnostics.actionlint,  -- GitHub Actions
-    null_ls.builtins.diagnostics.checkmake,
-    null_ls.builtins.diagnostics.dotenv_linter,
+    nlbuiltins.diagnostics.actionlint,  -- GitHub Actions
+    nlbuiltins.diagnostics.checkmake,
+    nlbuiltins.diagnostics.dotenv_linter,
     -- Python
-    -- null_ls.builtins.diagnostics.flake8,
-    null_ls.builtins.diagnostics.ruff,
-    null_ls.builtins.diagnostics.mypy,
-    null_ls.builtins.diagnostics.pydocstyle.with({
+    -- nlbuiltins.diagnostics.flake8,
+    nlbuiltins.diagnostics.ruff,
+    nlbuiltins.diagnostics.mypy,
+    nlbuiltins.diagnostics.pydocstyle.with({
       -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
-      extra_args = { "--ignore", "D100,D400,D415" }
+      -- NOTE: D212 and D213 are mutually exclusive.
+      extra_args = { '--ignore', 'D100,D203,D212,D300,D400,D403,D415' }
     }),
     --
-    null_ls.builtins.diagnostics.sqlfluff.with({
-      extra_args = { "--dialect", "bigquery" },
+    nlbuiltins.diagnostics.sqlfluff.with({
+      extra_args = { '--dialect', 'bigquery' },
     }),
-    null_ls.builtins.diagnostics.shellcheck,
-    null_ls.builtins.diagnostics.zsh,
+    nlbuiltins.diagnostics.shellcheck,
+    nlbuiltins.diagnostics.zsh,
 
-    null_ls.builtins.diagnostics.hadolint,  -- Docker
-    null_ls.builtins.diagnostics.yamllint,
-    null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.diagnostics.textlint,
-    null_ls.builtins.diagnostics.terraform_validate,
-    null_ls.builtins.diagnostics.vint,
-    null_ls.builtins.diagnostics.luacheck,
+    nlbuiltins.diagnostics.hadolint,  -- Docker
+    nlbuiltins.diagnostics.yamllint.with({
+      extra_args = { '--ignore', '' }
+    }),
+    nlbuiltins.diagnostics.markdownlint,
+    nlbuiltins.diagnostics.textlint,
+    nlbuiltins.diagnostics.terraform_validate,
+    nlbuiltins.diagnostics.vint,
+    nlbuiltins.diagnostics.luacheck,
 
     -- formatting
-    null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.textlint,
-    null_ls.builtins.formatting.yq,
+    nlbuiltins.formatting.isort,
+    nlbuiltins.formatting.black,
+    nlbuiltins.formatting.textlint,
+    -- To generate a TOC, add <!-- toc --> before headers in your markdown file.
+    nlbuiltins.formatting.markdown_toc,
+    nlbuiltins.formatting.yq,
 
     -- hover
-    null_ls.builtins.hover.printenv,
+    nlbuiltins.hover.printenv,
   }
 })
 
-require("trouble").setup {}
+require('trouble').setup {}

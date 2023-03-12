@@ -7,14 +7,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'rcarriga/nvim-notify'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
 Plug 'folke/trouble.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'folke/noice.nvim'
 
 Plug 'tpope/vim-sleuth'
-Plug 'tyru/caw.vim'
+Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -24,7 +26,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'vim-scripts/matchit.zip'
 Plug 'kassio/neoterm'
 Plug 'unblevable/quick-scope'
 
@@ -46,7 +47,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'  " formatter & linter
 " AI
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " textobj
 " ----------
@@ -69,7 +70,6 @@ Plug 'kana/vim-operator-replace'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
-Plug 'vim-scripts/matchit.zip'
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
 Plug 'keith/tmux.vim', { 'for': 'tmux'}
 Plug 'cespare/vim-toml'

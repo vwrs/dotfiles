@@ -1,33 +1,43 @@
 dotfiles
 ===
-**zsh + Neovim/Vim + tmux**
+**Zsh + Neovim/Vim + Tmux**
 
-- zsh
+- Zsh
   - [zplug](https://github.com/zplug/zplug)
+  - [fzf](https://github.com/junegunn/fzf)
 - Neovim/Vim
   - [vim-plug](https://github.com/junegunn/vim-plug)
-- tmux
+  - [builtin LSP](https://neovim.io/doc/user/lsp.html)
+    - [nvim-lspconfig]
+    - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+    - [mason.nvim](https://github.com/williamboman/mason.nvim)
+    - [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+  - [noice.nvim](https://github.com/folke/noice.nvim)
+  - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+  - [lualine.nvim(https://github.com/nvim-lualine/lualine.nvim)]
+- Tmux
   - [tpm](https://github.com/tmux-plugins/tpm)
-- git
+- Git
   - aliases
   - [delta](https://github.com/dandavison/delta)
   - [nbdime](https://github.com/jupyter/nbdime)
-- htop
-- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 - Homebrew (macOS only)
   - [homebrew-bundle](https://github.com/Homebrew/homebrew-bundle)
-- Rosetta2 (macOS with Apple silicon only)
+  - Rosetta2 (macOS with Apple silicon only)
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+- htop
 
 ## Installation
 ```
 $ bash -c "`curl -fsSL raw.github.com/vwrs/dotfiles/master/bootstrap`"
-                   __          __       ___      ___
-                  /\ \        /\ \__  /'___\ __ /\_ \
-                  \_\ \    ___\ \ ,_\/\ \__//\_\\//\ \      __    ____
- _______          /'_` \  / __`\ \ \/\ \ ,__\/\ \ \ \ \   /'__`\ /',__\      _______
-/\______\      __/\ \L\ \/\ \L\ \ \ \_\ \ \_/\ \ \ \_\ \_/\  __//\__, `\    /\______\
-\/______/     /\_\ \___,_\ \____/\ \__\\ \_\  \ \_\/\____\ \____\/\____/    \/______/
-              \/_/\/__,_ /\/___/  \/__/ \/_/   \/_/\/____/\/____/\/___/
+
+       _   _        __ ___      ___
+     /' \/' \      / /'___\ __ /\_ \
+    /\_/\__//     / /\ \__//\_\\//\ \      __    ____
+    \//\/__/     / /\ \ ,__\/\ \ \ \ \   /'__`\ /',__\
+                / /__\ \ \_/\ \ \ \_\ \_/\  __//\__, `\
+               /_//\_\\ \_\  \ \_\/\____\ \____\/\____/
+              /_/ \/_/ \/_/   \/_/\/____/\/____/\/___/
 
 
 Commands:
