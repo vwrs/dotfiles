@@ -211,7 +211,7 @@ null_ls.setup({
 
     nlbuiltins.diagnostics.hadolint,  -- Docker
     nlbuiltins.diagnostics.yamllint.with({
-      extra_args = { '--ignore', '' }
+      extra_args = { '-d', '{extends: relaxed, rules: {line-length: {max: 120}}}' }
     }),
     nlbuiltins.diagnostics.markdownlint,
     nlbuiltins.diagnostics.textlint,
