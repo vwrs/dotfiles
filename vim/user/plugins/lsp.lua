@@ -200,7 +200,7 @@ null_ls.setup({
     nlbuiltins.diagnostics.pydocstyle.with({
       -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
       -- NOTE: D212 and D213 are mutually exclusive.
-      extra_args = { '--ignore', 'D100,D203,D212,D300,D400,D403,D415' }
+      extra_args = { '--ignore', 'D100,D203,D205,D212,D300,D400,D403,D406,D407,D413,D415' }
     }),
     --
     nlbuiltins.diagnostics.sqlfluff.with({

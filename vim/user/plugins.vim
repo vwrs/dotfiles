@@ -67,7 +67,7 @@ Plug 'kana/vim-operator-replace'
 " language-specific
 " ----------
 " syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'cargo install tree-sitter-cli'}
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
