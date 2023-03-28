@@ -1,0 +1,12 @@
+{
+  // ref: https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md
+  "default": true,
+  "line-length": false,
+  "blanks-around-fences": false,
+  "no-inline-html": false,
+  "first-line-h1": false,
+  "single-trailing-newline": false,
+  "no-blanks-blockquote": false,
+  "commands-show-output": false,
+  "list-marker-space": false
+}
