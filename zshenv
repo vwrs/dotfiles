@@ -7,3 +7,9 @@ export LESS="-Rgj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
 if [ -d $HOME/.cargo ]; then
 . "$HOME/.cargo/env"
 fi
+# go
+if [ -x "$(which go)" ]; then
+  export GOPATH=$HOME/go
+  export GOBIN=$GOPATH/bin
+  export PATH=$PATH:$GOBIN
+fi
