@@ -8,13 +8,13 @@ dotfiles
 - Neovim/Vim
   - [vim-plug](https://github.com/junegunn/vim-plug)
   - [builtin LSP](https://neovim.io/doc/user/lsp.html)
-    - [nvim-lspconfig]
+    - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
     - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
     - [mason.nvim](https://github.com/williamboman/mason.nvim)
     - [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
   - [noice.nvim](https://github.com/folke/noice.nvim)
   - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-  - [lualine.nvim(https://github.com/nvim-lualine/lualine.nvim)]
+  - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - Tmux
   - [tpm](https://github.com/tmux-plugins/tpm)
 - Git
