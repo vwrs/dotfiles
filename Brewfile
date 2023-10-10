@@ -3,10 +3,10 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
-tap "jmhobbs/parrot"
 tap "rcmdnk/file"
 brew "automake"
 brew "bat"
+brew "cmake"
 brew "exa"
 brew "fd"
 brew "figlet"
@@ -28,6 +28,7 @@ brew "lftp"
 brew "libxml2"
 brew "libzip"
 brew "lolcat"
+brew "luarocks"
 brew "mas"
 brew "meson", args: ["HEAD"]
 brew "neovim"
@@ -75,7 +76,3 @@ cask "latexit"
 cask "sequel-pro"
 cask "slack"
 cask "visual-studio-code"
-mas "Keynote", id: 409183694
-mas "LINE", id: 539883307
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
