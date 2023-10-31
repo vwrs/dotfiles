@@ -47,7 +47,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'  " formatter & linter
 " AI
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 
 " textobj
 " ----------

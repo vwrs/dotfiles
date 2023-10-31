@@ -1,6 +1,7 @@
 set encoding=utf-8
 set fileencoding=utf-8
 scriptencoding utf-8
+language en_US.UTF-8
 
 " display
 set title

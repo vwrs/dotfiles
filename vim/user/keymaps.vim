@@ -85,3 +85,7 @@ nmap <Leader>s <Plug>(easymotion-overwin-f2)
 nmap <Leader><Leader>W <Plug>(easymotion-overwin-w)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
+
+" Copilot
+imap <silent><script><expr> <C-H> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
