@@ -6,6 +6,7 @@ language en_US.UTF-8
 " display
 set title
 set number
+set relativenumber
 set ruler
 set showmatch
 set wrap
