@@ -204,7 +204,11 @@ null_ls.setup({
     }),
     --
     nlbuiltins.diagnostics.sqlfluff.with({
-      extra_args = { '--dialect', 'bigquery' },
+      extra_args = {
+        '--dialect', 'bigquery',
+        -- '--rules', 'core',
+        '--exclude-rules', 'L003,L010,L014,L016,L019,L027,L034,L064,L071'
+      },
     }),
     nlbuiltins.diagnostics.shellcheck,
     nlbuiltins.diagnostics.zsh,
