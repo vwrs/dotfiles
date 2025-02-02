@@ -31,7 +31,6 @@ endif
 " colorscheme
 " ----------
 syntax enable
-silent! colorscheme PaperColor
+silent! colorscheme moonfly
 set background=dark
 hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
-

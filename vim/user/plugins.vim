@@ -67,7 +67,8 @@ Plug 'kana/vim-operator-replace'
 " language-specific
 " ----------
 " syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': 'cargo install tree-sitter-cli'}
+" {'do': 'cargo install tree-sitter-cli'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
@@ -130,6 +131,9 @@ Plug 'yuttie/hydrangea-vim', {
     \ 'do': 'ln -fnsv ~/.vim/plugged/hydrangea-vim/colors/* ~/.vim/colors'
     \ }
 Plug 'NLKNguyen/papercolor-theme', {
-    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-lucius/colors/* ~/.vim/colors'
+    \ 'do': 'ln -fnsv ~/.vim/plugged/papercolor-theme/colors/* ~/.vim/colors'
+    \ }
+Plug 'bluz71/vim-moonfly-colors', {
+    \ 'do': 'ln -fnsv ~/.vim/plugged/vim-moonfly-colors/colors/* ~/.vim/colors'
     \ }
 call plug#end()
