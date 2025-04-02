@@ -217,7 +217,9 @@ null_ls.setup({
     nlbuiltins.diagnostics.yamllint.with({
       extra_args = { '-d', '{extends: relaxed, rules: {line-length: {max: 120}}}' }
     }),
-    nlbuiltins.diagnostics.markdownlint,
+    nlbuiltins.diagnostics.markdownlint.with({
+      extra_args = { '--disable', 'line-length', '--disable', 'url'}
+    }),
     nlbuiltins.diagnostics.textlint,
     nlbuiltins.diagnostics.terraform_validate,
     nlbuiltins.diagnostics.vint,
