@@ -31,8 +31,34 @@
   cancel = reset --soft HEAD^
   unstage = reset HEAD --
 
+[init]
+  defaultBranch = main
+
+[column]
+  ui = auto
+
+[branch]
+  sort = -committerdate
+
 [push]
-  default = matching
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+
+[commit]
+  verbose = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
+[help]
+  autocorrect = prompt
 
 [color]
   diff = auto
@@ -44,10 +70,10 @@
   diffFilter = delta --color-only
 
 [diff]
-  colorMoved = default
-
-[merge]
-  conflictstyle = diff3
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 
 [delta]
   navigate = true
