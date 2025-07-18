@@ -29,7 +29,8 @@ if [ -x "`which pipx`" ]; then
   eval "$(register-python-argcomplete pipx)"
 fi
 
-# aliases
-alias py="python"
-alias j="jupyter"
-
+# uv
+if [ -x "`which uv`" ]; then
+  eval "$(uv generate-shell-completion zsh)"
+  eval "$(uvx generate-shell-completion zsh)"
+fi
