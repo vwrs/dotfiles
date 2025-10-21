@@ -89,3 +89,11 @@ nmap <Leader>k <Plug>(easymotion-k)
 " Copilot
 imap <silent><script><expr> <C-H> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+
+" Cursor
+" Toggle the interactive terminal: Cursor Agent: Toggle terminal
+nmap <Leader>ca :CursorAgent<CR>
+" Ask about the visual selection:
+vmap <Leader>ca :CursorAgentSelection<CR>
+" Ask about the current buffer
+nmap <Leader>cA :CursorAgentBuffer<CR>

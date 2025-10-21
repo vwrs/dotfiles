@@ -48,6 +48,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'  " formatter & linter
 " AI
 Plug 'github/copilot.vim'
+Plug 'xTacobaco/cursor-agent.nvim'
 
 " textobj
 " ----------
