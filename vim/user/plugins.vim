@@ -6,11 +6,11 @@ call plug#begin('~/.vim/plugged')
 " ----------
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua', { 'on': ['NvimTreeToggle', 'NvimTreeFindFile'] }
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x', 'on': 'Telescope' }
 Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
-Plug 'folke/trouble.nvim'
+Plug 'folke/trouble.nvim', { 'on': ['Trouble', 'TroubleToggle'] }
 Plug 'rcarriga/nvim-notify'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
@@ -26,7 +26,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'kassio/neoterm'
+Plug 'kassio/neoterm', { 'on': ['Tclose', 'TREPLSendLine', 'TREPLSendSelection'] }
 Plug 'unblevable/quick-scope'
 
 " completion
@@ -45,10 +45,11 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'jose-elias-alvarez/null-ls.nvim'  " formatter & linter
+Plug 'nvimtools/none-ls.nvim'  " formatter & linter (replacement for null-ls)
+Plug 'nvimtools/none-ls-extras.nvim'
 " AI
 Plug 'github/copilot.vim'
-Plug 'xTacobaco/cursor-agent.nvim'
+Plug 'xTacobaco/cursor-agent.nvim', { 'on': ['CursorAgent', 'CursorAgentSelection', 'CursorAgentBuffer'] }
 
 " textobj
 " ----------

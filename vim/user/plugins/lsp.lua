@@ -46,38 +46,38 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- lspconfig language-specific
-local path = require('lspconfig/util').path
-
 local function get_python_path(workspace)
   -- Use activated virtualenv.
   if vim.env.VIRTUAL_ENV then
-    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+    return vim.fs.joinpath(vim.env.VIRTUAL_ENV, 'bin', 'python')
   end
 
   -- Find and use virtualenv in workspace directory.
   for _, pattern in ipairs({'*', '.*'}) do
-    local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+    local match = vim.fn.glob(vim.fs.joinpath(workspace, pattern, 'pyvenv.cfg'))
     if match ~= '' then
-      return path.join(path.dirname(match), 'bin', 'python')
+      return vim.fs.joinpath(vim.fs.dirname(match), 'bin', 'python')
     end
   end
 
   -- Fallback to system Python.
-  return exepath('python3') or exepath('python') or 'python'
+  return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
 end
 
-lspconfig.pyright.setup{
+vim.lsp.config('pyright', {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
   before_init = function(_, config)
+    config.settings = config.settings or {}
+    config.settings.python = config.settings.python or {}
     config.settings.python.pythonPath = get_python_path(config.root_dir)
   end
-}
+})
+vim.lsp.enable('pyright')
 
 -- completions (nvim-cmp)
 local cmp = require'cmp'
@@ -183,8 +183,7 @@ local nlbuiltins = null_ls.builtins
 null_ls.setup({
   sources = {
     -- code actions
-    nlbuiltins.code_actions.eslint,
-    nlbuiltins.code_actions.shellcheck,
+    require("none-ls.code_actions.eslint_d"),
 
     -- completion
     -- nlbuiltins.completion.spell,
@@ -195,9 +194,9 @@ null_ls.setup({
     nlbuiltins.diagnostics.dotenv_linter,
     -- Python
     -- nlbuiltins.diagnostics.flake8,
-    nlbuiltins.diagnostics.ruff,
+    require("none-ls.diagnostics.ruff"),
     nlbuiltins.diagnostics.mypy,
-    nlbuiltins.diagnostics.pydocstyle.with({
+    nlbuiltins.diagnostics.pydoclint.with({
       -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
       -- NOTE: D212 and D213 are mutually exclusive.
       extra_args = { '--ignore', 'D100,D203,D205,D212,D300,D400,D403,D406,D407,D413,D415' }
@@ -210,7 +209,6 @@ null_ls.setup({
         '--exclude-rules', 'L003,L010,L014,L016,L019,L027,L034,L064,L071'
       },
     }),
-    nlbuiltins.diagnostics.shellcheck,
     nlbuiltins.diagnostics.zsh,
 
     nlbuiltins.diagnostics.hadolint,  -- Docker
@@ -223,15 +221,12 @@ null_ls.setup({
     nlbuiltins.diagnostics.textlint,
     nlbuiltins.diagnostics.terraform_validate,
     nlbuiltins.diagnostics.vint,
-    nlbuiltins.diagnostics.luacheck,
 
     -- formatting
     nlbuiltins.formatting.isort,
     nlbuiltins.formatting.black,
     nlbuiltins.formatting.textlint,
-    -- To generate a TOC, add <!-- toc --> before headers in your markdown file.
-    nlbuiltins.formatting.markdown_toc,
-    nlbuiltins.formatting.yq,
+    require("none-ls.formatting.yq"),
 
     -- hover
     nlbuiltins.hover.printenv,

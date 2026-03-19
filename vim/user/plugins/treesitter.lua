@@ -1,37 +1,37 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {
-    "c", "lua", "vim", "python", "regex",
-    "go", "ruby", "javascript",
-    "html", "css", "terraform", "dockerfile",
-    "bash", "help", "query", "markdown",
-    "gitignore", "make", "json", "toml", "yaml"
-  },
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-  ignore_install = { "help" },
-
-  highlight = {
-    enable = true,
-    -- to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
-    end,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    additional_vim_regex_highlighting = false,
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-  }
+local parsers = {
+  "c", "lua", "vim", "python", "regex",
+  "go", "ruby", "javascript",
+  "html", "css", "terraform", "dockerfile",
+  "bash", "query", "markdown",
+  "gitignore", "make", "json", "toml", "yaml"
 }
-require('nvim-treesitter').setup {}
+
+local treesitter = require('nvim-treesitter')
+treesitter.setup {}
+treesitter.install(parsers)
+
+local max_filesize = 100 * 1024 -- 100 KB
+local augroup = vim.api.nvim_create_augroup("UserTreesitter", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  callback = function(args)
+    local bufname = vim.api.nvim_buf_get_name(args.buf)
+    local ok_stat, stats = pcall(vim.uv.fs_stat, bufname)
+    if ok_stat and stats and stats.size > max_filesize then
+      return
+    end
+
+    local lang = vim.treesitter.language.get_lang(args.match) or args.match
+    local ok_lang = pcall(vim.treesitter.language.inspect, lang)
+    if not ok_lang then
+      return
+    end
+
+    -- Enable treesitter highlight/folding/indent for supported filetypes.
+    pcall(vim.treesitter.start, args.buf, lang)
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldmethod = "expr"
+    vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end
+})
