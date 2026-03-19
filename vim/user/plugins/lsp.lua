@@ -87,9 +87,6 @@ cmp.setup({
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
     end,
   },
   window = {
@@ -185,9 +182,6 @@ null_ls.setup({
     -- code actions
     require("none-ls.code_actions.eslint_d"),
 
-    -- completion
-    -- nlbuiltins.completion.spell,
-
     -- diagnostics
     nlbuiltins.diagnostics.actionlint,  -- GitHub Actions
     nlbuiltins.diagnostics.checkmake,
@@ -196,21 +190,18 @@ null_ls.setup({
     -- nlbuiltins.diagnostics.flake8,
     require("none-ls.diagnostics.ruff"),
     nlbuiltins.diagnostics.mypy,
-    nlbuiltins.diagnostics.pydoclint.with({
-      -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
-      -- NOTE: D212 and D213 are mutually exclusive.
-      extra_args = { '--ignore', 'D100,D203,D205,D212,D300,D400,D403,D406,D407,D413,D415' }
-    }),
-    --
+    -- nlbuiltins.diagnostics.pydoclint.with({
+    --   -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
+    --   -- NOTE: D212 and D213 are mutually exclusive.
+    --   extra_args = { '--ignore', 'D100,D203,D205,D212,D300,D400,D403,D406,D407,D413,D415' }
+    -- }),
     nlbuiltins.diagnostics.sqlfluff.with({
       extra_args = {
         '--dialect', 'bigquery',
-        -- '--rules', 'core',
         '--exclude-rules', 'L003,L010,L014,L016,L019,L027,L034,L064,L071'
       },
     }),
     nlbuiltins.diagnostics.zsh,
-
     nlbuiltins.diagnostics.hadolint,  -- Docker
     nlbuiltins.diagnostics.yamllint.with({
       extra_args = { '-d', '{extends: relaxed, rules: {line-length: {max: 120}}}' }
@@ -233,7 +224,22 @@ null_ls.setup({
   }
 })
 
-require('trouble').setup {}
+do
+  local plugs = vim.g.plugs or {}
+  local setup_trouble = function()
+    require("trouble").setup({})
+  end
+
+  if plugs["trouble.nvim"] and plugs["trouble.nvim"].loaded == 1 then
+    setup_trouble()
+  else
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "trouble.nvim",
+      once = true,
+      callback = setup_trouble,
+    })
+  end
+end
 
 -- disable diagnostic for .env file
 vim.api.nvim_create_autocmd("BufEnter", {

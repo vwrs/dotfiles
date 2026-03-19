@@ -31,6 +31,6 @@ endif
 " colorscheme
 " ----------
 syntax enable
-silent! colorscheme moonfly
+silent! colorscheme atom-dark
 set background=dark
 hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
