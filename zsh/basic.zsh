@@ -1,7 +1,8 @@
 bindkey -e
 bindkey '^R' history-incremental-pattern-search-backward
 autoload -Uz colors; colors
-autoload -Uz compinit; compinit -C
+autoload -Uz compinit
+compinit -C -d "${ZDOTDIR:-$HOME}/.zcompdump"
 zmodload zsh/complist
 setopt correct
 setopt auto_cd

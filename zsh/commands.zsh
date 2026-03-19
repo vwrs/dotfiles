@@ -1,12 +1,12 @@
 if [ -d ~/.fzf ]; then
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
-if [ -x "`which rg`" ]; then
+if (( $+commands[rg] )); then
   export FZF_DEFAULT_COMMAND="rg --files --hidden --follow -g '!{.git}/*' 2> /dev/null"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
-if [ -x "`which convert`" ]; then
+if (( $+commands[convert] )); then
   img2pdf () {
     for f in *.(png|jpg|eps); do
       convert $f ${f%.*}.pdf
@@ -14,8 +14,14 @@ if [ -x "`which convert`" ]; then
   }
 fi
 
-if [ -x "`which kubectl`" ]; then
-  source ${ZSH_HOME}kubectl.zsh
+if (( $+commands[kubectl] )); then
+  # Delay loading massive kubectl completion script until first TAB on kubectl.
+  __dotfiles_kubectl_completion_loader() {
+    unfunction __dotfiles_kubectl_completion_loader
+    source "${ZSH_HOME}kubectl.zsh"
+    __start_kubectl "$@"
+  }
+  compdef __dotfiles_kubectl_completion_loader kubectl
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

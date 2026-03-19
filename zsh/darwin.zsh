@@ -28,16 +28,12 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HOMEBREW_BREWFILE=~/dotfiles/Brewfile
 # completion
 # https://docs.brew.sh/Shell-Completion
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
+if [[ -d "${HOMEBREW_PREFIX}/share/zsh/site-functions" ]]; then
+  FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 fi
 # brew-file
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
+if [[ -f "${HOMEBREW_PREFIX}/etc/brew-wrap" ]];then
+  source "${HOMEBREW_PREFIX}/etc/brew-wrap"
 fi
 
 # source-highlight

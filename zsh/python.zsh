@@ -2,14 +2,14 @@
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d ${PYENV_ROOT} ]; then
   export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
-  eval "$(pyenv init -)"
+  eval "$(pyenv init - --no-rehash)"
   if [ -d ${PYENV_ROOT}/plugins/pyenv-virtualenv ]; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv virtualenv-init -)"
   fi
 fi
 
-if [ -x "`which pip`" ]; then
+if (( $+commands[pip] )); then
   function _pip_completion {
     local words cword
     read -Ac words
@@ -25,12 +25,12 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # pipx
-if [ -x "`which pipx`" ]; then
+if (( $+commands[pipx] )); then
   eval "$(register-python-argcomplete pipx)"
 fi
 
 # uv
-if [ -x "`which uv`" ]; then
-  eval "$(uv generate-shell-completion zsh)"
-  eval "$(uvx generate-shell-completion zsh)"
+if (( $+commands[uv] )); then
+  # eval "$(uv generate-shell-completion zsh)"
+  # eval "$(uvx generate-shell-completion zsh)"
 fi

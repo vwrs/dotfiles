@@ -1,17 +1,38 @@
-# zplug
+# plugin bootstrap (fast path)
 # ===
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
-zplug "docker/cli", use:contrib/completion/zsh
-zplug "github/hub", use: etc/hub.zsh_completion
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
+
+# zplug commands are too slow
+# source ~/.zplug/init.zsh
+# zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# zplug "zsh-users/zsh-completions"
+# zplug "docker/cli", use:contrib/completion/zsh
+# zplug "github/hub", use: etc/hub.zsh_completion
+# ZPLUG_HOME=${ZPLUG_HOME:-$HOME/.zplug}
+# ZPLUG_REPOS=${ZPLUG_REPOS:-$ZPLUG_HOME/repos}
+# Optional: install missing zplug plugins only when explicitly enabled.
+# This avoids expensive startup checks on every shell launch.
+# if [[ "${ZSH_ZPLUG_AUTO_INSTALL:-0}" == "1" ]] && ! zplug check >/dev/null 2>&1; then
+#   printf "Install(zplug)? [y/N]: "
+#   if read -q; then
+#     echo
+#     zplug install
+#   fi
+# fi
+
+# Add completion definitions directly instead of invoking zplug runtime.
+if [[ -d "$ZPLUG_REPOS/zsh-users/zsh-completions/src" ]]; then
+  FPATH="$ZPLUG_REPOS/zsh-users/zsh-completions/src:$FPATH"
+fi
+if [[ -d "$ZPLUG_REPOS/docker/cli/contrib/completion/zsh" ]]; then
+  FPATH="$ZPLUG_REPOS/docker/cli/contrib/completion/zsh:$FPATH"
+fi
+if [[ -f "$ZPLUG_REPOS/github/hub/etc/hub.zsh_completion" ]]; then
+  source "$ZPLUG_REPOS/github/hub/etc/hub.zsh_completion"
+fi
 
 # themes
 # --------------
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, as:theme
 # zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
-
 # random theme
 # themes=("frmendes/geometry" "denysdovhan/spaceship-prompt" "caiogondim/bullet-train-oh-my-zsh-theme")
 # N=${#themes[@]}
@@ -96,13 +117,12 @@ BULLETTRAIN_GIT_COLORIZE_DIRTY=true
 BULLETTRAIN_GIT_BG=green
 BULLETTRAIN_GIT_COLORIZE_DIRTY_BG_COLOR=yellow
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install(zplug)? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+# Theme and highlighting are sourced directly for lower startup latency.
+if [[ -f "$ZPLUG_REPOS/denysdovhan/spaceship-prompt/spaceship.zsh" ]]; then
+  source "$ZPLUG_REPOS/denysdovhan/spaceship-prompt/spaceship.zsh"
 fi
 
-zplug load
+if [[ -f "$ZPLUG_REPOS/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "$ZPLUG_REPOS/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
