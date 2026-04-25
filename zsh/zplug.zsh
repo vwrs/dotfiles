@@ -2,13 +2,13 @@
 # ===
 
 # zplug commands are too slow
-# source ~/.zplug/init.zsh
-# zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# zplug "zsh-users/zsh-completions"
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions"
 # zplug "docker/cli", use:contrib/completion/zsh
 # zplug "github/hub", use: etc/hub.zsh_completion
-# ZPLUG_HOME=${ZPLUG_HOME:-$HOME/.zplug}
-# ZPLUG_REPOS=${ZPLUG_REPOS:-$ZPLUG_HOME/repos}
+ZPLUG_HOME=${ZPLUG_HOME:-$HOME/.zplug}
+ZPLUG_REPOS=${ZPLUG_REPOS:-$ZPLUG_HOME/repos}
 # Optional: install missing zplug plugins only when explicitly enabled.
 # This avoids expensive startup checks on every shell launch.
 # if [[ "${ZSH_ZPLUG_AUTO_INSTALL:-0}" == "1" ]] && ! zplug check >/dev/null 2>&1; then
@@ -19,20 +19,9 @@
 #   fi
 # fi
 
-# Add completion definitions directly instead of invoking zplug runtime.
-if [[ -d "$ZPLUG_REPOS/zsh-users/zsh-completions/src" ]]; then
-  FPATH="$ZPLUG_REPOS/zsh-users/zsh-completions/src:$FPATH"
-fi
-if [[ -d "$ZPLUG_REPOS/docker/cli/contrib/completion/zsh" ]]; then
-  FPATH="$ZPLUG_REPOS/docker/cli/contrib/completion/zsh:$FPATH"
-fi
-if [[ -f "$ZPLUG_REPOS/github/hub/etc/hub.zsh_completion" ]]; then
-  source "$ZPLUG_REPOS/github/hub/etc/hub.zsh_completion"
-fi
-
 # themes
 # --------------
-# zplug "caiogondim/bullet-train-oh-my-zsh-theme", as:theme
+zplug "denysdovhan/spaceship-prompt", as:theme
 # random theme
 # themes=("frmendes/geometry" "denysdovhan/spaceship-prompt" "caiogondim/bullet-train-oh-my-zsh-theme")
 # N=${#themes[@]}

@@ -24,11 +24,6 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
-# pipx
-if (( $+commands[pipx] )); then
-  eval "$(register-python-argcomplete pipx)"
-fi
-
 # uv
 if (( $+commands[uv] )); then
   # eval "$(uv generate-shell-completion zsh)"
