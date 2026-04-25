@@ -5,10 +5,10 @@ call plug#begin(expand('~/.vim/plugged'))
 " utils
 " ----------
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua', { 'on': ['NvimTreeToggle', 'NvimTreeFindFile'] }
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.2.x', 'on': 'Telescope' }
+Plug 'nvim-telescope/telescope.nvim', { 'on': 'Telescope' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'on': 'Telescope', 'do': 'make' }
 Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
 Plug 'folke/trouble.nvim', { 'on': ['Trouble', 'TroubleToggle'] }

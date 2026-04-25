@@ -38,7 +38,7 @@ setup_when_plug_loaded("Comment.nvim", function()
     padding = true,
     -- toggle keymap
     toggler = {
-      -- line = 'gcc',
+      line = 'gcc',
       -- block = 'gbc',
     },
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode

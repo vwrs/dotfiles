@@ -26,11 +26,11 @@ nnoremap <Leader>f <cmd>Telescope find_files<CR>
 nnoremap <Leader>g <cmd>Telescope live_grep<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>co :Commits<CR>
-" caw.vim
-nmap <C-/> <Plug>(comment_toggle_linewise_current)
-vmap <C-/> <Plug>(comment_toggle_linewise_visual)
-nmap <C-_> <Plug>(comment_toggle_linewise_current)
-vmap <C-_> <Plug>(comment_toggle_linewise_visual)
+" Comment.nvim
+nmap <C-/> gcc
+vmap <C-/> gc
+nmap <C-_> gcc
+vmap <C-_> gc
 
 " nvim-tree
 nnoremap <Leader>n :NvimTreeToggle<CR>
