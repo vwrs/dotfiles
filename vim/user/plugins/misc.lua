@@ -1,20 +1,6 @@
-local function setup_when_plug_loaded(name, setup_fn)
-  local plugs = vim.g.plugs or {}
-  if plugs[name] and plugs[name].loaded == 1 then
-    setup_fn()
-    return
-  end
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = name,
-    once = true,
-    callback = setup_fn,
-  })
-end
+local setup_when_plug_loaded = require("user.plug").setup_when_loaded
 
 setup_when_plug_loaded("nvim-tree.lua", function()
-  vim.g.loaded_netrw = 1
-  vim.g.loaded_netrwPlugin = 1
   require("nvim-tree").setup({
     sort_by = "case_sensitive",
     renderer = {

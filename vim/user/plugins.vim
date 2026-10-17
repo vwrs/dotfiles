@@ -11,7 +11,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'on': 'Telescope' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'on': 'Telescope', 'do': 'make' }
 Plug 'amrbashir/nvim-docs-view', { 'on': 'DocsViewToggle'}
-Plug 'folke/trouble.nvim', { 'on': ['Trouble', 'TroubleToggle'] }
+Plug 'folke/trouble.nvim', { 'on': 'Trouble' }
 Plug 'rcarriga/nvim-notify'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
@@ -19,8 +19,6 @@ Plug 'folke/noice.nvim'
 Plug 'tpope/vim-sleuth'
 Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-fugitive'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-smartinput'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
@@ -50,7 +48,6 @@ Plug 'nvimtools/none-ls.nvim'  " formatter & linter (replacement for null-ls)
 Plug 'nvimtools/none-ls-extras.nvim'
 " AI
 Plug 'github/copilot.vim'
-Plug 'xTacobaco/cursor-agent.nvim', { 'on': ['CursorAgent', 'CursorAgentSelection', 'CursorAgentBuffer'] }
 
 " textobj
 " ----------
@@ -69,28 +66,24 @@ Plug 'kana/vim-operator-replace'
 
 " language-specific
 " ----------
-Plug 'tell-k/vim-autopep8', { 'for': 'python' }
-Plug 'jalvesaq/Nvim-R', { 'for': 'r' }
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php', 'twig'] }
-Plug 'keith/tmux.vim', { 'for': 'tmux'}
-Plug 'cespare/vim-toml'
 
 " colorscheme
 " ----------
-Plug 'EdenEast/nightfox.nvim', { 'on': 'NeverToggle' }
-Plug 'altercation/vim-colors-solarized', { 'on': 'NeverToggle' }
-Plug 'tomasr/molokai', { 'on': 'NeverToggle' }
-Plug 'w0ng/vim-hybrid', { 'on': 'NeverToggle' }
-Plug 'gosukiwi/vim-atom-dark', { 'on': 'NeverToggle' }
-Plug 'joshdick/onedark.vim', { 'on': 'NeverToggle' }
-Plug 'jacoborus/tender.vim', { 'on': 'NeverToggle' }
-Plug '29decibel/codeschool-vim-theme', { 'on': 'NeverToggle' }
-Plug 'vim-scripts/twilight', { 'on': 'NeverToggle' }
-Plug 'vim-scripts/phd', { 'on': 'NeverToggle' }
-Plug 'ciaranm/inkpot', { 'on': 'NeverToggle' }
-Plug 'arcticicestudio/nord-vim', { 'on': 'NeverToggle' }
-Plug 'jonathanfilip/vim-lucius', { 'on': 'NeverToggle' }
-Plug 'yuttie/hydrangea-vim', { 'on': 'NeverToggle' }
-Plug 'NLKNguyen/papercolor-theme', { 'on': 'NeverToggle' }
-Plug 'bluz71/vim-moonfly-colors', { 'on': 'NeverToggle' }
+Plug 'EdenEast/nightfox.nvim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'w0ng/vim-hybrid'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'joshdick/onedark.vim'
+Plug 'jacoborus/tender.vim'
+Plug '29decibel/codeschool-vim-theme'
+Plug 'vim-scripts/twilight'
+Plug 'vim-scripts/phd'
+Plug 'ciaranm/inkpot'
+Plug 'arcticicestudio/nord-vim'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'yuttie/hydrangea-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'bluz71/vim-moonfly-colors'
 call plug#end()

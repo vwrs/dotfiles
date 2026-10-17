@@ -3,20 +3,34 @@ let g:php_htmlInStrings = 1
 let g:php_noShortTags   = 1
 let g:php_sql_query     = 1
 let g:tex_conceal=''
+let g:tex_flavor = 'latex'
 let g:large_file_size_threshold = 1024 * 1024
 let g:large_file_line_threshold = 5000
 
 " remove spaces at the end of each line
 function! Rstrip()
-  let s:tmppos = getpos('.')
+  let l:pos = getpos('.')
   if &filetype ==? 'markdown'
     " >= 2 spaces -> 2 spaces, 1space -> delete
     %s/\v(\s{2})?(\s+)?$/\1/e
-    match Underlined /\s\{2}$/
   else
     %s/\v\s+$//e
   endif
-  call setpos('.', s:tmppos)
+  call setpos('.', l:pos)
+endfunction
+
+" highlight markdown line breaks (2 trailing spaces)
+" matches are window-local, so reset it whenever a buffer is displayed.
+" use matchadd() since :match is used by vim-trailing-whitespace.
+function! s:HighlightMarkdownLineBreak() abort
+  if exists('w:md_linebreak_match')
+    silent! call matchdelete(w:md_linebreak_match)
+    unlet w:md_linebreak_match
+  endif
+  if &filetype ==? 'markdown'
+    " priority > 10 (:match) to take precedence over trailing-whitespace
+    let w:md_linebreak_match = matchadd('Underlined', '\s\{2}$', 11)
+  endif
 endfunction
 
 function! s:OptimizeLargeFile() abort
@@ -41,19 +55,15 @@ endfunction
 augroup configgroup
   autocmd!
   autocmd BufWritePre * :call Rstrip()
-  autocmd BufReadPost * call s:OptimizeLargeFile()
+  " run after syntax is set, which overrides changes made on BufReadPost/FileType
   autocmd BufWinEnter * call s:OptimizeLargeFile()
+  autocmd BufWinEnter,FileType * call s:HighlightMarkdownLineBreak()
   autocmd FileType * setlocal formatoptions-=r
   autocmd FileType * setlocal formatoptions-=o
-  autocmd FileType * call s:OptimizeLargeFile()
   " language-specific settings
-  autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+  autocmd FileType terraform-vars setlocal commentstring=#\ %s
   " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType ruby setlocal omnifunc=v:lua.vim.lsp.omnifunc
 augroup END
 filetype plugin indent on
 

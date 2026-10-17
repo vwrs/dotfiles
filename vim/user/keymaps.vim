@@ -9,8 +9,8 @@ nnoremap E $
 nnoremap <ESC><ESC> :noh<CR>
 noremap <C-j> <ESC>
 noremap! <C-j> <ESC>
-noremap <C-p> :bprev<CR>
-noremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprev<CR>
+nnoremap <C-n> :bnext<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap n nzz
@@ -24,18 +24,18 @@ nnoremap gV `[v`]
 " fuzzy finder
 nnoremap <Leader>f <cmd>Telescope find_files<CR>
 nnoremap <Leader>g <cmd>Telescope live_grep<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>co :Commits<CR>
+nnoremap <Leader>b <cmd>Telescope buffers<CR>
+nnoremap <Leader>co <cmd>Telescope git_commits<CR>
 " Comment.nvim
 nmap <C-/> gcc
-vmap <C-/> gc
+xmap <C-/> gc
 nmap <C-_> gcc
-vmap <C-_> gc
+xmap <C-_> gc
 
 " nvim-tree
 nnoremap <Leader>n :NvimTreeToggle<CR>
 " vim-fugitive
-nnoremap <Leader>d :Gdiff<CR>
+nnoremap <Leader>d :Gdiffsplit<CR>
 " vim-operator-replace
 nmap R <Plug>(operator-replace)
 
@@ -71,7 +71,7 @@ if has('nvim')
   " neoterm
   nnoremap <Leader>rq :Tclose<CR>
   nnoremap <Leader>rl :TREPLSendLine<CR>j0
-  vnoremap <Leader>rl $:TREPLSendSelection<CR>'>j0
+  xnoremap <Leader>rl $:TREPLSendSelection<CR>'>j0
 endif
 
 " vim-easy-align
@@ -89,11 +89,3 @@ nmap <Leader>k <Plug>(easymotion-k)
 " Copilot
 imap <silent><script><expr> <C-H> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
-
-" Cursor
-" Toggle the interactive terminal: Cursor Agent: Toggle terminal
-nmap <Leader>ca :CursorAgent<CR>
-" Ask about the visual selection:
-vmap <Leader>ca :CursorAgentSelection<CR>
-" Ask about the current buffer
-nmap <Leader>cA :CursorAgentBuffer<CR>

@@ -34,7 +34,6 @@ set showtabline=2
 set laststatus=2
 " etc
 set whichwrap=b,s,h,l,<,>,[,]
-set filetype=on
 set virtualedit=onemore
 set nobackup
 set noswapfile
@@ -43,8 +42,6 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
-set t_ut=
-set t_Co=256
 set scrolloff=10
 set colorcolumn=120
 set conceallevel=0

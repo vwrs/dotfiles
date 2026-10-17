@@ -1,22 +1,7 @@
-local function setup_when_plug_loaded(name, setup_fn)
-  local plugs = vim.g.plugs or {}
-  if plugs[name] and plugs[name].loaded == 1 then
-    setup_fn()
-    return
-  end
-
-  vim.api.nvim_create_autocmd("User", {
-    pattern = name,
-    once = true,
-    callback = setup_fn,
-  })
-end
+local setup_when_plug_loaded = require("user.plug").setup_when_loaded
 
 setup_when_plug_loaded("telescope.nvim", function()
   require("telescope").setup({
-    find_command = {
-      "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"
-    },
     extensions = {
       fzf = {
         fuzzy = true,                    -- false will only do exact matching

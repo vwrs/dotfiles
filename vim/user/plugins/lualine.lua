@@ -5,7 +5,6 @@ require('lualine').setup {
     theme = 'palenight',  -- 'auto', 'material', 'horizon', 'palenight', 'onedark'
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    tabline_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -44,9 +43,8 @@ require('lualine').setup {
                   -- 2: Shows buffer name + buffer index
                   -- 3: Shows buffer number
                   -- 4: Shows buffer name + buffer number
-        max_length = vim.o.columns * 2 / 3,
+        max_length = function() return vim.o.columns * 2 / 3 end,
         symbols = {
-          modified = ' 贈',
           alternate_file = '',
           directory =  '',
         },

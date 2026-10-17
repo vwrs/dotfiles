@@ -12,22 +12,17 @@ require('mason-lspconfig').setup({
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>l', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+-- NOTE: omnifunc, K, [d and ]d are set by Neovim by default
 local on_attach = function(_, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>la', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -59,15 +54,24 @@ local function get_python_path(workspace)
   end
 
   -- Find and use virtualenv in workspace directory.
-  for _, pattern in ipairs({'*', '.*'}) do
-    local match = vim.fn.glob(vim.fs.joinpath(workspace, pattern, 'pyvenv.cfg'))
-    if match ~= '' then
-      return vim.fs.joinpath(vim.fs.dirname(match), 'bin', 'python')
+  -- (workspace is nil in single file mode)
+  if workspace then
+    for _, pattern in ipairs({'*', '.*'}) do
+      local match = vim.fn.glob(vim.fs.joinpath(workspace, pattern, 'pyvenv.cfg'))
+      if match ~= '' then
+        return vim.fs.joinpath(vim.fs.dirname(match), 'bin', 'python')
+      end
     end
   end
 
-  -- Fallback to system Python.
-  return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+  -- Fallback to system Python. (exepath() returns '' when not found)
+  for _, exe in ipairs({'python3', 'python'}) do
+    local path = vim.fn.exepath(exe)
+    if path ~= '' then
+      return path
+    end
+  end
+  return 'python'
 end
 
 vim.lsp.config('pyright', {
@@ -83,17 +87,26 @@ vim.lsp.config('pyright', {
 vim.lsp.enable('pyright')
 
 -- terraform
-require'lspconfig'.terraformls.setup{}
+vim.lsp.config('terraformls', {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+})
+vim.lsp.enable('terraformls')
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*.tf", "*.tfvars"},
   callback = function()
-    vim.lsp.buf.format()
+    vim.lsp.buf.format({ name = 'terraformls' })
   end,
 })
 -------------------------------
 
 -- completions (nvim-cmp)
 local cmp = require'cmp'
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
 
 cmp.setup({
   snippet = {
@@ -109,7 +122,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-m>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item.
     -- vsnip
@@ -146,15 +159,6 @@ cmp.setup({
 	},
 })
 
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
@@ -176,19 +180,6 @@ cmp.setup.cmdline(':', {
 -- null-ls
 local null_ls = require('null-ls')
 local nlbuiltins = null_ls.builtins
--- register installed formatters and linters automatically
--- local mason_package = require('mason-core.package')
--- local mason_registry = require('mason-registry')
--- local null_sources = {}
--- for _, package in ipairs(mason_registry.get_installed_packages()) do
---         local package_categories = package.spec.categories[1]
---         if package_categories == mason_package.Cat.Formatter then
---                 table.insert(null_sources, nlbuiltins.formatting[package.name])
---         end
---         if package_categories == mason_package.Cat.Linter then
---                 table.insert(null_sources, nlbuiltins.diagnostics[package.name])
---         end
--- end
 
 null_ls.setup({
   sources = {
@@ -200,18 +191,12 @@ null_ls.setup({
     nlbuiltins.diagnostics.checkmake,
     nlbuiltins.diagnostics.dotenv_linter,
     -- Python
-    -- nlbuiltins.diagnostics.flake8,
     require("none-ls.diagnostics.ruff"),
     nlbuiltins.diagnostics.mypy,
-    -- nlbuiltins.diagnostics.pydoclint.with({
-    --   -- ref: https://www.pydocstyle.org/en/stable/error_codes.html
-    --   -- NOTE: D212 and D213 are mutually exclusive.
-    --   extra_args = { '--ignore', 'D100,D203,D205,D212,D300,D400,D403,D406,D407,D413,D415' }
-    -- }),
     nlbuiltins.diagnostics.sqlfluff.with({
       extra_args = {
         '--dialect', 'bigquery',
-        '--exclude-rules', 'L003,L010,L014,L016,L019,L027,L034,L064,L071'
+        '--exclude-rules', 'LT02,CP01,CP02,LT05,LT04,RF02,ST06,CV10,LT01'
       },
     }),
     nlbuiltins.diagnostics.zsh,
@@ -227,10 +212,10 @@ null_ls.setup({
     nlbuiltins.diagnostics.vint,
 
     -- formatting
-    nlbuiltins.formatting.isort,
-    nlbuiltins.formatting.black,
+    -- Python: sort imports (isort), then format (black)
+    require("none-ls.formatting.ruff").with({ extra_args = { '--select', 'I' } }),
+    require("none-ls.formatting.ruff_format"),
     nlbuiltins.formatting.textlint,
-    nlbuiltins.formatting.terraform_fmt,
     require("none-ls.formatting.yq"),
 
     -- hover
@@ -238,28 +223,15 @@ null_ls.setup({
   }
 })
 
-do
-  local plugs = vim.g.plugs or {}
-  local setup_trouble = function()
-    require("trouble").setup({})
-  end
-
-  if plugs["trouble.nvim"] and plugs["trouble.nvim"].loaded == 1 then
-    setup_trouble()
-  else
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "trouble.nvim",
-      once = true,
-      callback = setup_trouble,
-    })
-  end
-end
+require("user.plug").setup_when_loaded("trouble.nvim", function()
+  require("trouble").setup({})
+end)
 
 -- disable diagnostic for .env file
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.env",
   group = vim.api.nvim_create_augroup("__env", {clear=true}),
   callback = function(args)
-    vim.diagnostic.disable(args.buf)
+    vim.diagnostic.enable(false, { bufnr = args.buf })
   end
 })
