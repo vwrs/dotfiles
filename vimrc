@@ -22,15 +22,14 @@ if has('nvim')
   runtime! user/plugins/*.lua
 endif
 
-" macvim
-if has('gui_macvim')
-  set guifont=SauceCodePowerline-Semibold:h13
-  set antialias
-endif
-
 " colorscheme
 " ----------
 syntax enable
-silent! colorscheme atom-dark
+" keep custom highlights after switching colorschemes
+augroup custom_highlights
+  autocmd!
+  autocmd ColorScheme * hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
+augroup END
+" set background first; changing it later reloads the colorscheme
 set background=dark
-hi CursorLine cterm=underline,bold ctermfg=NONE ctermbg=NONE
+silent! colorscheme atom-dark
