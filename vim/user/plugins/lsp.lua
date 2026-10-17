@@ -48,7 +48,10 @@ local lsp_flags = {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-------------------------------
 -- lspconfig language-specific
+-------------------------------
+-- python
 local function get_python_path(workspace)
   -- Use activated virtualenv.
   if vim.env.VIRTUAL_ENV then
@@ -78,6 +81,16 @@ vim.lsp.config('pyright', {
   end
 })
 vim.lsp.enable('pyright')
+
+-- terraform
+require'lspconfig'.terraformls.setup{}
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+-------------------------------
 
 -- completions (nvim-cmp)
 local cmp = require'cmp'
@@ -217,6 +230,7 @@ null_ls.setup({
     nlbuiltins.formatting.isort,
     nlbuiltins.formatting.black,
     nlbuiltins.formatting.textlint,
+    nlbuiltins.formatting.terraform_fmt,
     require("none-ls.formatting.yq"),
 
     -- hover
