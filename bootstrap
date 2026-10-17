@@ -16,6 +16,7 @@ FZF_HOME=~/.fzf
 REMOTE_URL="https://github.com/vwrs/dotfiles.git"
 CONFIG_HTOP=$HOME/.config/htop
 CONFIG_NVIM=$HOME/.config/nvim
+NERD_FONT_CASKS=(font-sauce-code-pro-nerd-font font-symbols-only-nerd-font)
 
 # colors
 if which tput >/dev/null 2>&1; then
@@ -65,7 +66,7 @@ usage() {
 Commands:
   init (download dotfiles, Homebrew (macOS), vim-plug, zplug and tpm)
   font-powerline (install powerline patched fonts)
-  font-nerd (install SauceCodePro Nerd Font)
+  font-nerd (install SauceCodePro and Symbols Nerd Font via Homebrew (macOS))
   deploy (symlink (force override) dotfiles)
   deploy_root (symlink dotfiles in super user)
   quit
@@ -260,11 +261,20 @@ powerline_fonts() {
 }
 
 nerd_fonts() {
-  git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git
-  cd nerd-fonts
-  ./install.sh "$1"
-  cd ..
-  rm -rf nerd-fonts
+  if [ "$(uname)" != "Darwin" ]; then
+    echo "${RED}Installing Nerd Fonts is supported only on macOS.$NORMAL"
+    return
+  fi
+  if ! has "brew"; then
+    echo "${RED}Please install Homebrew first (run 'init').$NORMAL"
+    return
+  fi
+  echo "${BOLD}Installing Nerd Fonts ...$NORMAL"
+  if brew install --cask "${NERD_FONT_CASKS[@]}"; then
+    echo "${GREEN}Successfully installed Nerd Fonts. ✔︎ $NORMAL"
+  else
+    echo "${RED}An unexpected error occurred when trying to install Nerd Fonts.$NORMAL"
+  fi
 }
 
 show_help() {
@@ -294,7 +304,7 @@ main() {
       main
       ;;
     font-nerd)
-      nerd_fonts SourceCodePro
+      nerd_fonts
       main
       ;;
     deploy)
